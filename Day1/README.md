@@ -34,11 +34,11 @@
 
 | 교시 | 시간 | 파일 | 주제 | 상태 |
 |------|--------|--------|------|------|
-| 1교시 | 09:30 | [Hour0930.md](Day1/Hour0930.md) | Transformer | 완료 |
-| 2교시 | 10:30 | [Hour1030.md](Day1/Hour1030.md) | Azure & Token | 완료 |
-| 3교시 | 11:30 | [Hour1130.md](Day1/Hour1130.md) | SLM & AI Ecosystem | 완료 |
-| 4교시 | 13:30 | [Hour1330.md](Day1/Hour1330.md) | Prompt Engineering | 완료 |
-| 5교시 | 14:30 | [Hour1430.md](Day1/Hour1430.md) | 개발환경 / Azure OpenAI / AI Foundry | 완료 |
+| 1교시 | 09:30 | [Hour0930.md](Hour0930.md) | Transformer | 완료 |
+| 2교시 | 10:30 | [Hour1030.md](Hour1030.md) | Azure & Token | 완료 |
+| 3교시 | 11:30 | [Hour1130.md](Hour1130.md) | SLM & AI Ecosystem | 완료 |
+| 4교시 | 13:30 | [Hour1330.md](Hour1330.md) | Prompt Engineering | 완료 |
+| 5교시 | 14:30 | [Hour1430.md](Hour1430.md) | 개발환경 / Azure OpenAI / AI Foundry | 완료 |
 
 ---
 
