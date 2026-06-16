@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Day 1 | AILECTURE</title>
+    <link rel="stylesheet" href="../assets/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="page-shell topbar-inner">
+        <a class="brand" href="../index.html" aria-label="AILECTURE 홈">
+          <span class="brand-mark">D1</span>
+          <span>AILECTURE Day 1</span>
+        </a>
+        <nav class="nav-links" aria-label="Day 1 이동">
+          <a href="#hour0930">09:30</a>
+          <a href="#hour1030">10:30</a>
+          <a href="#hour1130">11:30</a>
+          <a href="#hour1330">13:30</a>
+          <a href="#hour1430">14:30</a>
+          <a href="README.md">원본 Markdown</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="hero" aria-labelledby="day-title">
+        <div class="hero-copy">
+          <p class="eyebrow">2026-06-16 | 경기스타트업캠퍼스</p>
+          <h1 id="day-title">Day 1 강의 노트</h1>
+          <p class="lead">
+            오늘의 흐름은 모델 구조를 이해하는 일에서 시작해, 토큰과 비용,
+            프롬프트 설계, 모델 선택, Azure AI Foundry 배포로 이어집니다.
+            각 교시는 에이전틱 AI 시스템을 만들기 위한 하나의 레이어입니다.
+          </p>
+          <div class="button-row">
+            <a class="button-link primary" href="../index.html">과정 홈</a>
+            <a class="button-link" href="README.md">Day1 원본 노트</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-labelledby="flow-title">
+          <div class="panel-title">
+            <span id="flow-title">학습 흐름</span>
+            <span class="status-chip">5교시 정리</span>
+          </div>
+          <div class="diagram">
+            <div class="flow">
+              <span>RNN</span><b>→</b><span>LSTM</span><b>→</b><span>Attention</span><b>→</b><span>Transformer</span>
+            </div>
+            <div class="flow">
+              <span>Token</span><b>→</b><span>SLM</span><b>→</b><span>Prompt</span><b>→</b><span>Azure AI Foundry</span>
+            </div>
+            <div class="flow">
+              <span>Model</span><b>+</b><span>Cost</span><b>+</b><span>Safety</span><b>+</b><span>Operation</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section compact" aria-labelledby="day-stats-title">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Overview</p>
+            <h2 id="day-stats-title">오늘의 핵심</h2>
+          </div>
+        </div>
+        <div class="metrics">
+          <div class="metric">
+            <b>5</b>
+            <span>시간대별 강의 기록</span>
+          </div>
+          <div class="metric">
+            <b>3</b>
+            <span>축: 모델, 프롬프트, 플랫폼</span>
+          </div>
+          <div class="metric">
+            <b>7</b>
+            <span>완료된 교육과정 항목</span>
+          </div>
+          <div class="metric">
+            <b>1</b>
+            <span>Azure OpenAI 배포 실습</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="timeline-title">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Timeline</p>
+            <h2 id="timeline-title">시간대별 흐름</h2>
+          </div>
+          <p class="section-note">
+            오전은 이론과 생태계, 오후는 프롬프트와 Azure 기반 실습으로
+            전환되었습니다.
+          </p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-time">09:30</div>
+            <div>
+              <h3>Transformer</h3>
+              <p>RNN, LSTM의 한계에서 Attention과 GPT 구조까지 연결.</p>
+            </div>
+            <a href="#hour0930">보기</a>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-time">10:30</div>
+            <div>
+              <h3>Azure &amp; Token</h3>
+              <p>Azure Portal, 리소스 그룹, Region, Tokenizer 실습.</p>
+            </div>
+            <a href="#hour1030">보기</a>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-time">11:30</div>
+            <div>
+              <h3>SLM &amp; AI Ecosystem</h3>
+              <p>GPU, 데이터센터, MoE, Distillation, On-device AI.</p>
+            </div>
+            <a href="#hour1130">보기</a>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-time">13:30</div>
+            <div>
+              <h3>Prompt Engineering</h3>
+              <p>Role prompting, system/user prompt, shot learning, structured output.</p>
+            </div>
+            <a href="#hour1330">보기</a>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-time">14:30</div>
+            <div>
+              <h3>Azure OpenAI / AI Foundry</h3>
+              <p>Marketplace, Azure OpenAI 생성, 모델 카탈로그, Playground.</p>
+            </div>
+            <a href="#hour1430">보기</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="insight-title">
+        <div class="quote-band">
+          <div>
+            <p class="section-kicker">Day 1 Message</p>
+            <h2 id="insight-title">가장 큰 모델이 아니라 목적에 맞는 모델</h2>
+          </div>
+          <div class="formula" aria-label="Day 1 핵심 공식">
+            <span>Transformer 이해</span>
+            <span>Token 비용 감각</span>
+            <span>Prompt 설계</span>
+            <span>SLM 선택</span>
+            <span>Azure 배포</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="hour0930" aria-labelledby="hour0930-title">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">09:30</p>
+            <h2 id="hour0930-title">Transformer</h2>
+          </div>
+          <a class="button-link" href="Hour0930.md">원본 보기</a>
+        </div>
+        <div class="two-column">
+          <article class="hour-card accent-teal">
+            <h3>핵심 장면</h3>
+            <ul>
+              <li>RNN은 이전 입력을 기억하지만 긴 문맥과 병렬 처리에 약하다.</li>
+              <li>LSTM은 기억 문제를 보완했지만 순차 처리 구조는 남아 있다.</li>
+              <li>Transformer는 Attention으로 문장 전체 관계를 한 번에 본다.</li>
+              <li>GPT는 Transformer의 Decoder Only 구조를 확장한 계열로 설명했다.</li>
+            </ul>
+          </article>
+          <article class="concept-card accent-amber">
+            <h3>Transformer 구성</h3>
+            <div class="diagram">
+              <div class="flow">
+                <span>Input Embedding</span><b>→</b><span>Positional Encoding</span>
+              </div>
+              <div class="flow">
+                <span>Multi-Head Attention</span><b>→</b><span>Feed Forward</span>
+              </div>
+              <div class="flow">
+                <span>Masked Attention</span><b>→</b><span>다음 토큰 생성</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="concept-grid">
+          <article class="concept-card">
+            <h3>Attention Is All You Need</h3>
+            <p>
+              강의에서는 RNN 없이 Attention만으로 자연어 처리가 가능하다는
+              전환점이 생성형 AI의 기반이 되었다고 정리했습니다.
+            </p>
+          </article>
+          <article class="concept-card">
+            <h3>산업 동향</h3>
+            <p>
+              GPU, 메모리, 전력, 냉각, 데이터센터가 AI 성장의 실물 인프라로
+              함께 부상한다는 흐름을 짚었습니다.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="hour1030" aria-labelledby="hour1030-title">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">10:30</p>
+            <h2 id="hour1030-title">Azure &amp; Token</h2>
+          </div>
+          <a class="button-link" href="Hour1030.md">원본 보기</a>
+        </div>
+        <div class="two-column">
+          <article class="hour-card accent-blue">
+            <h3>Azure 실습 포인트</h3>
+            <ul>
+              <li>Azure Portal은 AWS Console과 유사한 웹 기반 관리 화면으로 설명.</li>
+              <li>교육용 테넌트와 Microsoft Authenticator를 통해 MFA를 경험.</li>
+              <li>리소스 그룹은 실습 단위와 비용 관리 단위로 이해.</li>
+              <li>Region 선택은 GPU 자원, 법률, 서비스 정책, 리스크를 함께 고려.</li>
+            </ul>
+          </article>
+          <article class="concept-card accent-rose">
+            <h3>Tokenization 흐름</h3>
+            <div class="diagram">
+              <div class="flow">
+                <span>문장</span><b>→</b><span>Tokenization</span><b>→</b><span>Token Sequence</span>
+              </div>
+              <div class="flow">
+                <span>Transformer</span><b>→</b><span>다음 Token 예측</span><b>→</b><span>응답</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="callout">
+          <strong>정리:</strong>
+          LLM은 글자 자체가 아니라 토큰을 처리합니다. 따라서 문장 길이,
+          비용, 응답 속도, 컨텍스트 크기는 모두 토큰 감각과 연결됩니다.
+        </div>
+      </section>
+
+      <section class="section" id="hour1130" aria-labelledby="hour1130-title">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">11:30</p>
+            <h2 id="hour1130-title">SLM &amp; AI Ecosystem</h2>
+          </div>
+          <a class="button-link" href="Hour1130.md">원본 보기</a>
+        </div>
+        <div class="concept-grid">
+          <article class="concept-card accent-teal">
+            <h3>Bigger is Better에서 Fit for Purpose로</h3>
+            <p>
+              무조건 큰 모델을 고르는 대신, 목적에 맞는 모델을 비용 효율적으로
+              선택하는 방향으로 산업의 관심이 이동하고 있습니다.
+            </p>
+          </article>
+          <article class="concept-card accent-violet">
+            <h3>SLM</h3>
+            <p>
+              Small Language Model은 빠른 응답, 낮은 비용, 작은 메모리 사용량을
+              장점으로 하며 모바일, AI PC, 자동차, IoT에 연결됩니다.
+            </p>
+          </article>
+          <article class="concept-card accent-amber">
+            <h3>MoE</h3>
+            <p>
+              Mixture of Experts는 모든 파라미터를 쓰지 않고 필요한 Expert만
+              활성화해 GPU 사용량과 추론 비용을 낮추는 접근입니다.
+            </p>
+          </article>
+          <article class="concept-card accent-rose">
+            <h3>경량화</h3>
+            <p>
+              Distillation, Quantization, Pruning은 성능을 최대한 유지하면서
+              모델 크기와 추론 부담을 줄이는 대표 기법입니다.
+            </p>
+          </article>
+        </div>
+        <div class="split-note">
+          <div class="note-box">
+            <strong>On-device AI 장점</strong>
+            <p>인터넷 없이 사용, 개인정보 보호, 빠른 응답, 저전력.</p>
+          </div>
+          <div class="note-box">
+            <strong>생태계 키워드</strong>
+            <p>Ollama, Artificial Analysis, Qwen, Upstage, Hugging Face, GitHub.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="hour1330" aria-labelledby="hour1330-title">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">13:30</p>
+            <h2 id="hour1330-title">Prompt Engineering</h2>
+          </div>
+          <a class="button-link" href="Hour1330.md">원본 보기</a>
+        </div>
+        <div class="two-column">
+          <article class="hour-card accent-amber">
+            <h3>프롬프트의 4대 요소</h3>
+            <div class="diagram">
+              <div class="flow">
+                <span>Role</span><b>+</b><span>Context</span><b>+</b><span>Task</span><b>+</b><span>Format</span>
+              </div>
+            </div>
+            <ul>
+              <li>Role은 AI의 역할과 말투를 바꾼다.</li>
+              <li>Context는 답변에 필요한 상황과 배경을 제공한다.</li>
+              <li>Task는 수행할 일을 분명히 한다.</li>
+              <li>Format은 결과물을 재사용 가능한 형태로 만든다.</li>
+            </ul>
+          </article>
+          <article class="concept-card accent-violet">
+            <h3>System과 User</h3>
+            <div class="split-note">
+              <div class="note-box">
+                <strong>System = WHO</strong>
+                <p>AI의 정체성, 우선 지침, 동작 경계.</p>
+              </div>
+              <div class="note-box">
+                <strong>User = WHAT</strong>
+                <p>사용자가 요청하는 작업, 질문, 출력 요구.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="concept-grid">
+          <article class="concept-card">
+            <h3>Few-shot과 Fine-tuning</h3>
+            <p>
+              Fine-tuning은 비용과 시간이 크지만 모델 자체를 바꾸는 방법이고,
+              Few-shot은 예시를 통해 빠르게 행동을 유도하는 방법입니다.
+            </p>
+          </article>
+          <article class="concept-card">
+            <h3>Structured Output</h3>
+            <p>
+              감정 분석처럼 결과를 JSON 등 구조화된 형식으로 요구하면 후속
+              프로그램에서 사용하기 쉬운 출력이 됩니다.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="hour1430" aria-labelledby="hour1430-title">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">14:30</p>
+            <h2 id="hour1430-title">개발환경 / Azure OpenAI / AI Foundry</h2>
+          </div>
+          <a class="button-link" href="Hour1430.md">원본 보기</a>
+        </div>
+        <div class="two-column">
+          <article class="hour-card accent-blue">
+            <h3>실습 경로</h3>
+            <div class="diagram">
+              <div class="flow">
+                <span>Azure Portal</span><b>→</b><span>Marketplace</span><b>→</b><span>Azure OpenAI</span>
+              </div>
+              <div class="flow">
+                <span>리소스 생성</span><b>→</b><span>AI Foundry</span><b>→</b><span>Model Catalog</span>
+              </div>
+              <div class="flow">
+                <span>모델 선택</span><b>→</b><span>배포</span><b>→</b><span>Playground</span>
+              </div>
+            </div>
+          </article>
+          <article class="concept-card accent-rose">
+            <h3>추론 시장</h3>
+            <p>
+              학습은 소수 기업이 제한적으로 수행하지만 추론은 전 세계 사용자가
+              매일 반복합니다. 그래서 비용, 속도, 안전성이 운영의 핵심이 됩니다.
+            </p>
+          </article>
+        </div>
+        <div class="concept-grid">
+          <article class="concept-card">
+            <h3>Model Catalog</h3>
+            <p>
+              GPT, Phi, Llama, Gemma, Qwen, DeepSeek 등 다양한 모델을 목적과
+              비용에 맞춰 탐색하는 장소로 설명했습니다.
+            </p>
+          </article>
+          <article class="concept-card">
+            <h3>배포 선택 기준</h3>
+            <p>
+              Global Standard, Provisioned Throughput, TPM, Content Filter,
+              RLHF 같은 운영 항목이 단순 모델 선택만큼 중요합니다.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="status-title">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Status</p>
+            <h2 id="status-title">진행 현황</h2>
+          </div>
+        </div>
+        <div class="source-panel">
+          <div class="progress-rail" aria-label="70퍼센트 진행">
+            <div class="progress-fill" style="--progress: 70%"></div>
+          </div>
+          <ul>
+            <li>완료: 강사 소개, Transformer, Token, Prompt Engineering.</li>
+            <li>완료: 개발환경의 이해, Support Models, Microsoft Foundry.</li>
+            <li>예정: OpenAI 연결 정보, 반복문이 포함된 챗봇 소스, 인공지능 시인.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="source-title">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Sources</p>
+            <h2 id="source-title">원본 노트</h2>
+          </div>
+          <p class="section-note">
+            HTML은 발표와 복습을 위한 요약 화면이고, 세부 기록은 Markdown에
+            그대로 보존되어 있습니다.
+          </p>
+        </div>
+        <div class="link-grid">
+          <article class="source-panel">
+            <h3>오전</h3>
+            <ul>
+              <li><a href="Hour0930.md">Hour0930.md</a></li>
+              <li><a href="Hour1030.md">Hour1030.md</a></li>
+              <li><a href="Hour1130.md">Hour1130.md</a></li>
+            </ul>
+          </article>
+          <article class="source-panel">
+            <h3>오후</h3>
+            <ul>
+              <li><a href="Hour1330.md">Hour1330.md</a></li>
+              <li><a href="Hour1430.md">Hour1430.md</a></li>
+            </ul>
+          </article>
+          <article class="source-panel">
+            <h3>상위 문서</h3>
+            <ul>
+              <li><a href="README.md">Day1 README.md</a></li>
+              <li><a href="../README.md">AILecture README.md</a></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-shell footer">
+      <p>
+        Generated from Day 1 Markdown lecture notes. Sensitive lab values are
+        intentionally left in the private Markdown source rather than surfaced
+        in this HTML summary.
+      </p>
+    </footer>
+  </body>
+</html>
