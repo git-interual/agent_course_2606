@@ -40,8 +40,10 @@ async def main() -> None:
     )
     print(f"{agent.name} is ready.")
 
-    result = await agent.run("프랑스 수도는 어디야?")
-    print(result)
+    async_result = agent.run("프랑스 수도는 어디야?", stream=True)
+    async for update in async_result:
+        if update.text:
+            print(update.text, end="", flush=True)
 
 if __name__ == "__main__":
     asyncio.run(main())
