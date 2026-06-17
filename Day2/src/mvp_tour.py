@@ -5,16 +5,20 @@ import os
 import asyncio
 
 from agent_framework.openai import OpenAIChatClient
+from agent_framework import tool
 from openai import AsyncAzureOpenAI
 from pydantic import Field
 from typing import Annotated
 
 load_dotenv()
 
+# [도구1] 날씨 조회 함수
+@tool(approval_mode="never_require")
 def get_weather(location: Annotated[str, Field(
         description="도시 이름. 서울, 도쿄, 파리 등"
     )]
 ) -> str:
+    """실제 날씨 API를 호출하는 대신, 입력된 도시 이름을 기반으로 임의의 날씨 상태를 반환하는 도구 함수입니다."""
     conditions = [
         "맑음",
         "대체로 맑음",
@@ -58,10 +62,14 @@ def get_weather(location: Annotated[str, Field(
         "대체로 흐림",
         "일교차 큼",
     ]
-    index = sum(ord(c) for c in location) % len(conditions)
-    print(f"Tool get_weather called with location: {location}. Returning: {conditions[index]}")
-    return f"{location}의 오늘 날씨는 {conditions[index]}입니다."
+    ordinal_sum = sum(ord(c) for c in location)
+    temperature = (ordinal_sum % 35) + 5
+    index = ordinal_sum % len(conditions)
+    print(f"Tool get_weather called with location: {location}. Returning: {conditions[index]}, {temperature}°C")
+    return f"{location}의 오늘 날씨는 {conditions[index]}입니다. 기온은 {temperature}°C입니다."
 
+# [도구2] 환율 계산 함수
+@tool(approval_mode="never_require")
 def get_exchange_money(
         money: Annotated[float, Field(
             description="금액")],
@@ -70,6 +78,7 @@ def get_exchange_money(
         to_currency: Annotated[str, Field(
             description="환전될 통화. USD, EUR, JPY 등")],
 ) -> str:
+    """실제 환율 API를 호출하는 대신, 미리 정의된 환율을 사용하여 금액을 환전하는 도구 함수입니다."""
     exchange_rates = {
         "USD": 1.00,       # 미국 달러
         "EUR": 0.86,       # 유로
@@ -140,12 +149,15 @@ async def main() -> None:
     session = agent.create_session()
 
     while True:
-        user_input = input("사용자: ")
+        user_input = input("\n사용자: ")
         if user_input.lower() in ["exit", "quit"]:
             print("종료합니다.")
             break
 
-        result = await agent.run(user_input, session=session)
-        print(f"{agent.name}: {result}")
+        result = agent.run(user_input, session=session, stream=True)
+        print(f"{agent.name}: ", end="", flush=True)
+        async for chunk in result:
+            if chunk.text:
+                print(chunk.text, end="", flush=True)
 if __name__ == "__main__":
     asyncio.run(main())
