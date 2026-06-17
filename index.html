@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>AILECTURE | Agentic AI Course</title>
-    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="assets/styles.css?v=full-notes-2" />
   </head>
   <body>
     <header class="topbar">
@@ -16,6 +16,7 @@
         <nav class="nav-links" aria-label="주요 이동">
           <a href="Day1/index.html">Day 1</a>
           <a href="Day2/index.html">Day 2</a>
+          <a href="#full-notes">전체 노트</a>
           <a href="#curriculum">교육과정</a>
           <a href="#resources">실습 링크</a>
           <a href="README.md">원본 Markdown</a>
@@ -239,11 +240,59 @@
           </article>
         </div>
       </section>
+      <!-- full-notes:start -->
+      <section class="section" id="full-notes" aria-labelledby="full-notes-title">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Full Notes</p>
+            <h2 id="full-notes-title">루트 README 전체</h2>
+          </div>
+          <p class="section-note">아래 내용은 루트 README.md의 모든 Markdown 내용을 HTML로 변환한 것입니다.</p>
+        </div>
+        <div class="full-notes">
+          <article class="source-panel markdown-source" id="full-readme-md">
+            <div class="markdown-source-header">
+              <h3>README.md</h3>
+              <a href="README.md">원본 Markdown</a>
+            </div>
+            <div class="markdown-content">
+              <h3>AILECTURE</h3>
+              <p>에이전틱 AI 기술 기반 시스템 구축 및 운영 전문 과정</p>
+              <hr />
+              <h3>HTML Deployment</h3>
+              <p>https://git-interual.github.io/agent_course_2606/</p>
+              <hr />
+              <h3>강의 일정</h3>
+              <div class="table-wrap"><table>
+              <thead><tr><th>일차</th><th>날짜</th><th>링크</th><th>상태</th></tr></thead>
+              <tbody>
+              <tr><td>Day 1</td><td>2026-06-16</td><td><a href="Day1/README.md">Day1/</a></td><td>완료</td></tr>
+              <tr><td>Day 2</td><td>2026-06-17</td><td><a href="Day2/README.md">Day2/</a></td><td>진행 중</td></tr>
+              </tbody></table></div>
+              <hr />
+              <h3>HTML 노트</h3>
+              <div class="table-wrap"><table>
+              <thead><tr><th>일차</th><th>HTML</th><th>주요 내용</th></tr></thead>
+              <tbody>
+              <tr><td>Day 1</td><td><a href="Day1/index.html">Day1/index.html</a></td><td>Transformer, Token, Prompt Engineering, Azure OpenAI, Chatbot</td></tr>
+              <tr><td>Day 2</td><td><a href="Day2/index.html">Day2/index.html</a></td><td>Microsoft Agent Framework, Session, Memory, Tool Calling</td></tr>
+              </tbody></table></div>
+              <hr />
+              <h3>현재까지 진행 내용</h3>
+              <h4>Day 1</h4>
+              <ul><li>Transformer</li><li>Azure &amp; Token</li><li>SLM &amp; AI Ecosystem</li><li>Prompt Engineering</li><li>Azure OpenAI / AI Foundry</li><li>Python Chatbot / AI Poet / Tkinter GUI</li></ul>
+              <h4>Day 2</h4>
+              <ul><li><a href="Day2/Hour0930.md">Hour0930.md</a>: Microsoft Agent Framework 입문</li><li><a href="Day2/Hour1030.md">Hour1030.md</a>: Agent의 기억과 Tool Calling</li><li><a href="Day2/Hour1130.md">Hour1130.md</a>: Session과 Multi-turn Conversation</li></ul>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!-- full-notes:end -->
     </main>
 
     <footer class="page-shell footer">
       <p>
-        HTML summary generated from the lecture Markdown in
+        Full HTML conversion generated from the lecture Markdown in
         <a href="README.md">AILecture/README.md</a>. Original notes remain
         available for detailed raw records.
       </p>

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Day 2 | AILECTURE</title>
-    <link rel="stylesheet" href="../assets/styles.css" />
+    <link rel="stylesheet" href="../assets/styles.css?v=full-notes-2" />
   </head>
   <body>
     <header class="topbar">
@@ -17,6 +17,7 @@
           <a href="#hour0930">09:30</a>
           <a href="#hour1030">10:30</a>
           <a href="#hour1130">11:30</a>
+          <a href="#full-notes">전체 노트</a>
           <a href="#sources">원본</a>
           <a href="../index.html">과정 홈</a>
         </nav>
@@ -373,8 +374,8 @@
             <h2 id="source-title">원본 노트와 코드</h2>
           </div>
           <p class="section-note">
-            HTML은 복습용 요약이며, 세부 기록과 실습 코드는 Markdown과 Python
-            파일에 보존되어 있습니다.
+            HTML 상단은 빠른 복습용 화면이고, 아래 전체 노트 섹션에는
+            Markdown 원문 전체가 변환되어 포함되어 있습니다.
           </p>
         </div>
         <div class="link-grid">
@@ -404,12 +405,1218 @@
           </article>
         </div>
       </section>
+      <!-- full-notes:start -->
+      <section class="section" id="full-notes" aria-labelledby="full-notes-title">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Full Notes</p>
+            <h2 id="full-notes-title">Day 2 Markdown 전체</h2>
+          </div>
+          <p class="section-note">아래 내용은 Day2의 README와 시간대별 Markdown 원문 전체를 HTML로 변환한 것입니다.</p>
+        </div>
+        <div class="full-notes">
+          <article class="source-panel markdown-source" id="full-day2-readme-md">
+            <div class="markdown-source-header">
+              <h3>Day2/README.md</h3>
+              <a href="README.md">원본 Markdown</a>
+            </div>
+            <div class="markdown-content">
+              <h3>Day2</h3>
+              <p>에이전틱 AI 기술 기반 시스템 구축 및 운영 전문 과정</p>
+              <hr />
+              <h3>강의 노트</h3>
+              <div class="table-wrap"><table>
+              <thead><tr><th>교시</th><th>시간</th><th>파일</th><th>주제</th><th>상태</th></tr></thead>
+              <tbody>
+              <tr><td>1교시</td><td>09:30</td><td><a href="Hour0930.md">Hour0930.md</a></td><td>Microsoft Agent Framework 입문</td><td>완료</td></tr>
+              <tr><td>2교시</td><td>10:30</td><td><a href="Hour1030.md">Hour1030.md</a></td><td>Agent의 기억과 Tool Calling</td><td>완료</td></tr>
+              <tr><td>3교시</td><td>11:30</td><td><a href="Hour1130.md">Hour1130.md</a></td><td>Session과 Multi-turn Conversation</td><td>완료</td></tr>
+              </tbody></table></div>
+              <hr />
+              <h3>실습 코드</h3>
+              <div class="table-wrap"><table>
+              <thead><tr><th>파일</th><th>내용</th></tr></thead>
+              <tbody>
+              <tr><td><a href="src/hello_agent.py">src/hello_agent.py</a></td><td>첫 Agent 생성과 기본 실행</td></tr>
+              <tr><td><a href="src/add_tools.py">src/add_tools.py</a></td><td>날씨 Tool 등록과 Tool Calling</td></tr>
+              <tr><td><a href="src/multi_turn.py">src/multi_turn.py</a></td><td>Session 기반 Multi-turn과 Multi Tool Calling</td></tr>
+              </tbody></table></div>
+              <hr />
+              <h3>현재까지 진행 내용</h3>
+              <h4>Hour0930</h4>
+              <ul><li>Data Types: Markdown, JSON, CSV, XML</li><li>Microsoft Agent Framework 개념</li><li>AutoGen + Semantic Kernel</li><li>LangChain, n8n, LangGraph 비교</li><li>Agent Framework 설치</li><li><code>hello_agent.py</code> 기본 골격 작성</li></ul>
+              <h4>Hour1030</h4>
+              <ul><li>LLM은 Stateless</li><li>AgentSession과 Memory</li><li>InMemoryChatHistoryProvider / CustomChatHistoryProvider</li><li>Context Window 한계</li><li>Tool Calling</li><li><code>get_weather()</code> Tool 구현</li><li>Tool 결과 신뢰와 Tool 품질의 중요성</li></ul>
+              <h4>Hour1130</h4>
+              <ul><li>Session을 이용한 Multi-turn Conversation</li><li>AI Debt 개념</li><li>주요 AI 코딩 도구</li><li>Multi Tool Calling</li><li><code>get_exchange_money()</code> 환율 Tool 구현</li><li>날씨와 환율을 결합한 복합 질문 처리</li></ul>
+            </div>
+          </article>
+          <article class="source-panel markdown-source" id="full-day2-hour0930-md">
+            <div class="markdown-source-header">
+              <h3>Hour0930.md</h3>
+              <a href="Hour0930.md">원본 Markdown</a>
+            </div>
+            <div class="markdown-content">
+              <h3>Day2 - Hour0930</h3>
+              <h4>Microsoft Agent Framework 입문</h4>
+              <h5>목표</h5>
+              <ul><li>Agent Framework 개념 이해</li><li>Agent 생태계 파악</li><li>LangChain과 MAF 비교</li><li>개발 환경 구성</li><li>첫 번째 Agent 프로그램 작성</li></ul>
+              <hr />
+              <h3>1. Data Types</h3>
+              <p>AI Agent는 다양한 데이터 형식을 사용한다.</p>
+              <hr />
+              <h4>Markdown</h4>
+              <p>확장자</p>
+              <pre><code class="language-text">.md</code></pre>
+              <p>특징</p>
+              <ul><li>사람이 읽기 쉬움</li><li>LLM 친화적</li><li>GitHub 기본 문서 형식</li></ul>
+              <hr />
+              <h4>JSON</h4>
+              <p>JavaScript Object Notation</p>
+              <p>특징</p>
+              <ul><li>구조화 데이터</li><li>API 표준 형식</li><li>Agent 입출력에 자주 사용</li></ul>
+              <p>예시</p>
+              <pre><code class="language-json">{
+                &quot;name&quot;: &quot;Kim&quot;,
+                &quot;age&quot;: 20
+              }</code></pre>
+              <hr />
+              <h4>CSV</h4>
+              <p>Comma Separated Values</p>
+              <p>특징</p>
+              <ul><li>표 형태 데이터</li><li>Excel 호환</li><li>데이터 분석에 활용</li></ul>
+              <hr />
+              <h4>XML</h4>
+              <p>eXtensible Markup Language</p>
+              <p>특징</p>
+              <ul><li>태그 기반 구조</li><li>기업 시스템에서 많이 사용</li><li>최근에는 JSON에 밀리는 추세</li></ul>
+              <hr />
+              <h4>강의 메시지</h4>
+              <p>Agent 개발에서는</p>
+              <pre><code class="language-text">Markdown
+              JSON
+              CSV</code></pre>
+              <p>를 가장 자주 다룬다.</p>
+              <hr />
+              <h3>2. Microsoft Agent Framework</h3>
+              <p>Microsoft가 제공하는 Agent 개발 프레임워크</p>
+              <hr />
+              <h4>지원 언어</h4>
+              <pre><code class="language-text">C#
+              Python</code></pre>
+              <hr />
+              <h4>목적</h4>
+              <p>단순 Chatbot이 아니라</p>
+              <pre><code class="language-text">Tool
+              Memory
+              Planning
+              Action</code></pre>
+              <p>을 갖춘 Agent 개발</p>
+              <hr />
+              <h4>기존 구조</h4>
+              <pre><code class="language-text">사용자
+              
+              ↓
+              
+              LLM
+              
+              ↓
+              
+              응답</code></pre>
+              <hr />
+              <h4>Agent 구조</h4>
+              <pre><code class="language-text">사용자
+              
+              ↓
+              
+              Agent
+              
+              ↓
+              
+              Tool 선택
+              
+              ↓
+              
+              실행
+              
+              ↓
+              
+              응답</code></pre>
+              <hr />
+              <h3>3. Anders Hejlsberg</h3>
+              <p>강의 중 언급</p>
+              <hr />
+              <p>대표 업적</p>
+              <pre><code class="language-text">Turbo Pascal
+              
+              ↓
+              
+              Delphi
+              
+              ↓
+              
+              C#
+              
+              ↓
+              
+              TypeScript</code></pre>
+              <hr />
+              <p>Microsoft 개발 생태계에 큰 영향을 준 언어 설계자</p>
+              <hr />
+              <h3>4. AutoGen + Semantic Kernel</h3>
+              <p>Microsoft Agent Framework는</p>
+              <p>기존 두 프로젝트의 통합 결과물</p>
+              <hr />
+              <h4>AutoGen</h4>
+              <p>Flow 중심</p>
+              <p>특징</p>
+              <pre><code class="language-text">멀티 에이전트
+              
+              협업
+              
+              오케스트레이션</code></pre>
+              <hr />
+              <h4>Semantic Kernel</h4>
+              <p>Code 중심</p>
+              <p>특징</p>
+              <pre><code class="language-text">Plugin
+              
+              Memory
+              
+              Function
+              
+              Enterprise 기능</code></pre>
+              <hr />
+              <h4>Microsoft Agent Framework</h4>
+              <pre><code class="language-text">AutoGen
+              
+              +
+              
+              Semantic Kernel
+              
+              ↓
+              
+              Microsoft Agent Framework</code></pre>
+              <hr />
+              <h3>5. Agent 시장 현황</h3>
+              <p>현재 Agent Framework의 대표 주자</p>
+              <hr />
+              <h4>LangChain</h4>
+              <p>특징</p>
+              <pre><code class="language-text">인지도 높음
+              
+              커뮤니티 큼
+              
+              예제 풍부</code></pre>
+              <hr />
+              <p>단점</p>
+              <pre><code class="language-text">업데이트 매우 빠름
+              
+              API 변경 빈번</code></pre>
+              <hr />
+              <p>실제 사례</p>
+              <pre><code class="language-text">책을 사도
+              
+              현재 버전과 맞지 않는 경우가 많음</code></pre>
+              <hr />
+              <h4>Microsoft Agent Framework</h4>
+              <p>특징</p>
+              <pre><code class="language-text">기업 요구사항 중심
+              
+              안정성
+              
+              보안
+              
+              운영</code></pre>
+              <hr />
+              <p>장점</p>
+              <pre><code class="language-text">Enterprise 친화적</code></pre>
+              <hr />
+              <p>단점</p>
+              <pre><code class="language-text">자료가 적음</code></pre>
+              <hr />
+              <h4>서적 현황</h4>
+              <p>LangChain</p>
+              <pre><code class="language-text">책 많음</code></pre>
+              <hr />
+              <p>Microsoft Agent Framework</p>
+              <pre><code class="language-text">전문 서적 거의 없음</code></pre>
+              <hr />
+              <p>학습 자료</p>
+              <pre><code class="language-text">공식 문서
+              
+              GitHub 예제
+              
+              Microsoft Learn</code></pre>
+              <hr />
+              <h3>6. n8n과 LangGraph</h3>
+              <p>Agent 생태계의 다른 접근 방식</p>
+              <hr />
+              <h4>n8n</h4>
+              <p>Low-Code / No-Code</p>
+              <p>특징</p>
+              <pre><code class="language-text">Flow 기반
+              
+              드래그 앤 드롭
+              
+              업무 자동화</code></pre>
+              <hr />
+              <p>예시</p>
+              <pre><code class="language-text">메일 수신
+              
+              ↓
+              
+              LLM 요약
+              
+              ↓
+              
+              Slack 전송</code></pre>
+              <hr />
+              <h4>LangGraph</h4>
+              <p>Graph 기반 Agent 설계</p>
+              <p>특징</p>
+              <pre><code class="language-text">State
+              
+              Graph
+              
+              Workflow</code></pre>
+              <hr />
+              <h4>사용자의 관찰</h4>
+              <p>마우스로 노드를 연결하는 방식은</p>
+              <p>코드보다 자유도가 떨어질 수 있다.</p>
+              <hr />
+              <h3>7. Agent Framework 양대 산맥</h3>
+              <p>강의 슬라이드</p>
+              <hr />
+              <h4>Microsoft Agent Framework</h4>
+              <p>중심 개념</p>
+              <pre><code class="language-text">Conversation
+              
+              Session
+              
+              Multi-Agent</code></pre>
+              <hr />
+              <p>관심사</p>
+              <pre><code class="language-text">누가 일을 할 것인가?</code></pre>
+              <hr />
+              <p>사람 조직 모델</p>
+              <hr />
+              <h4>LangGraph</h4>
+              <p>중심 개념</p>
+              <pre><code class="language-text">State
+              
+              Graph
+              
+              Workflow</code></pre>
+              <hr />
+              <p>관심사</p>
+              <pre><code class="language-text">어떤 순서로 처리할 것인가?</code></pre>
+              <hr />
+              <p>프로세스 모델</p>
+              <hr />
+              <h4>한 줄 정리</h4>
+              <pre><code class="language-text">LangGraph
+              =
+              Workflow 설계
+              
+              Microsoft Agent Framework
+              =
+              Agent 팀 설계</code></pre>
+              <hr />
+              <h3>8. Agent Framework 설치</h3>
+              <p>VS Code Terminal</p>
+              <hr />
+              <p>설치</p>
+              <pre><code class="language-bash">pip install agent-framework</code></pre>
+              <hr />
+              <p>목적</p>
+              <pre><code class="language-text">Agent
+              
+              Tool
+              
+              Function Calling
+              
+              RAG</code></pre>
+              <p>기능 사용</p>
+              <hr />
+              <h3>9. hello_agent.py 생성</h3>
+              <p>실습 파일</p>
+              <pre><code class="language-text">hello_agent.py</code></pre>
+              <hr />
+              <p>기존 계획</p>
+              <pre><code class="language-text">00.simple_chatbot.py</code></pre>
+              <hr />
+              <p>최종</p>
+              <pre><code class="language-text">hello_agent.py</code></pre>
+              <p>사용</p>
+              <hr />
+              <h3>10. Import 변경</h3>
+              <p>처음 시도</p>
+              <pre><code class="language-python">from agent_framework.azure import AzureOpenAIResponsesClient</code></pre>
+              <hr />
+              <p>오류 발생</p>
+              <hr />
+              <p>수정</p>
+              <pre><code class="language-python">from agent_framework.openai import OpenAIChatClient</code></pre>
+              <hr />
+              <p>의미</p>
+              <p>강의 자료와 실제 설치 버전 간 차이가 존재할 수 있음</p>
+              <hr />
+              <h3>11. .env 설정</h3>
+              <p>환경변수 파일 생성</p>
+              <hr />
+              <p>사용 변수</p>
+              <pre><code class="language-env">AZURE_OPENAI_ENDPOINT=...
+              AZURE_OPENAI_CHAT_MODEL=...
+              AZURE_OPENAI_API_KEY=...</code></pre>
+              <hr />
+              <p>목적</p>
+              <p>설정값 분리</p>
+              <p>보안 강화</p>
+              <hr />
+              <p>주의</p>
+              <pre><code class="language-text">.env</code></pre>
+              <p>는 GitHub에 업로드하지 않는다.</p>
+              <hr />
+              <h3>12. 현재 hello_agent.py</h3>
+              <pre><code class="language-python">from dotenv import load_dotenv
+              import os
+              import asyncio
+              
+              from agent_framework.openai import OpenAIChatClient
+              from openai import AsyncAzureOpenAI
+              
+              load_dotenv()
+              
+              async def main() -&gt; None:
+                  print(&quot;Hello, Agent!&quot;)
+              
+              if __name__ == &quot;__main__&quot;:
+                  asyncio.run(main())</code></pre>
+              <hr />
+              <h4>의미</h4>
+              <p>Agent Framework 프로젝트의 기본 골격</p>
+              <hr />
+              <p>구성</p>
+              <pre><code class="language-text">환경변수 로드
+              
+              ↓
+              
+              비동기 실행
+              
+              ↓
+              
+              Agent 생성 준비</code></pre>
+              <hr />
+              <h3>1교시 핵심 요약</h3>
+              <pre><code class="language-text">Data Types
+              
+              ↓
+              
+              Microsoft Agent Framework
+              
+              ↓
+              
+              LangChain 비교
+              
+              ↓
+              
+              n8n / LangGraph
+              
+              ↓
+              
+              Agent Framework 설치
+              
+              ↓
+              
+              환경변수 구성
+              
+              ↓
+              
+              hello_agent.py 생성</code></pre>
+              <hr />
+              <h4>오늘의 핵심 메시지</h4>
+              <p>1일차는</p>
+              <pre><code class="language-text">LLM 사용법</code></pre>
+              <p>을 배웠고,</p>
+              <p>2일차는</p>
+              <pre><code class="language-text">Agent 개발</code></pre>
+              <p>을 배우기 시작했다.</p>
+              <p>Agent는 단순히 답변을 생성하는 것이 아니라,</p>
+              <p>도구를 사용하고, 기억하고, 협업하며, 실제 작업을 수행하는 소프트웨어이다.</p>
+            </div>
+          </article>
+          <article class="source-panel markdown-source" id="full-day2-hour1030-md">
+            <div class="markdown-source-header">
+              <h3>Hour1030.md</h3>
+              <a href="Hour1030.md">원본 Markdown</a>
+            </div>
+            <div class="markdown-content">
+              <h3>Day2 - Hour2 (10:30~11:20)</h3>
+              <h4>Agent의 기억(Memory)과 Tool Calling</h4>
+              <hr />
+              <h3>1. LLM은 Stateless</h3>
+              <p>LLM은 기본적으로 상태를 저장하지 않는다.</p>
+              <pre><code class="language-text">질문
+              ↓
+              응답</code></pre>
+              <p>이 끝나면 이전 대화를 기억하지 못한다.</p>
+              <hr />
+              <p>예시</p>
+              <p>사용자</p>
+              <pre><code class="language-text">나는 김기용이야</code></pre>
+              <p>↓</p>
+              <p>사용자</p>
+              <pre><code class="language-text">내 이름이 뭐지?</code></pre>
+              <hr />
+              <p>LLM 단독으로는 답변할 수 없다.</p>
+              <hr />
+              <h4>ChatGPT가 기억하는 이유</h4>
+              <p>실제로는</p>
+              <pre><code class="language-text">대화 이력 전체</code></pre>
+              <p>를 함께 다시 전달하기 때문이다.</p>
+              <hr />
+              <p>구조</p>
+              <pre><code class="language-text">사용자
+              ↓
+              대화 기록
+              ↓
+              LLM</code></pre>
+              <hr />
+              <h4>핵심</h4>
+              <pre><code class="language-text">LLM은 기억하지 않는다.
+              
+              Agent가 기억한다.</code></pre>
+              <hr />
+              <h3>2. Agent Session</h3>
+              <p>Microsoft Agent Framework는</p>
+              <pre><code class="language-text">AgentSession</code></pre>
+              <p>을 통해 대화 상태를 관리한다.</p>
+              <hr />
+              <p>구조</p>
+              <pre><code class="language-text">User
+               ↓
+              AI
+               ↓
+              User
+               ↓
+              AI</code></pre>
+              <p>↓</p>
+              <pre><code class="language-text">AgentSession</code></pre>
+              <hr />
+              <p>역할</p>
+              <ul><li>대화 이력 저장</li><li>Context 관리</li><li>Multi-turn 대화 지원</li></ul>
+              <hr />
+              <h3>3. Memory</h3>
+              <h4>InMemoryChatHistoryProvider</h4>
+              <p>메모리에 저장</p>
+              <pre><code class="language-text">RAM</code></pre>
+              <p>사용</p>
+              <hr />
+              <p>특징</p>
+              <ul><li>구현 간단</li><li>테스트용</li><li>프로그램 종료 시 삭제</li></ul>
+              <hr />
+              <h4>CustomChatHistoryProvider</h4>
+              <p>DB 저장</p>
+              <hr />
+              <p>예시</p>
+              <pre><code class="language-text">SQLite
+              
+              PostgreSQL
+              
+              Redis</code></pre>
+              <hr />
+              <p>특징</p>
+              <ul><li>영구 저장</li><li>재실행 후에도 유지</li><li>사용자별 기록 관리 가능</li></ul>
+              <hr />
+              <h4>구조 비교</h4>
+              <p>메모리 방식</p>
+              <pre><code class="language-text">프로그램 종료
+              ↓
+              기록 삭제</code></pre>
+              <hr />
+              <p>DB 방식</p>
+              <pre><code class="language-text">프로그램 종료
+              ↓
+              재실행
+              ↓
+              기록 유지</code></pre>
+              <hr />
+              <h3>4. Context Window의 한계</h3>
+              <p>대화를 계속 넣으면</p>
+              <p>토큰이 증가한다.</p>
+              <hr />
+              <p>예시</p>
+              <pre><code class="language-text">128K
+              
+              256K
+              
+              1M Tokens</code></pre>
+              <hr />
+              <p>그래도 무한하지는 않다.</p>
+              <hr />
+              <h4>해결 방법</h4>
+              <p>오래된 대화를 요약한다.</p>
+              <pre><code class="language-text">원본
+              ↓
+              요약
+              ↓
+              재요약</code></pre>
+              <hr />
+              <h4>문제</h4>
+              <p>정보 손실</p>
+              <hr />
+              <p>이를</p>
+              <pre><code class="language-text">열화(Degeneration)</code></pre>
+              <p>라고 설명</p>
+              <hr />
+              <h4>핵심</h4>
+              <p>기억은 공짜가 아니다.</p>
+              <hr />
+              <h3>5. Tool Calling</h3>
+              <p>최근 LLM에서 매우 중요해진 기능</p>
+              <hr />
+              <p>예전</p>
+              <pre><code class="language-text">질문
+              ↓
+              답변 생성</code></pre>
+              <hr />
+              <p>현재</p>
+              <pre><code class="language-text">질문
+              ↓
+              도구 선택
+              ↓
+              도구 실행
+              ↓
+              답변 생성</code></pre>
+              <hr />
+              <h4>중요성</h4>
+              <p>좋은 Agent는</p>
+              <pre><code class="language-text">어떤 Tool을
+              
+              언제
+              
+              어떤 파라미터로
+              
+              호출할지</code></pre>
+              <p>결정할 수 있어야 한다.</p>
+              <hr />
+              <h3>6. Tool 함수 작성</h3>
+              <p>예제</p>
+              <pre><code class="language-python">from pydantic import Field
+              from typing import Annotated
+              
+              def get_weather(
+                  location: Annotated[
+                      str,
+                      Field(description=&quot;도시 이름. 서울, 도쿄, 파리 등&quot;)
+                  ]
+              ) -&gt; str:
+              
+                  conditions = [&quot;맑음&quot;, &quot;흐림&quot;, &quot;비&quot;, &quot;눈&quot;]
+              
+                  print(
+                      f&quot;Tool get_weather called with location: {location}&quot;
+                  )
+              
+                  return (
+                      f&quot;{location}의 오늘 날씨는 &quot;
+                      f&quot;{conditions[0]}입니다.&quot;
+                  )</code></pre>
+              <hr />
+              <h4>Annotated</h4>
+              <p>Tool 파라미터 설명 제공</p>
+              <pre><code class="language-python">location: Annotated[
+                  str,
+                  Field(description=&quot;도시 이름&quot;)
+              ]</code></pre>
+              <hr />
+              <h5>오류</h5>
+              <pre><code class="language-text">NameError:
+              Annotated is not defined</code></pre>
+              <hr />
+              <h5>해결</h5>
+              <pre><code class="language-python">from typing import Annotated
+              from pydantic import Field</code></pre>
+              <hr />
+              <h3>7. Agent에 Tool 등록</h3>
+              <pre><code class="language-python">agent = OpenAIChatClient(
+                  async_client=azure_client,
+                  model=model,
+              ).as_agent(
+                  name=&quot;HelloAgent&quot;,
+                  instructions=
+                      &quot;너는 친절한 AI 비서야.&quot;,
+                  tools=[
+                      get_weather
+                  ],
+              )</code></pre>
+              <hr />
+              <h4>의미</h4>
+              <p>Agent가 Tool 사용 가능</p>
+              <hr />
+              <p>구조</p>
+              <pre><code class="language-text">사용자
+              ↓
+              Agent
+              ↓
+              Tool 선택
+              ↓
+              실행
+              ↓
+              응답</code></pre>
+              <hr />
+              <h3>8. Tool Calling 실습</h3>
+              <p>질문</p>
+              <pre><code class="language-python">result = await agent.run(
+                  &quot;프랑스 파리 날씨는 어때?&quot;
+              )</code></pre>
+              <hr />
+              <p>실행 결과</p>
+              <pre><code class="language-text">Hello, Agent!
+              HelloAgent is ready.
+              
+              Tool get_weather called with location: 파리
+              
+              파리의 오늘 날씨는
+              **맑음**입니다.</code></pre>
+              <hr />
+              <h4>관찰</h4>
+              <p>Agent가</p>
+              <pre><code class="language-python">get_weather(&quot;파리&quot;)</code></pre>
+              <p>를 자동 호출했다.</p>
+              <hr />
+              <p>사용자가 직접 함수 호출하지 않음.</p>
+              <hr />
+              <p>LLM이</p>
+              <pre><code class="language-text">날씨 질문</code></pre>
+              <p>임을 이해하고</p>
+              <p>Tool을 선택함.</p>
+              <hr />
+              <h3>9. Tool 결과를 신뢰함</h3>
+              <p>코드 변경</p>
+              <pre><code class="language-python">conditions = [
+                  &quot;맑꾸리둥둥&quot;,
+                  &quot;흐림&quot;,
+                  &quot;비&quot;,
+                  &quot;눈&quot;
+              ]</code></pre>
+              <hr />
+              <p>결과</p>
+              <pre><code class="language-text">파리의 오늘 날씨는
+              **맑꾸리둥둥**입니다.</code></pre>
+              <hr />
+              <p>다시 변경</p>
+              <pre><code class="language-python">conditions = [
+                  &quot;맛있어&quot;,
+                  &quot;흐림&quot;,
+                  &quot;비&quot;,
+                  &quot;눈&quot;
+              ]</code></pre>
+              <hr />
+              <p>결과</p>
+              <pre><code class="language-text">파리의 오늘 날씨는
+              **맛있어입니다**.</code></pre>
+              <hr />
+              <p>심지어</p>
+              <pre><code class="language-text">원하시면 기온, 강수, 바람도 알려드릴게요.</code></pre>
+              <p>같은 자연스러운 문장을 추가함.</p>
+              <hr />
+              <h4>중요한 관찰</h4>
+              <p>LLM은</p>
+              <pre><code class="language-text">맛있어</code></pre>
+              <p>가 날씨 표현으로 이상하다는 것을 알지만</p>
+              <hr />
+              <p>Tool 결과 자체는</p>
+              <pre><code class="language-text">사실(Fact)</code></pre>
+              <p>로 취급한다.</p>
+              <hr />
+              <h4>핵심 교훈</h4>
+              <p>Tool Calling에서</p>
+              <pre><code class="language-text">LLM 품질
+              
+              +
+              
+              Tool 품질</code></pre>
+              <p>이 중요하다.</p>
+              <hr />
+              <p>LLM은 Tool 결과를</p>
+              <p>검증하는 존재라기보다</p>
+              <p>설명하고 정리하는 존재에 가깝다.</p>
+              <hr />
+              <h3>10. 현재 hello_agent.py</h3>
+              <pre><code class="language-python">from dotenv import load_dotenv
+              import os
+              import asyncio
+              
+              from agent_framework.openai import OpenAIChatClient
+              from openai import AsyncAzureOpenAI
+              
+              from pydantic import Field
+              from typing import Annotated
+              
+              load_dotenv()
+              
+              
+              def get_weather(
+                  location: Annotated[
+                      str,
+                      Field(
+                          description=
+                          &quot;도시 이름. 서울, 도쿄, 파리 등&quot;
+                      )
+                  ]
+              ) -&gt; str:
+              
+                  conditions = [
+                      &quot;맑음&quot;,
+                      &quot;흐림&quot;,
+                      &quot;비&quot;,
+                      &quot;눈&quot;
+                  ]
+              
+                  print(
+                      f&quot;Tool get_weather called with location: &quot;
+                      f&quot;{location}&quot;
+                  )
+              
+                  return (
+                      f&quot;{location}의 오늘 날씨는 &quot;
+                      f&quot;{conditions[0]}입니다.&quot;
+                  )
+              
+              
+              async def main() -&gt; None:
+              
+                  endpoint = os.getenv(
+                      &quot;AZURE_OPENAI_ENDPOINT&quot;
+                  )
+              
+                  api_key = os.getenv(
+                      &quot;AZURE_OPENAI_API_KEY&quot;
+                  )
+              
+                  model = os.getenv(
+                      &quot;AZURE_OPENAI_CHAT_MODEL&quot;
+                  )
+              
+                  api_version = os.getenv(
+                      &quot;AZURE_OPENAI_API_VERSION&quot;
+                  )
+              
+                  azure_client = AsyncAzureOpenAI(
+                      azure_endpoint=endpoint,
+                      api_key=api_key,
+                      api_version=api_version,
+                  )
+              
+                  agent = OpenAIChatClient(
+                      async_client=azure_client,
+                      model=model,
+                  ).as_agent(
+                      name=&quot;HelloAgent&quot;,
+                      instructions=
+                          &quot;너는 친절한 AI 비서야.&quot;,
+                      tools=[
+                          get_weather
+                      ],
+                  )
+              
+                  result = await agent.run(
+                      &quot;프랑스 파리 날씨는 어때?&quot;
+                  )
+              
+                  print(result)
+              
+              
+              if __name__ == &quot;__main__&quot;:
+                  asyncio.run(main())</code></pre>
+              <hr />
+              <h3>2교시 핵심 요약</h3>
+              <pre><code class="language-text">LLM은 Stateless
+              
+              ↓
+              
+              Session 필요
+              
+              ↓
+              
+              Memory 필요
+              
+              ↓
+              
+              Context Window 한계
+              
+              ↓
+              
+              Tool Calling
+              
+              ↓
+              
+              Agent가 Tool 선택
+              
+              ↓
+              
+              Tool 결과 기반 응답
+              
+              ↓
+              
+              Tool 품질이 중요</code></pre>
+              <hr />
+              <h4>오늘의 핵심 메시지</h4>
+              <p>Agent는 단순히 답변을 생성하는 프로그램이 아니다.</p>
+              <p>Agent는</p>
+              <ul><li>기억(Session)</li><li>메모리(Memory)</li><li>도구(Tools)</li></ul>
+              <p>를 활용하여 문제를 해결하는 시스템이다.</p>
+              <p>특히 Tool Calling 능력은 현대 Agent의 핵심 경쟁력이다.</p>
+            </div>
+          </article>
+          <article class="source-panel markdown-source" id="full-day2-hour1130-md">
+            <div class="markdown-source-header">
+              <h3>Hour1130.md</h3>
+              <a href="Hour1130.md">원본 Markdown</a>
+            </div>
+            <div class="markdown-content">
+              <h3>Day2 - Hour3 (11:30~12:20)</h3>
+              <h4>Session과 Multi-turn Conversation</h4>
+              <hr />
+              <h3>1. Multi-turn 실습</h3>
+              <p>기존 코드</p>
+              <pre><code class="language-python">result = await agent.run(
+                  &quot;안녕 반가워 내이름은 김기용이야&quot;
+              )
+              print(result)
+              
+              result = await agent.run(
+                  &quot;내가 누구라고 했지?&quot;
+              )
+              print(result)</code></pre>
+              <hr />
+              <p>실행 결과</p>
+              <pre><code class="language-text">안녕하세요, 김기용님! 반가워요 😊
+              
+              아직 당신이 누구인지 말씀하신 적은 없어요.</code></pre>
+              <hr />
+              <h4>원인</h4>
+              <p>각각의 <code>agent.run()</code> 호출이 독립적으로 수행되었다.</p>
+              <hr />
+              <p>구조</p>
+              <pre><code class="language-text">run()
+              ↓
+              응답
+              ↓
+              종료
+              
+              run()
+              ↓
+              새로운 대화 시작</code></pre>
+              <hr />
+              <h4>핵심</h4>
+              <p>LLM은 기본적으로</p>
+              <pre><code class="language-text">Stateless</code></pre>
+              <p>이다.</p>
+              <hr />
+              <h3>2. Session 생성</h3>
+              <p>코드</p>
+              <pre><code class="language-python">session = agent.create_session()</code></pre>
+              <hr />
+              <p>목적</p>
+              <pre><code class="language-text">대화 이력 저장
+              
+              컨텍스트 유지
+              
+              멀티턴 대화 지원</code></pre>
+              <hr />
+              <h3>3. Session 사용</h3>
+              <p>코드</p>
+              <pre><code class="language-python">result = await agent.run(
+                  &quot;안녕 반가워 내이름은 김기용이야&quot;,
+                  session=session
+              )
+              print(result)
+              
+              result = await agent.run(
+                  &quot;내가 누구라고 했지?&quot;,
+                  session=session
+              )
+              print(result)</code></pre>
+              <hr />
+              <p>실행 결과</p>
+              <pre><code class="language-text">안녕하세요, 김기용님! 반가워요 😊
+              
+              김기용님이라고 하셨어요.</code></pre>
+              <hr />
+              <h4>의미</h4>
+              <p>같은 Session을 사용하면</p>
+              <p>이전 대화가 유지된다.</p>
+              <hr />
+              <p>구조</p>
+              <pre><code class="language-text">사용자
+              ↓
+              Agent
+              ↓
+              Session
+              ↓
+              History</code></pre>
+              <hr />
+              <h4>핵심</h4>
+              <p>기억하는 것은</p>
+              <pre><code class="language-text">LLM</code></pre>
+              <p>이 아니라</p>
+              <pre><code class="language-text">Session</code></pre>
+              <p>이다.</p>
+              <hr />
+              <h3>4. AI Debt</h3>
+              <p>강의 중 설명</p>
+              <hr />
+              <p>AI가 생성한 코드를</p>
+              <p>이해하지 못한 상태로 사용하면</p>
+              <p>새로운 형태의 기술 부채가 발생한다.</p>
+              <hr />
+              <p>구조</p>
+              <pre><code class="language-text">AI 코드 생성
+              ↓
+              이해 못함
+              ↓
+              추가 기능
+              ↓
+              버그 수정
+              ↓
+              복잡도 증가
+              ↓
+              AI Debt</code></pre>
+              <hr />
+              <h4>위험성</h4>
+              <pre><code class="language-text">유지보수 불가
+              
+              버그 수정 불가
+              
+              리팩토링 불가</code></pre>
+              <hr />
+              <h4>원칙</h4>
+              <p>AI가 작성한 코드라도</p>
+              <p>반드시 설명할 수 있어야 한다.</p>
+              <hr />
+              <h3>5. 주요 AI 코딩 도구</h3>
+              <p>강의 중 언급</p>
+              <pre><code class="language-text">GitHub Copilot
+              
+              Claude Code
+              
+              OpenAI Codex
+              
+              Google Antigravity
+              
+              Cursor</code></pre>
+              <hr />
+              <h4>업계 흐름</h4>
+              <p>과거</p>
+              <pre><code class="language-text">코드 자동완성</code></pre>
+              <hr />
+              <p>현재</p>
+              <pre><code class="language-text">개발 Agent</code></pre>
+              <hr />
+              <h4>특징</h4>
+              <h5>GitHub Copilot</h5>
+              <ul><li>VSCode 통합</li><li>자동완성</li></ul>
+              <hr />
+              <h5>Claude Code</h5>
+              <ul><li>터미널 중심</li><li>코드베이스 분석</li></ul>
+              <hr />
+              <h5>OpenAI Codex</h5>
+              <ul><li>Agent 기반 개발</li><li>코드 생성 및 수정</li></ul>
+              <hr />
+              <h5>Cursor</h5>
+              <ul><li>AI 중심 IDE</li><li>프로젝트 단위 분석</li></ul>
+              <hr />
+              <h5>Google Antigravity</h5>
+              <ul><li>Gemini 기반 Agent</li></ul>
+              <hr />
+              <h3>6. Multi Tool Calling</h3>
+              <p>기존 Tool</p>
+              <pre><code class="language-python">get_weather()</code></pre>
+              <hr />
+              <p>추가 Tool</p>
+              <pre><code class="language-python">get_exchange_money()</code></pre>
+              <hr />
+              <p>등록</p>
+              <pre><code class="language-python">agent = OpenAIChatClient(
+                  async_client=azure_client,
+                  model=model,
+              ).as_agent(
+                  name=&quot;HelloAgent&quot;,
+                  instructions=&quot;너는 친절한 AI 비서야.&quot;,
+                  tools=[
+                      get_weather,
+                      get_exchange_money,
+                  ],
+              )</code></pre>
+              <hr />
+              <h3>7. 환율 Tool 구현</h3>
+              <pre><code class="language-python">def get_exchange_money(
+                  money: float,
+                  from_currency: str,
+                  to_currency: str,
+              ) -&gt; str:</code></pre>
+              <hr />
+              <p>예시 데이터</p>
+              <pre><code class="language-python">exchange_rates = {
+                  &quot;USD&quot;: 1.00,
+                  &quot;EUR&quot;: 0.86,
+                  &quot;JPY&quot;: 145.3,
+                  &quot;KRW&quot;: 1378.0,
+                  &quot;GBP&quot;: 0.74,
+              }</code></pre>
+              <hr />
+              <p>환율 계산</p>
+              <pre><code class="language-python">converted_amount = (
+                  money *
+                  (to_rate / from_rate)
+              )</code></pre>
+              <hr />
+              <h3>8. 복합 질문 실습</h3>
+              <p>질문</p>
+              <pre><code class="language-python">result = await agent.run(
+                  &quot;전세계 10개도시를 랜덤하게 선정하고, &quot;
+                  &quot;각 도시의 날씨와, &quot;
+                  &quot;그 도시에서 한국돈 100만원을 &quot;
+                  &quot;환전했을 때 얼마인지 알려줘.&quot;,
+                  session=session
+              )</code></pre>
+              <hr />
+              <h3>9. Agent 동작 분석</h3>
+              <p>실제 Tool 호출</p>
+              <pre><code class="language-text">get_weather(서울)
+              get_weather(도쿄)
+              get_weather(파리)
+              get_weather(시드니)
+              get_weather(방콕)
+              get_weather(두바이)
+              get_weather(런던)
+              get_weather(로마)
+              get_weather(싱가포르)
+              get_weather(뉴욕)</code></pre>
+              <hr />
+              <p>환율 Tool 호출</p>
+              <pre><code class="language-text">KRW → JPY
+              KRW → USD
+              KRW → EUR
+              KRW → GBP
+              KRW → THB
+              KRW → AUD
+              KRW → SGD
+              KRW → AED</code></pre>
+              <hr />
+              <h4>중요한 관찰</h4>
+              <p>Agent는</p>
+              <p>사용자가 통화 코드를 말하지 않았는데도</p>
+              <p>도시를 보고 통화를 추론했다.</p>
+              <hr />
+              <p>예</p>
+              <pre><code class="language-text">도쿄 → JPY
+              
+              뉴욕 → USD
+              
+              런던 → GBP
+              
+              파리 → EUR
+              
+              두바이 → AED</code></pre>
+              <hr />
+              <h3>10. 결과 생성</h3>
+              <p>Agent는</p>
+              <pre><code class="language-text">도시 선정
+              
+              ↓
+              
+              날씨 조회
+              
+              ↓
+              
+              환율 계산
+              
+              ↓
+              
+              결과 수집
+              
+              ↓
+              
+              표 생성</code></pre>
+              <p>을 자동 수행했다.</p>
+              <hr />
+              <p>예시 결과</p>
+              <div class="table-wrap"><table>
+              <thead><tr><th>도시</th><th>날씨</th><th>100만 원 환전 시</th></tr></thead>
+              <tbody>
+              <tr><td>서울</td><td>쾌청</td><td>1,000,000 KRW</td></tr>
+              <tr><td>도쿄</td><td>따뜻함</td><td>105,442 JPY</td></tr>
+              <tr><td>파리</td><td>구름 많음</td><td>624 EUR</td></tr>
+              <tr><td>뉴욕</td><td>강한 비</td><td>725 USD</td></tr>
+              <tr><td>런던</td><td>천둥번개</td><td>537 GBP</td></tr>
+              </tbody></table></div>
+              <hr />
+              <h3>11. 핵심 정리</h3>
+              <h4>Single Turn</h4>
+              <pre><code class="language-text">질문
+              ↓
+              답변</code></pre>
+              <hr />
+              <h4>Multi Turn</h4>
+              <pre><code class="language-text">질문
+              ↓
+              Session
+              ↓
+              답변
+              ↓
+              질문
+              ↓
+              답변</code></pre>
+              <hr />
+              <h4>Multi Tool</h4>
+              <pre><code class="language-text">질문
+              ↓
+              Tool 1
+              ↓
+              Tool 2
+              ↓
+              Tool 3
+              ↓
+              결과 통합
+              ↓
+              답변</code></pre>
+              <hr />
+              <h3>3교시 핵심 메시지</h3>
+              <p>Agent는 단순한 Chatbot이 아니다.</p>
+              <p>Agent는</p>
+              <pre><code class="language-text">LLM
+              
+              +
+              
+              Session
+              
+              +
+              
+              Memory
+              
+              +
+              
+              Tools</code></pre>
+              <p>를 조합하여</p>
+              <p>복합적인 작업을 수행하는 시스템이다.</p>
+              <p>특히 Session을 이용하면 Multi-turn 대화가 가능하며,</p>
+              <p>여러 Tool을 조합하여 사용자의 요구사항을 해결할 수 있다.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!-- full-notes:end -->
     </main>
 
     <footer class="page-shell footer">
       <p>
-        Generated from Day 2 Markdown lecture notes. Private `.env` values are
-        intentionally not surfaced in this HTML summary.
+        Full HTML conversion generated from Day 2 Markdown lecture notes.
+        Private `.env` values are intentionally not surfaced because they are
+        not part of the Markdown source.
       </p>
     </footer>
   </body>
