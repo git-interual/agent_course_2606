@@ -15,6 +15,7 @@
         </a>
         <nav class="nav-links" aria-label="주요 이동">
           <a href="Day1/index.html">Day 1</a>
+          <a href="Day2/index.html">Day 2</a>
           <a href="#curriculum">교육과정</a>
           <a href="#resources">실습 링크</a>
           <a href="README.md">원본 Markdown</a>
@@ -28,19 +29,20 @@
           <p class="eyebrow">2026.06.16 - 2026.06.18</p>
           <h1 id="page-title">에이전틱 AI 기술 기반 시스템 구축 및 운영 전문 과정</h1>
           <p class="lead">
-            Transformer의 동작 원리에서 Azure AI Foundry 배포까지, 오늘 강의는
-            생성형 AI를 실제 시스템으로 연결하는 전체 경로를 따라갑니다.
+            Transformer의 동작 원리에서 Azure AI Foundry 배포를 거쳐,
+            Microsoft Agent Framework와 Tool Calling까지 이어지는 강의 기록입니다.
           </p>
           <div class="button-row">
-            <a class="button-link primary" href="Day1/index.html">Day 1 노트 보기</a>
+            <a class="button-link primary" href="Day2/index.html">Day 2 노트 보기</a>
+            <a class="button-link" href="Day1/index.html">Day 1 노트 보기</a>
             <a class="button-link" href="Day1/README.md">Day 1 Markdown</a>
           </div>
         </div>
 
         <aside class="hero-panel" aria-labelledby="map-title">
           <div class="panel-title">
-            <span id="map-title">오늘의 시스템 지도</span>
-            <span class="status-chip">Day 1 완료</span>
+            <span id="map-title">과정 시스템 지도</span>
+            <span class="status-chip pending">Day 2 진행 중</span>
           </div>
           <div class="system-map">
             <div class="map-row">
@@ -66,8 +68,8 @@
               </div>
             </div>
             <div class="map-node">
-              <strong>Agentic AI System</strong>
-              <span>모델 선택, 비용, 안전성, 운영 환경을 함께 설계하는 단계</span>
+              <strong>Agent Framework</strong>
+              <span>Session, Memory, Tool Calling으로 실제 작업 수행 구조를 설계</span>
             </div>
           </div>
         </aside>
@@ -80,26 +82,26 @@
             <h2 id="stats-title">현재 진행 현황</h2>
           </div>
           <p class="section-note">
-            Day 1에는 전체 10개 주제 중 7개가 다뤄졌고, 이후 실습형 주제로
-            OpenAI 연결과 챗봇 구현이 이어집니다.
+            Day 1은 LLM과 Azure OpenAI 애플리케이션 구현까지 완료했고,
+            Day 2는 Microsoft Agent Framework와 Tool Calling으로 확장 중입니다.
           </p>
         </div>
         <div class="metrics">
           <div class="metric">
-            <b>1</b>
-            <span>완료된 일차</span>
+            <b>2</b>
+            <span>시작된 일차</span>
           </div>
           <div class="metric">
-            <b>5</b>
+            <b>8</b>
             <span>정리된 교시</span>
           </div>
           <div class="metric">
-            <b>7/10</b>
-            <span>진행된 과정 항목</span>
+            <b>10/10</b>
+            <span>Day 1 완료 항목</span>
           </div>
           <div class="metric">
-            <b>3</b>
-            <span>남은 실습 주제</span>
+            <b>2</b>
+            <span>Day 2 Agent 주제</span>
           </div>
         </div>
       </section>
@@ -126,9 +128,16 @@
               <tr>
                 <td>Day 1</td>
                 <td>2026-06-16</td>
-                <td>Transformer, Token, SLM, Prompt Engineering, Azure AI Foundry</td>
+                <td>Transformer, Token, Prompt Engineering, Azure OpenAI, Chatbot</td>
                 <td><span class="status-chip">완료</span></td>
                 <td><a href="Day1/index.html">열기</a></td>
+              </tr>
+              <tr>
+                <td>Day 2</td>
+                <td>2026-06-17</td>
+                <td>Microsoft Agent Framework, Agent Session, Memory, Tool Calling</td>
+                <td><span class="status-chip pending">진행 중</span></td>
+                <td><a href="Day2/index.html">열기</a></td>
               </tr>
             </tbody>
           </table>
@@ -171,17 +180,25 @@
             <h3>Microsoft Foundry</h3>
             <p>Azure AI Foundry에서 모델을 탐색하고 배포하는 실습.</p>
           </article>
-          <article class="content-card pending">
+          <article class="content-card complete">
             <h3>OpenAI 연결 정보</h3>
-            <p>API 연결과 인증 정보 구성으로 이어지는 다음 단계.</p>
+            <p>Azure OpenAI 연결 정보를 환경변수로 분리하고 Python SDK에서 사용.</p>
           </article>
-          <article class="content-card pending">
+          <article class="content-card complete">
             <h3>반복문 챗봇 소스</h3>
-            <p>대화 루프를 가진 챗봇 구현 실습 예정.</p>
+            <p>사용자 입력을 반복 처리하는 콘솔 챗봇과 GUI 챗봇 구현.</p>
+          </article>
+          <article class="content-card complete">
+            <h3>인공지능 시인</h3>
+            <p>주제와 내용을 받아 temperature를 높인 창작형 시 생성 실습.</p>
+          </article>
+          <article class="content-card complete">
+            <h3>Agent Framework</h3>
+            <p>Microsoft Agent Framework의 구조와 LangChain, LangGraph와의 차이.</p>
           </article>
           <article class="content-card pending">
-            <h3>인공지능 시인</h3>
-            <p>창작형 출력과 프롬프트 응용 실습 예정.</p>
+            <h3>Memory &amp; Tools</h3>
+            <p>AgentSession, Memory, Tool Calling으로 Agent 동작을 확장.</p>
           </article>
         </div>
       </section>

@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Day 2 | AILECTURE</title>
+    <link rel="stylesheet" href="../assets/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="page-shell topbar-inner">
+        <a class="brand" href="../index.html" aria-label="AILECTURE 홈">
+          <span class="brand-mark">D2</span>
+          <span>AILECTURE Day 2</span>
+        </a>
+        <nav class="nav-links" aria-label="Day 2 이동">
+          <a href="#hour0930">09:30</a>
+          <a href="#hour1030">10:30</a>
+          <a href="#sources">원본</a>
+          <a href="../index.html">과정 홈</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="hero" aria-labelledby="day-title">
+        <div class="hero-copy">
+          <p class="eyebrow">2026-06-17 | Agent Development</p>
+          <h1 id="day-title">Day 2 강의 노트</h1>
+          <p class="lead">
+            Day 2는 LLM을 직접 호출하는 단계를 넘어, Agent가 기억하고 도구를
+            선택하며 실제 작업을 수행하는 구조로 확장합니다.
+          </p>
+          <div class="button-row">
+            <a class="button-link primary" href="#hour1030">Tool Calling 보기</a>
+            <a class="button-link" href="Hour0930.md">09:30 Markdown</a>
+            <a class="button-link" href="Hour1030.md">10:30 Markdown</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-labelledby="agent-map-title">
+          <div class="panel-title">
+            <span id="agent-map-title">Agent 구조</span>
+            <span class="status-chip pending">진행 중</span>
+          </div>
+          <div class="system-map">
+            <div class="map-row">
+              <div class="map-node">
+                <strong>Conversation</strong>
+                <span>대화 흐름과 Agent 역할을 설계</span>
+              </div>
+              <div class="map-arrow">+</div>
+              <div class="map-node">
+                <strong>Session</strong>
+                <span>Multi-turn 대화를 유지하는 상태 관리</span>
+              </div>
+            </div>
+            <div class="map-row">
+              <div class="map-node">
+                <strong>Memory</strong>
+                <span>대화 이력과 장기 기억을 저장</span>
+              </div>
+              <div class="map-arrow">+</div>
+              <div class="map-node">
+                <strong>Tools</strong>
+                <span>LLM 밖의 함수를 선택하고 실행</span>
+              </div>
+            </div>
+            <div class="map-node">
+              <strong>Agentic System</strong>
+              <span>답변 생성이 아니라 기억, 판단, 실행을 포함하는 소프트웨어</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section compact" aria-labelledby="overview-title">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Overview</p>
+            <h2 id="overview-title">현재까지의 Day 2</h2>
+          </div>
+          <p class="section-note">
+            09:30에는 Agent Framework의 생태계와 개발 환경을, 10:30에는
+            Memory와 Tool Calling을 다뤘습니다.
+          </p>
+        </div>
+        <div class="metrics">
+          <div class="metric">
+            <b>2</b>
+            <span>정리된 교시</span>
+          </div>
+          <div class="metric">
+            <b>3</b>
+            <span>핵심 데이터 형식</span>
+          </div>
+          <div class="metric">
+            <b>2</b>
+            <span>Agent 실습 파일</span>
+          </div>
+          <div class="metric">
+            <b>1</b>
+            <span>Tool Calling 예제</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="timeline-title">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Timeline</p>
+            <h2 id="timeline-title">시간대별 흐름</h2>
+          </div>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-time">09:30</div>
+            <div>
+              <h3>Microsoft Agent Framework 입문</h3>
+              <p>Data Types, MAF 생태계, LangChain과 LangGraph 비교, 개발 환경 구성.</p>
+            </div>
+            <a href="#hour0930">보기</a>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-time">10:30</div>
+            <div>
+              <h3>Memory와 Tool Calling</h3>
+              <p>LLM의 Stateless 특성, AgentSession, Memory, Tool 함수 등록과 실행.</p>
+            </div>
+            <a href="#hour1030">보기</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="message-title">
+        <div class="quote-band">
+          <div>
+            <p class="section-kicker">Day 2 Message</p>
+            <h2 id="message-title">Agent는 기억하고, 도구를 선택하고, 실행한다</h2>
+          </div>
+          <div class="formula" aria-label="Day 2 핵심 공식">
+            <span>Session</span>
+            <span>Memory</span>
+            <span>Tool Calling</span>
+            <span>Planning</span>
+            <span>Action</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="hour0930" aria-labelledby="hour0930-title">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">09:30</p>
+            <h2 id="hour0930-title">Microsoft Agent Framework 입문</h2>
+          </div>
+          <a class="button-link" href="Hour0930.md">원본 보기</a>
+        </div>
+        <div class="two-column">
+          <article class="hour-card accent-teal">
+            <h3>Agent 개발에서 자주 다루는 데이터</h3>
+            <ul>
+              <li>Markdown: 사람이 읽기 쉽고 LLM 친화적인 문서 형식.</li>
+              <li>JSON: API와 Agent 입출력에 자주 쓰이는 구조화 데이터.</li>
+              <li>CSV: 표 형태 데이터와 분석, Excel 호환에 유리한 형식.</li>
+            </ul>
+          </article>
+          <article class="concept-card accent-blue">
+            <h3>Chatbot과 Agent</h3>
+            <div class="diagram">
+              <div class="flow">
+                <span>사용자</span><b>→</b><span>LLM</span><b>→</b><span>응답</span>
+              </div>
+              <div class="flow">
+                <span>사용자</span><b>→</b><span>Agent</span><b>→</b><span>Tool 선택</span><b>→</b><span>실행</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="concept-grid">
+          <article class="concept-card accent-violet">
+            <h3>AutoGen + Semantic Kernel</h3>
+            <p>
+              Microsoft Agent Framework는 멀티 에이전트 오케스트레이션의
+              AutoGen과 Plugin, Memory, Function 중심의 Semantic Kernel 흐름을
+              통합한 방향으로 설명되었습니다.
+            </p>
+          </article>
+          <article class="concept-card accent-amber">
+            <h3>LangChain, n8n, LangGraph</h3>
+            <p>
+              LangChain은 생태계와 예제가 풍부하고, n8n은 Low-Code 자동화,
+              LangGraph는 State와 Graph 기반 Workflow 설계에 초점을 둡니다.
+            </p>
+          </article>
+          <article class="concept-card accent-rose">
+            <h3>Framework 비교</h3>
+            <p>
+              LangGraph가 처리 순서와 상태 그래프를 묻는다면, Microsoft Agent
+              Framework는 누가 일을 할지, 어떤 Agent 팀으로 구성할지를 묻습니다.
+            </p>
+          </article>
+          <article class="concept-card">
+            <h3>hello_agent.py</h3>
+            <p>
+              `agent-framework` 설치 후 `OpenAIChatClient`, `AsyncAzureOpenAI`,
+              `.env`, `asyncio.run()`으로 Agent 프로젝트의 기본 골격을 만들었습니다.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="hour1030" aria-labelledby="hour1030-title">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">10:30</p>
+            <h2 id="hour1030-title">Agent의 기억과 Tool Calling</h2>
+          </div>
+          <a class="button-link" href="Hour1030.md">원본 보기</a>
+        </div>
+        <div class="two-column">
+          <article class="hour-card accent-amber">
+            <h3>LLM은 Stateless</h3>
+            <ul>
+              <li>LLM 단독으로는 이전 대화를 기억하지 않는다.</li>
+              <li>ChatGPT처럼 보이는 기억은 대화 이력을 다시 전달하기 때문에 가능하다.</li>
+              <li>Microsoft Agent Framework는 `AgentSession`으로 Multi-turn 상태를 관리한다.</li>
+              <li>오래된 대화는 요약할 수 있지만 정보 손실과 열화가 생길 수 있다.</li>
+            </ul>
+          </article>
+          <article class="concept-card accent-teal">
+            <h3>Memory 구조</h3>
+            <div class="split-note">
+              <div class="note-box">
+                <strong>InMemory</strong>
+                <p>RAM에 저장하며 구현이 쉽지만 프로그램 종료 시 기록이 사라집니다.</p>
+              </div>
+              <div class="note-box">
+                <strong>Custom Provider</strong>
+                <p>SQLite, PostgreSQL, Redis 등으로 영구 저장을 구성할 수 있습니다.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="concept-grid">
+          <article class="concept-card accent-blue">
+            <h3>Tool 함수</h3>
+            <p>
+              `get_weather(location)` 함수에 `Annotated`와 `Field`로 파라미터 설명을
+              붙여 Agent가 도구의 목적과 입력값을 이해하도록 했습니다.
+            </p>
+          </article>
+          <article class="concept-card accent-violet">
+            <h3>Agent에 Tool 등록</h3>
+            <p>
+              `OpenAIChatClient(...).as_agent(..., tools=[get_weather])` 형태로
+              Agent가 필요할 때 함수를 자동 선택할 수 있게 구성했습니다.
+            </p>
+          </article>
+          <article class="concept-card accent-rose">
+            <h3>Tool 결과 신뢰</h3>
+            <p>
+              Tool이 이상한 값을 반환해도 LLM은 그 결과를 사실처럼 설명할 수 있습니다.
+              따라서 Agent 품질은 LLM 품질과 Tool 품질을 함께 요구합니다.
+            </p>
+          </article>
+          <article class="concept-card">
+            <h3>실습 코드</h3>
+            <p>
+              `add_tools.py`는 Azure OpenAI 기반 Agent에 날씨 도구를 연결하고
+              “프랑스 파리 날씨” 질문으로 Tool Calling을 확인합니다.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="flow-title">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Flow</p>
+            <h2 id="flow-title">Tool Calling 실행 흐름</h2>
+          </div>
+        </div>
+        <div class="source-panel">
+          <div class="diagram">
+            <div class="flow">
+              <span>사용자 질문</span><b>→</b><span>Agent</span><b>→</b><span>도구 선택</span>
+            </div>
+            <div class="flow">
+              <span>get_weather("파리")</span><b>→</b><span>도구 결과</span><b>→</b><span>최종 응답</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="sources" aria-labelledby="source-title">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Sources</p>
+            <h2 id="source-title">원본 노트와 코드</h2>
+          </div>
+          <p class="section-note">
+            HTML은 복습용 요약이며, 세부 기록과 실습 코드는 Markdown과 Python
+            파일에 보존되어 있습니다.
+          </p>
+        </div>
+        <div class="link-grid">
+          <article class="source-panel">
+            <h3>강의 노트</h3>
+            <ul>
+              <li><a href="Hour0930.md">Hour0930.md</a></li>
+              <li><a href="Hour1030.md">Hour1030.md</a></li>
+              <li><a href="README.md">Day2 README.md</a></li>
+            </ul>
+          </article>
+          <article class="source-panel">
+            <h3>실습 코드</h3>
+            <ul>
+              <li><a href="src/hello_agent.py">hello_agent.py</a></li>
+              <li><a href="src/add_tools.py">add_tools.py</a></li>
+            </ul>
+          </article>
+          <article class="source-panel">
+            <h3>다른 일차</h3>
+            <ul>
+              <li><a href="../Day1/index.html">Day1 HTML</a></li>
+              <li><a href="../README.md">AILecture README.md</a></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-shell footer">
+      <p>
+        Generated from Day 2 Markdown lecture notes. Private `.env` values are
+        intentionally not surfaced in this HTML summary.
+      </p>
+    </footer>
+  </body>
+</html>
