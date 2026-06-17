@@ -17,6 +17,9 @@
           <a href="#hour0930">09:30</a>
           <a href="#hour1030">10:30</a>
           <a href="#hour1130">11:30</a>
+          <a href="#hour1330">13:30</a>
+          <a href="#hour1430">14:30</a>
+          <a href="#hour1600">16:00</a>
           <a href="#full-notes">전체 노트</a>
           <a href="#sources">원본</a>
           <a href="../index.html">과정 홈</a>
@@ -38,6 +41,9 @@
             <a class="button-link" href="Hour0930.md">09:30 Markdown</a>
             <a class="button-link" href="Hour1030.md">10:30 Markdown</a>
             <a class="button-link" href="Hour1130.md">11:30 Markdown</a>
+            <a class="button-link" href="Hour1330.md">13:30 Markdown</a>
+            <a class="button-link" href="Hour1430.md">14:30 Markdown</a>
+            <a class="button-link" href="Hour1600.md">16:00 Markdown</a>
           </div>
         </div>
 
@@ -85,25 +91,26 @@
           </div>
           <p class="section-note">
             09:30에는 Agent Framework의 생태계와 개발 환경을, 10:30에는
-            Memory와 Tool Calling을, 11:30에는 Session과 Multi Tool Calling을 다뤘습니다.
+            Memory와 Tool Calling을, 이후에는 MVP Tour Agent, RAG, Real Function
+            Calling과 Azure VM 실습으로 확장했습니다.
           </p>
         </div>
         <div class="metrics">
           <div class="metric">
-            <b>3</b>
+            <b>6</b>
             <span>정리된 교시</span>
           </div>
           <div class="metric">
-            <b>3</b>
-            <span>핵심 데이터 형식</span>
+            <b>4</b>
+            <span>Agent 핵심 축</span>
           </div>
           <div class="metric">
-            <b>3</b>
+            <b>6</b>
             <span>Agent 실습 파일</span>
           </div>
           <div class="metric">
-            <b>2</b>
-            <span>등록된 Tool 예제</span>
+            <b>3</b>
+            <span>외부 연결 주제</span>
           </div>
         </div>
       </section>
@@ -139,6 +146,30 @@
               <p>Session 생성, 대화 이력 유지, AI Debt, 날씨와 환율 Tool 조합.</p>
             </div>
             <a href="#hour1130">보기</a>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-time">13:30</div>
+            <div>
+              <h3>MVP Tour Agent 만들기</h3>
+              <p>여행 상담 Agent, Persona, Tool Decorator, Console Chatbot 흐름.</p>
+            </div>
+            <a href="#hour1330">보기</a>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-time">14:30</div>
+            <div>
+              <h3>RAG와 Vector Database</h3>
+              <p>AI 활용의 경제성, Ontology, Retrieval, Embedding, ChromaDB 실습.</p>
+            </div>
+            <a href="#hour1430">보기</a>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-time">16:00</div>
+            <div>
+              <h3>Real Function Calling과 Azure VM</h3>
+              <p>Mock Tool을 실제 API로 바꾸고, VM, SLA, SSH, OpenClaw까지 연결.</p>
+            </div>
+            <a href="#hour1600">보기</a>
           </article>
         </div>
       </section>
@@ -367,6 +398,177 @@
         </div>
       </section>
 
+      <section class="section" id="hour1330" aria-labelledby="hour1330-title">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">13:30</p>
+            <h2 id="hour1330-title">MVP Tour Agent 만들기</h2>
+          </div>
+          <a class="button-link" href="Hour1330.md">원본 보기</a>
+        </div>
+        <div class="two-column">
+          <article class="hour-card accent-teal">
+            <h3>여행 상담 Agent</h3>
+            <ul>
+              <li>`MVPTour-Assistant`라는 이름으로 여행 상담 역할을 부여했습니다.</li>
+              <li>Persona와 응답 규칙을 instructions에 넣어 상담원 말투를 고정했습니다.</li>
+              <li>답변 끝에는 브랜드 문구를 반복하도록 Agent의 행동 규칙을 명시했습니다.</li>
+            </ul>
+          </article>
+          <article class="concept-card accent-amber">
+            <h3>SDK 변화 대응</h3>
+            <p>
+              강의 자료의 `AzureOpenAIResponsesClient` 방식이 현재 설치 버전과 맞지 않아
+              `OpenAIChatClient`와 `AsyncAzureOpenAI` 조합으로 실습 코드를 조정했습니다.
+            </p>
+          </article>
+        </div>
+        <div class="concept-grid">
+          <article class="concept-card accent-blue">
+            <h3>Tool Decorator</h3>
+            <p>
+              `@tool(approval_mode="never_require")`로 날씨와 환율 함수를 Agent가 호출할
+              수 있는 공식 Tool로 선언했습니다.
+            </p>
+          </article>
+          <article class="concept-card accent-violet">
+            <h3>Session 유지</h3>
+            <p>
+              Console Chatbot 구조에서 하나의 Session을 유지해 여행 상담 흐름과 후속 질문을
+              같은 맥락 안에서 처리했습니다.
+            </p>
+          </article>
+          <article class="concept-card accent-rose">
+            <h3>Tool Calling 확인</h3>
+            <p>
+              도시별 날씨와 통화별 환율을 질문하며 Agent가 필요한 Tool을 선택하고 결과를
+              상담 문장으로 합치는 과정을 확인했습니다.
+            </p>
+          </article>
+          <article class="concept-card">
+            <h3>오늘 완성한 MVP</h3>
+            <p>
+              단순 응답 Agent에서 여행 상담 역할, 기억, 날씨 Tool, 환율 Tool을 갖춘
+              MVP Tour Agent로 확장했습니다.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="hour1430" aria-labelledby="hour1430-title">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">14:30</p>
+            <h2 id="hour1430-title">RAG와 Vector Database</h2>
+          </div>
+          <a class="button-link" href="Hour1430.md">원본 보기</a>
+        </div>
+        <div class="two-column">
+          <article class="hour-card accent-violet">
+            <h3>RAG가 필요한 이유</h3>
+            <ul>
+              <li>LLM 내부 지식만으로는 회사 정책이나 최신 문서를 정확히 답하기 어렵습니다.</li>
+              <li>Retrieval로 관련 문서를 찾고, Generation에서 그 근거를 활용합니다.</li>
+              <li>검색은 키워드 중심, Retrieval은 의미와 맥락 중심으로 설명되었습니다.</li>
+            </ul>
+          </article>
+          <article class="concept-card accent-blue">
+            <h3>Embedding과 ChromaDB</h3>
+            <p>
+              문장을 벡터로 바꿔 의미상 가까운 문서를 찾는 Embedding 개념을 배우고,
+              학습용 Vector Database로 ChromaDB를 사용했습니다.
+            </p>
+          </article>
+        </div>
+        <div class="concept-grid">
+          <article class="concept-card accent-amber">
+            <h3>AI 활용의 경제성</h3>
+            <p>
+              AI는 기술적으로 가능한 곳보다 대체 효과와 비용 절감이 큰 영역에서 먼저
+              확산된다는 관점으로 키오스크, 자율주행, 산업 자동화를 살폈습니다.
+            </p>
+          </article>
+          <article class="concept-card accent-teal">
+            <h3>Ontology</h3>
+            <p>
+              Palantir 사례를 통해 데이터, 관계, 의미를 함께 정의하는 Ontology가
+              AI 기반 의사결정에서 어떤 역할을 하는지 정리했습니다.
+            </p>
+          </article>
+          <article class="concept-card accent-rose">
+            <h3>MVP Tour RAG Tool</h3>
+            <p>
+              여행 상품과 정책 문서를 저장하고, Agent가 `search_travel_docs` 같은 RAG
+              Tool을 호출해 상담 답변에 반영하는 구조를 구현했습니다.
+            </p>
+          </article>
+          <article class="concept-card">
+            <h3>관찰한 현상</h3>
+            <p>
+              첫 RAG 구현에서는 검색 품질, 문서 분할, Embedding, Tool 설명이 답변 품질을
+              함께 좌우한다는 점을 확인했습니다.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="hour1600" aria-labelledby="hour1600-title">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">16:00</p>
+            <h2 id="hour1600-title">Real Function Calling과 Azure VM</h2>
+          </div>
+          <a class="button-link" href="Hour1600.md">원본 보기</a>
+        </div>
+        <div class="two-column">
+          <article class="hour-card accent-rose">
+            <h3>Mock에서 Real로</h3>
+            <ul>
+              <li>고정 배열과 사전으로 응답하던 Tool을 실제 외부 API 호출로 바꿨습니다.</li>
+              <li>Open-Meteo로 날씨를, ExchangeRate API로 환율을 조회했습니다.</li>
+              <li>LLM은 판단하고 Tool은 실제 시스템과 연결하는 구조를 확인했습니다.</li>
+            </ul>
+          </article>
+          <article class="concept-card accent-teal">
+            <h3>Azure VM</h3>
+            <p>
+              Ubuntu Pro 24.04 LTS VM을 만들고, SLA와 가용성의 의미를 짚은 뒤 SSH로
+              접속해 서버 프로그램을 실행할 준비를 마쳤습니다.
+            </p>
+          </article>
+        </div>
+        <div class="concept-grid">
+          <article class="concept-card accent-blue">
+            <h3>SLA와 가용성</h3>
+            <p>
+              SLA는 장애가 없다는 약속이 아니라 약속한 가용성 수준을 넘겨 장애가 발생하면
+              보상하는 계약이라는 점을 정리했습니다.
+            </p>
+          </article>
+          <article class="concept-card accent-amber">
+            <h3>Agent의 한계</h3>
+            <p>
+              Tool이 실제 API와 연결되어도 인증, 네트워크, 비용, 보안, 운영 환경까지
+              설계해야 실제 서비스로 이어질 수 있음을 다뤘습니다.
+            </p>
+          </article>
+          <article class="concept-card accent-violet">
+            <h3>OpenClaw와 Discord</h3>
+            <p>
+              Azure VM 위에서 OpenClaw 설치를 시도하고, Telegram 대신 Discord 연동을
+              검토하며 Agent 운영 채널을 넓혔습니다.
+            </p>
+          </article>
+          <article class="concept-card">
+            <h3>교육 전체 흐름</h3>
+            <p>
+              LLM 호출에서 시작해 Agent, Tool, Session, RAG, 실제 API, VM 운영으로
+              확장되는 흐름을 한 줄로 연결했습니다.
+            </p>
+          </article>
+        </div>
+      </section>
+
       <section class="section" id="sources" aria-labelledby="source-title">
         <div class="section-header">
           <div>
@@ -385,6 +587,9 @@
               <li><a href="Hour0930.md">Hour0930.md</a></li>
               <li><a href="Hour1030.md">Hour1030.md</a></li>
               <li><a href="Hour1130.md">Hour1130.md</a></li>
+              <li><a href="Hour1330.md">Hour1330.md</a></li>
+              <li><a href="Hour1430.md">Hour1430.md</a></li>
+              <li><a href="Hour1600.md">Hour1600.md</a></li>
               <li><a href="README.md">Day2 README.md</a></li>
             </ul>
           </article>
@@ -394,6 +599,10 @@
               <li><a href="src/hello_agent.py">hello_agent.py</a></li>
               <li><a href="src/add_tools.py">add_tools.py</a></li>
               <li><a href="src/multi_turn.py">multi_turn.py</a></li>
+              <li><a href="src/mvp_tour.py">mvp_tour.py</a></li>
+              <li><a href="src/mvp_tour_rag.py">mvp_tour_rag.py</a></li>
+              <li><a href="src/real/win.py">real/win.py</a></li>
+              <li><a href="src/real/agent.py">real/agent.py</a></li>
             </ul>
           </article>
           <article class="source-panel">
@@ -1605,6 +1814,909 @@
               <p>복합적인 작업을 수행하는 시스템이다.</p>
               <p>특히 Session을 이용하면 Multi-turn 대화가 가능하며,</p>
               <p>여러 Tool을 조합하여 사용자의 요구사항을 해결할 수 있다.</p>
+            </div>
+          </article>
+          <article class="source-panel markdown-source" id="full-day2-hour1330-md">
+            <div class="markdown-source-header">
+              <h3>Hour1330.md</h3>
+              <a href="Hour1330.md">원본 Markdown</a>
+            </div>
+            <div class="markdown-content">
+              <h3>Day2 - Hour4 (13:00~14:00)</h3>
+              <h4>MVP Tour Agent 만들기</h4>
+              <hr />
+              <h3>1. MVP Tour 예제</h3>
+              <p>오후 세션 시작</p>
+              <hr />
+              <p>강의 자료에는 다음 코드가 포함되어 있었다.</p>
+              <pre><code class="language-python">from agent_framework.azure import AzureOpenAIResponsesClient</code></pre>
+              <hr />
+              <p>하지만 현재 설치된 Agent Framework 버전에서는</p>
+              <pre><code class="language-python">from agent_framework.azure import AzureOpenAIResponsesClient</code></pre>
+              <p>가 동작하지 않았다.</p>
+              <hr />
+              <h4>원인</h4>
+              <p>최근 버전업으로 인해</p>
+              <p>API 구조가 변경되었다.</p>
+              <hr />
+              <p>현재 실습 환경에서는</p>
+              <pre><code class="language-python">from agent_framework.openai import OpenAIChatClient
+              from openai import AsyncAzureOpenAI</code></pre>
+              <p>방식을 사용한다.</p>
+              <hr />
+              <h4>교훈</h4>
+              <p>Agent Framework는 변화가 빠르다.</p>
+              <p>강의자료나 블로그 코드보다</p>
+              <p>현재 설치된 SDK 버전을 기준으로 수정해야 한다.</p>
+              <hr />
+              <h3>2. MVP Tour Agent</h3>
+              <p>단순한 HelloAgent 대신</p>
+              <p>여행 상담 Agent를 구현하였다.</p>
+              <hr />
+              <p>Agent 이름</p>
+              <pre><code class="language-python">name=&quot;MVPTour-Assistant&quot;</code></pre>
+              <hr />
+              <p>Persona</p>
+              <pre><code class="language-python">instructions=&quot;&quot;&quot;
+              너는 여행사 'MVP Tour' 의
+              20년 경력의 상담원입니다.
+              
+              고객에게 정중하게 인사하고,
+              
+              여행 계획에 대해 도움을 줄 준비가
+              되었음을 알리세요.
+              
+              답변 끝에는 항상
+              
+              '즐거운 여행의 시작, MVP Tour입니다!'
+              
+              라고 덧붙이세요.
+              &quot;&quot;&quot;</code></pre>
+              <hr />
+              <h4>의미</h4>
+              <p>LLM에게</p>
+              <pre><code class="language-text">역할(Role)
+              
+              성격(Persona)
+              
+              응답 규칙</code></pre>
+              <p>을 부여한다.</p>
+              <hr />
+              <h3>3. Tool Decorator</h3>
+              <p>새롭게 추가된 내용</p>
+              <pre><code class="language-python">from agent_framework import tool</code></pre>
+              <hr />
+              <p>날씨 Tool</p>
+              <pre><code class="language-python">@tool(approval_mode=&quot;never_require&quot;)
+              def get_weather(...):</code></pre>
+              <hr />
+              <p>환율 Tool</p>
+              <pre><code class="language-python">@tool(approval_mode=&quot;never_require&quot;)
+              def get_exchange_money(...):</code></pre>
+              <hr />
+              <h4>의미</h4>
+              <p>이 함수는 Agent가 호출 가능한</p>
+              <p>공식 Tool임을 선언한다.</p>
+              <hr />
+              <h5>approval_mode</h5>
+              <pre><code class="language-python">approval_mode=&quot;never_require&quot;</code></pre>
+              <hr />
+              <p>의미</p>
+              <pre><code class="language-text">Tool 호출 시
+              
+              사용자 승인 없이
+              
+              즉시 실행</code></pre>
+              <hr />
+              <h3>4. Weather Tool 개선</h3>
+              <p>기존</p>
+              <pre><code class="language-python">return f&quot;{location}의 오늘 날씨는 {conditions[index]}입니다.&quot;</code></pre>
+              <hr />
+              <p>개선</p>
+              <pre><code class="language-python">ordinal_sum = sum(ord(c) for c in location)
+              
+              temperature = (ordinal_sum % 35) + 5
+              
+              return (
+                  f&quot;{location}의 오늘 날씨는 &quot;
+                  f&quot;{conditions[index]}입니다. &quot;
+                  f&quot;기온은 {temperature}°C입니다.&quot;
+              )</code></pre>
+              <hr />
+              <h4>특징</h4>
+              <p>도시명마다</p>
+              <pre><code class="language-text">날씨
+              
+              +
+              
+              기온</code></pre>
+              <p>이 고정적으로 계산된다.</p>
+              <hr />
+              <p>예시</p>
+              <pre><code class="language-text">런던 → 천둥번개, 10°C
+              
+              파리 → 구름 많음, 30°C</code></pre>
+              <hr />
+              <h3>5. 환율 Tool</h3>
+              <p>중심 코드</p>
+              <pre><code class="language-python">converted_amount = (
+                  money *
+                  (to_rate / from_rate)
+              )</code></pre>
+              <hr />
+              <p>예시</p>
+              <pre><code class="language-python">get_exchange_money(
+                  1000000,
+                  &quot;KRW&quot;,
+                  &quot;EUR&quot;
+              )</code></pre>
+              <p>↓</p>
+              <pre><code class="language-text">1000000 KRW
+              ≈
+              624 EUR</code></pre>
+              <hr />
+              <h3>6. Session 유지</h3>
+              <p>코드</p>
+              <pre><code class="language-python">session = agent.create_session()</code></pre>
+              <hr />
+              <p>모든 질문에</p>
+              <pre><code class="language-python">session=session</code></pre>
+              <p>전달</p>
+              <hr />
+              <p>효과</p>
+              <pre><code class="language-text">사용자 정보 기억
+              
+              대화 흐름 유지
+              
+              멀티턴 대화 가능</code></pre>
+              <hr />
+              <h3>7. Console Chatbot 구현</h3>
+              <p>기존</p>
+              <pre><code class="language-python">await agent.run(...)</code></pre>
+              <p>1회 실행</p>
+              <hr />
+              <p>변경</p>
+              <pre><code class="language-python">while True:</code></pre>
+              <p>사용</p>
+              <hr />
+              <p>코드</p>
+              <pre><code class="language-python">while True:
+              
+                  user_input = input(&quot;사용자: &quot;)
+              
+                  if user_input.lower() in [
+                      &quot;exit&quot;,
+                      &quot;quit&quot;
+                  ]:
+                      break
+              
+                  result = await agent.run(
+                      user_input,
+                      session=session
+                  )
+              
+                  print(result)</code></pre>
+              <hr />
+              <h4>의미</h4>
+              <p>실제 채팅 프로그램 형태</p>
+              <hr />
+              <p>구조</p>
+              <pre><code class="language-text">사용자 입력
+              ↓
+              Agent
+              ↓
+              응답
+              ↓
+              사용자 입력
+              ↓
+              Agent
+              ↓
+              응답</code></pre>
+              <hr />
+              <h3>8. 여행 상담 실습</h3>
+              <p>질문</p>
+              <pre><code class="language-text">런던파리 갔다올거야</code></pre>
+              <hr />
+              <p>Agent 응답</p>
+              <pre><code class="language-text">런던-파리 여행 계획을 도와드리겠습니다.</code></pre>
+              <hr />
+              <p>질문</p>
+              <pre><code class="language-text">6/18 출발해서
+              6/24 돌아올거야</code></pre>
+              <hr />
+              <p>Agent</p>
+              <pre><code class="language-text">일정 추천
+              유로스타 추천</code></pre>
+              <hr />
+              <h4>Session 확인</h4>
+              <p>사용자가</p>
+              <pre><code class="language-text">금액 안내해줘</code></pre>
+              <p>라고만 입력해도</p>
+              <p>Agent는</p>
+              <pre><code class="language-text">런던
+              
+              파리
+              
+              6/18~6/24 여행</code></pre>
+              <p>문맥을 기억하고 있었다.</p>
+              <hr />
+              <h3>9. Tool Calling 확인</h3>
+              <h4>날씨</h4>
+              <p>질문</p>
+              <pre><code class="language-text">날씨도 알려줘</code></pre>
+              <hr />
+              <p>실제 호출</p>
+              <pre><code class="language-python">get_weather(&quot;런던&quot;)
+              get_weather(&quot;파리&quot;)</code></pre>
+              <hr />
+              <p>로그</p>
+              <pre><code class="language-text">Tool get_weather called with location: 런던
+              
+              Tool get_weather called with location: 파리</code></pre>
+              <hr />
+              <h4>환율</h4>
+              <p>질문</p>
+              <pre><code class="language-text">유로스타가 얼마라구?</code></pre>
+              <hr />
+              <p>실제 호출</p>
+              <pre><code class="language-python">get_exchange_money(
+                  80,
+                  &quot;EUR&quot;,
+                  &quot;KRW&quot;
+              )
+              
+              get_exchange_money(
+                  250,
+                  &quot;EUR&quot;,
+                  &quot;KRW&quot;
+              )</code></pre>
+              <hr />
+              <h4>관찰</h4>
+              <p>Agent는</p>
+              <pre><code class="language-text">유로스타 가격
+              
+              ↓
+              
+              원화 환산</code></pre>
+              <p>에 환율 Tool을 사용했다.</p>
+              <hr />
+              <h3>10. 고흐 여행 루트 질문</h3>
+              <p>질문</p>
+              <pre><code class="language-text">고흐의 생애를 따라가는 루트 필요해</code></pre>
+              <hr />
+              <p>Tool 호출 없음</p>
+              <hr />
+              <p>Agent가 자체 지식을 사용</p>
+              <hr />
+              <p>추천</p>
+              <pre><code class="language-text">파리
+              
+              ↓
+              
+              몽마르트르
+              
+              ↓
+              
+              오르세 미술관
+              
+              ↓
+              
+              오베르 쉬르 우아즈</code></pre>
+              <hr />
+              <h4>관찰</h4>
+              <p>Agent는</p>
+              <pre><code class="language-text">Tool이 필요한 질문
+              
+              Tool이 필요 없는 질문</code></pre>
+              <p>을 구분하여 답변하였다.</p>
+              <hr />
+              <h3>11. 현재 MVP Tour 구조</h3>
+              <pre><code class="language-text">사용자
+              ↓
+              Console
+              ↓
+              MVPTour Agent
+              ↓
+              Session
+              ↓
+              Azure OpenAI
+              ↓
+              Tool Calling
+                  ├─ get_weather()
+                  └─ get_exchange_money()
+              ↓
+              응답</code></pre>
+              <hr />
+              <h3>12. Hour4 핵심 메시지</h3>
+              <p>이번 시간에는</p>
+              <p>단순한 Tool 실습을 넘어</p>
+              <p>실제 서비스 형태의 Agent를 구현하였다.</p>
+              <hr />
+              <p>현재 Agent는</p>
+              <pre><code class="language-text">LLM
+              
+              +
+              
+              Persona
+              
+              +
+              
+              Session
+              
+              +
+              
+              Tools</code></pre>
+              <p>구조를 가진다.</p>
+              <hr />
+              <h4>오늘 완성한 MVP</h4>
+              <pre><code class="language-text">여행 상담 Agent
+              
+              (MVPTour-Assistant)</code></pre>
+              <hr />
+              <h4>핵심 학습 내용</h4>
+              <ul><li>SDK 버전 차이 대응</li><li>Persona 설계</li><li>Tool Decorator</li><li>approval_mode</li><li>Session 유지</li><li>Console Chatbot</li><li>Tool Calling</li><li>여행 상담 Agent 구현</li></ul>
+              <hr />
+              <h4>현재까지의 진화</h4>
+              <pre><code class="language-text">Hello Agent
+              
+              ↓
+              
+              Tool Calling
+              
+              ↓
+              
+              Multi Tool
+              
+              ↓
+              
+              Session
+              
+              ↓
+              
+              MVP Tour Agent</code></pre>
+            </div>
+          </article>
+          <article class="source-panel markdown-source" id="full-day2-hour1430-md">
+            <div class="markdown-source-header">
+              <h3>Hour1430.md</h3>
+              <a href="Hour1430.md">원본 Markdown</a>
+            </div>
+            <div class="markdown-content">
+              <h3>AI Agent 개발 교육 - 5교시</h3>
+              <h4>주제</h4>
+              <p>RAG(Retrieval-Augmented Generation)와 Vector Database를 활용한 지식 검색</p>
+              <hr />
+              <h3>1. AI 활용의 경제성</h3>
+              <h4>AI 도입이 빠르게 일어나는 분야</h4>
+              <p>AI는 단순히 기술적으로 가능한 곳보다</p>
+              <pre><code class="language-text">대체되었을 때 경제적 효과가 큰 곳</code></pre>
+              <p>에서 먼저 확산된다.</p>
+              <p>예시:</p>
+              <ul><li>키오스크</li><li>테이블 오더</li><li>무인 계산대</li><li>고객 상담 챗봇</li><li>자율주행</li><li>산업용 로봇</li></ul>
+              <hr />
+              <h4>코로나 이후 변화</h4>
+              <p>코로나19 이후</p>
+              <ul><li>비대면 서비스 증가</li><li>무인 주문 경험 증가</li><li>사람 대신 기계를 사용하는 것에 대한 거부감 감소</li></ul>
+              <p>예시:</p>
+              <ul><li>키오스크</li><li>테이블 오더</li><li>셀프 체크인</li></ul>
+              <hr />
+              <h4>자율주행(FSD) 사례</h4>
+              <p>일부 지역에서는</p>
+              <pre><code class="language-text">FSD 구독료
+              &lt;
+              보험료 절감 효과</code></pre>
+              <p>가 발생하기도 한다.</p>
+              <p>즉</p>
+              <pre><code class="language-text">비용
+              ↓
+              위험 감소
+              ↓
+              보험료 감소</code></pre>
+              <p>를 통해 경제적 효과가 발생한다.</p>
+              <hr />
+              <h3>2. 휴머노이드와 Dark Factory</h3>
+              <h4>Dark Factory</h4>
+              <p>사람이 없는 공장</p>
+              <pre><code class="language-text">생산설비
+              +
+              로봇
+              +
+              AI</code></pre>
+              <p>로 운영</p>
+              <hr />
+              <p>특징</p>
+              <pre><code class="language-text">조명이 필요 없음</code></pre>
+              <p>따라서</p>
+              <pre><code class="language-text">Dark Factory</code></pre>
+              <p>라고 부른다.</p>
+              <hr />
+              <h4>휴머노이드</h4>
+              <p>AI와 로봇 기술 발전으로</p>
+              <p>인간이 수행하던 반복 작업을</p>
+              <p>휴머노이드가 수행하는 방향으로 발전 중.</p>
+              <hr />
+              <h3>3. Palantir 소개</h3>
+              <h4>핵심 개념</h4>
+              <p>Palantir는 단순 AI 회사가 아니다.</p>
+              <hr />
+              <p>실제로는</p>
+              <pre><code class="language-text">데이터 통합
+              +
+              의사결정 지원
+              +
+              실행 연결</code></pre>
+              <p>플랫폼에 가깝다.</p>
+              <hr />
+              <h4>역할</h4>
+              <p>기업 내부에는</p>
+              <ul><li>ERP</li><li>MES</li><li>PLM</li><li>SCM</li><li>IoT</li><li>CCTV</li><li>센서</li></ul>
+              <p>등 다양한 데이터가 존재한다.</p>
+              <hr />
+              <p>문제</p>
+              <pre><code class="language-text">데이터가 흩어져 있음</code></pre>
+              <hr />
+              <p>Palantir는</p>
+              <pre><code class="language-text">수많은 데이터를 꿰어두는 역할</code></pre>
+              <p>을 수행한다.</p>
+              <hr />
+              <h4>Ontology</h4>
+              <p>Palantir의 핵심 개념</p>
+              <pre><code class="language-text">현실 세계의 객체와
+              그 관계를 정의하는 모델</code></pre>
+              <hr />
+              <p>예시</p>
+              <pre><code class="language-text">공장
+               ↓
+              생산라인
+               ↓
+              설비
+               ↓
+              센서</code></pre>
+              <hr />
+              <p>AI는 Ontology를 통해</p>
+              <pre><code class="language-text">데이터
+              +
+              관계
+              +
+              의미</code></pre>
+              <p>를 함께 이해할 수 있다.</p>
+              <hr />
+              <h3>4. AI + 군사/정보 활용</h3>
+              <p>Palantir는</p>
+              <ul><li>국방</li><li>정보기관</li><li>보안</li><li>산업현장</li></ul>
+              <p>등에서 사용된다.</p>
+              <hr />
+              <p>핵심은</p>
+              <pre><code class="language-text">드론</code></pre>
+              <p>이 아니라</p>
+              <pre><code class="language-text">데이터 기반 의사결정</code></pre>
+              <p>이다.</p>
+              <hr />
+              <p>예시</p>
+              <pre><code class="language-text">센서
+              ↓
+              AI 분석
+              ↓
+              위험 판단
+              ↓
+              드론 출동
+              ↓
+              상황 보고</code></pre>
+              <hr />
+              <h3>5. RAG(Retrieval-Augmented Generation)</h3>
+              <h4>개념</h4>
+              <p>RAG</p>
+              <pre><code class="language-text">Retrieval-Augmented Generation</code></pre>
+              <hr />
+              <p>의미</p>
+              <pre><code class="language-text">검색 증강 생성</code></pre>
+              <hr />
+              <h4>기존 LLM</h4>
+              <pre><code class="language-text">질문
+              ↓
+              LLM
+              ↓
+              답변</code></pre>
+              <hr />
+              <p>문제</p>
+              <ul><li>최신 정보 부족</li><li>사내 정보 없음</li><li>근거 부족</li></ul>
+              <hr />
+              <h4>RAG</h4>
+              <pre><code class="language-text">질문
+              ↓
+              문서 검색
+              ↓
+              관련 문서 확보
+              ↓
+              LLM
+              ↓
+              답변 생성</code></pre>
+              <hr />
+              <p>핵심</p>
+              <pre><code class="language-text">근거를 가지고 답변한다.</code></pre>
+              <hr />
+              <h3>6. Search와 Retrieval의 차이</h3>
+              <h4>Search</h4>
+              <pre><code class="language-text">찾는다</code></pre>
+              <hr />
+              <p>예시</p>
+              <pre><code class="language-text">키워드 검색</code></pre>
+              <hr />
+              <h4>Retrieval</h4>
+              <pre><code class="language-text">찾아서 가져온다</code></pre>
+              <hr />
+              <p>RAG에서는</p>
+              <pre><code class="language-text">문서 검색
+              +
+              문서 회수
+              +
+              컨텍스트 주입</code></pre>
+              <p>까지 포함한다.</p>
+              <hr />
+              <h3>7. Embedding</h3>
+              <h4>정의</h4>
+              <p>텍스트를</p>
+              <pre><code class="language-text">의미가 담긴 숫자 벡터</code></pre>
+              <p>로 변환하는 기술</p>
+              <hr />
+              <p>예시</p>
+              <pre><code class="language-text">도쿄 벚꽃 여행</code></pre>
+              <p>↓</p>
+              <pre><code class="language-text">[0.132, -0.521, ...]</code></pre>
+              <hr />
+              <h4>목적</h4>
+              <p>문자열 비교가 아니라</p>
+              <pre><code class="language-text">의미 비교</code></pre>
+              <p>를 수행하기 위함</p>
+              <hr />
+              <h4>유명한 예</h4>
+              <pre><code class="language-text">King - Man + Woman ≈ Queen</code></pre>
+              <hr />
+              <p>의미 관계를</p>
+              <p>벡터 공간에 표현할 수 있다.</p>
+              <hr />
+              <h4>국가 예시</h4>
+              <p>다음 표현은 의미적으로 가깝다.</p>
+              <pre><code class="language-text">영국
+              United Kingdom
+              UK
+              GB
+              Britain
+              England</code></pre>
+              <hr />
+              <p>벡터 검색은</p>
+              <p>단어가 달라도</p>
+              <p>의미가 비슷하면 찾아낼 수 있다.</p>
+              <hr />
+              <h3>8. ChromaDB</h3>
+              <h4>설치</h4>
+              <pre><code class="language-bash">pip install chromadb</code></pre>
+              <hr />
+              <h4>역할</h4>
+              <p>Vector Database</p>
+              <hr />
+              <p>구조</p>
+              <pre><code class="language-text">문서
+              ↓
+              Embedding
+              ↓
+              Vector
+              ↓
+              ChromaDB 저장</code></pre>
+              <hr />
+              <p>검색 시</p>
+              <pre><code class="language-text">질문
+              ↓
+              Embedding
+              ↓
+              Vector Search
+              ↓
+              가장 가까운 문서 검색</code></pre>
+              <hr />
+              <h4>학습용 vs 운영용</h4>
+              <h5>학습용</h5>
+              <p>ChromaDB</p>
+              <ul><li>설치 쉬움</li><li>실습 적합</li><li>PoC 적합</li></ul>
+              <hr />
+              <h5>운영용</h5>
+              <p>일반적으로</p>
+              <ul><li>Azure AI Search</li><li>Pinecone</li><li>Weaviate</li><li>ElasticSearch</li><li>OpenSearch</li></ul>
+              <p>등을 고려</p>
+              <hr />
+              <p>강의 메시지</p>
+              <pre><code class="language-text">학습하기엔 좋지만
+              운영하기엔 상용 솔루션을 추천</code></pre>
+              <hr />
+              <h3>9. MVP Tour RAG 실습</h3>
+              <h4>저장된 문서</h4>
+              <pre><code class="language-python">collection.add(
+                  documents=[
+                      &quot;시애틀 투어 패키지...&quot;,
+                      &quot;환전 서비스...&quot;,
+                      &quot;예약 취소 규정...&quot;
+                  ]
+              )</code></pre>
+              <hr />
+              <h4>RAG Tool</h4>
+              <pre><code class="language-python">@tool(approval_mode=&quot;never_require&quot;)
+              def rag_search(query: str):</code></pre>
+              <hr />
+              <p>동작</p>
+              <pre><code class="language-text">사용자 질문
+              ↓
+              rag_search
+              ↓
+              ChromaDB
+              ↓
+              문서 검색
+              ↓
+              LLM 응답</code></pre>
+              <hr />
+              <h4>첫 RAG 구현 완료</h4>
+              <p>기존</p>
+              <pre><code class="language-text">Agent
+              +
+              Weather Tool
+              +
+              Exchange Tool</code></pre>
+              <hr />
+              <p>확장 후</p>
+              <pre><code class="language-text">Agent
+              +
+              Weather Tool
+              +
+              Exchange Tool
+              +
+              RAG Search Tool
+              +
+              ChromaDB</code></pre>
+              <hr />
+              <h3>10. 실습 중 관찰한 현상</h3>
+              <p>질문</p>
+              <pre><code class="language-text">시애틀 여행 취소 정책 알려줘</code></pre>
+              <hr />
+              <p>예상</p>
+              <pre><code class="language-text">취소 규정 문서</code></pre>
+              <p>검색</p>
+              <hr />
+              <p>실제</p>
+              <pre><code class="language-text">시애틀 패키지 문서</code></pre>
+              <p>검색</p>
+              <hr />
+              <p>원인</p>
+              <p>현재</p>
+              <pre><code class="language-text">n_results=1</code></pre>
+              <p>만 사용</p>
+              <hr />
+              <p>실무에서는</p>
+              <pre><code class="language-python">n_results=3</code></pre>
+              <p>이상 사용하여</p>
+              <p>여러 문서를 함께 LLM에 전달하는 경우가 많다.</p>
+              <hr />
+              <h3>핵심 정리</h3>
+              <p>이번 교시의 흐름</p>
+              <pre><code class="language-text">Agent
+              ↓
+              Tool Calling
+              ↓
+              RAG
+              ↓
+              Embedding
+              ↓
+              Vector Search
+              ↓
+              ChromaDB
+              ↓
+              근거 기반 답변</code></pre>
+              <p>중요한 메시지:</p>
+              <p>&quot;AI는 단순히 답하는 것이 아니라, 필요한 정보를 찾아와 근거를 기반으로 답해야 한다.&quot;</p>
+            </div>
+          </article>
+          <article class="source-panel markdown-source" id="full-day2-hour1600-md">
+            <div class="markdown-source-header">
+              <h3>Hour1600.md</h3>
+              <a href="Hour1600.md">원본 Markdown</a>
+            </div>
+            <div class="markdown-content">
+              <h3>AI Agent 교육 - 6교시 정리</h3>
+              <h4>주제</h4>
+              <p>Real Function Calling, Azure VM, OpenClaw</p>
+              <hr />
+              <h3>1. Mock Function Calling → Real Function Calling</h3>
+              <p>지금까지 만든 Tool들은 대부분 Mock 형태였다.</p>
+              <p>예시:</p>
+              <pre><code class="language-python">def get_weather(location):
+                  conditions = [&quot;맑음&quot;, &quot;흐림&quot;, &quot;비&quot;, &quot;눈&quot;]</code></pre>
+              <pre><code class="language-python">def get_exchange_money(...):
+                  exchange_rates = {...}</code></pre>
+              <p>실제 외부 시스템을 조회하지 않고 프로그램 내부의 데이터만 사용하였다.</p>
+              <hr />
+              <p>Real Function Calling은 실제 시스템과 연결한다.</p>
+              <p>예시</p>
+              <ul><li>실제 날씨 API</li><li>실제 환율 API</li><li>실제 데이터베이스</li><li>실제 파일</li><li>실제 웹 서비스</li></ul>
+              <p>구조</p>
+              <p>사용자<br />↓<br />LLM<br />↓<br />Tool<br />↓<br />실제 외부 시스템</p>
+              <hr />
+              <h3>2. Azure VM 생성</h3>
+              <h4>운영체제</h4>
+              <p>Ubuntu Pro 24.04 LTS - x64 Gen2</p>
+              <h5>의미</h5>
+              <ul><li>Ubuntu 장기 지원 버전(LTS)</li><li>서버 운영에 적합</li><li>보안 패치 장기간 제공</li></ul>
+              <hr />
+              <h4>가용성 옵션</h4>
+              <p>선택:</p>
+              <pre><code class="language-text">인프라 중복이 필요하지 않습니다</code></pre>
+              <h5>의미</h5>
+              <p>실습용 환경이므로 단일 VM 사용</p>
+              <hr />
+              <h3>3. SLA(Service Level Agreement)</h3>
+              <p>SLA는 서비스 제공자가 보장하는 가용성 수준이다.</p>
+              <p>예시</p>
+              <ul><li>99.9%</li><li>99.95%</li><li>99.99%</li></ul>
+              <hr />
+              <p>중요한 점</p>
+              <p>SLA는</p>
+              <p>&quot;장애가 발생하지 않는다&quot;</p>
+              <p>가 아니라</p>
+              <p>&quot;약속한 수준보다 장애가 많으면 보상한다&quot;</p>
+              <p>라는 계약이다.</p>
+              <hr />
+              <p>예시</p>
+              <p>99.9% SLA</p>
+              <p>↓</p>
+              <p>허용 장애 시간을 초과</p>
+              <p>↓</p>
+              <p>서비스 크레딧 지급</p>
+              <hr />
+              <h3>4. 가용성(Availability)</h3>
+              <p>가용성이란</p>
+              <p>장애가 발생해도 서비스를 계속 제공할 수 있는 능력이다.</p>
+              <hr />
+              <p>단일 VM</p>
+              <p>사용자<br />↓<br />VM1</p>
+              <p>VM1 장애</p>
+              <p>↓</p>
+              <p>서비스 중단</p>
+              <hr />
+              <p>다중 VM</p>
+              <p>사용자<br />↓<br />Load Balancer<br />↓<br />VM1<br />VM2</p>
+              <p>VM1 장애</p>
+              <p>↓</p>
+              <p>VM2가 계속 서비스</p>
+              <hr />
+              <p>핵심</p>
+              <p>서버가 죽지 않는 것</p>
+              <p>×</p>
+              <p>서버가 죽어도 서비스가 계속되는 것</p>
+              <p>○</p>
+              <hr />
+              <h3>5. VM 사양</h3>
+              <p>선택</p>
+              <pre><code class="language-text">Standard_D4s_v3</code></pre>
+              <p>사양</p>
+              <ul><li>4 vCPU</li><li>16GB RAM</li><li>약 $140 / month</li></ul>
+              <hr />
+              <p>실습용으로는 넉넉한 사양</p>
+              <p>향후</p>
+              <ul><li>Docker</li><li>MCP</li><li>FastAPI</li><li>AI Agent</li></ul>
+              <p>등을 함께 실행하기에 적합</p>
+              <hr />
+              <h3>6. 인증 설정</h3>
+              <p>선택</p>
+              <pre><code class="language-text">Password</code></pre>
+              <p>관리자 계정</p>
+              <pre><code class="language-text">scgyong</code></pre>
+              <hr />
+              <p>SSH 접속</p>
+              <pre><code class="language-bash">ssh scgyong@&lt;IP주소&gt;</code></pre>
+              <hr />
+              <h3>7. 네트워크 설정</h3>
+              <p>선택</p>
+              <pre><code class="language-text">SSH (22)
+              허용</code></pre>
+              <hr />
+              <p>SSH</p>
+              <p>Secure Shell</p>
+              <p>기본 포트</p>
+              <pre><code class="language-text">22/tcp</code></pre>
+              <hr />
+              <h3>8. SSH 로그인 성공</h3>
+              <p>구조</p>
+              <p>내 PC<br />↓<br />SSH<br />↓<br />Azure Ubuntu VM</p>
+              <hr />
+              <p>이제 Azure VM에서 실제 서버 프로그램을 실행할 수 있는 상태가 됨</p>
+              <hr />
+              <h3>9. MVP Tour 실제 API 버전</h3>
+              <p>이전에는</p>
+              <pre><code class="language-python">conditions = [...]
+              exchange_rates = {...}</code></pre>
+              <p>를 사용하였다.</p>
+              <hr />
+              <p>이후 실제 API 사용</p>
+              <h5>날씨</h5>
+              <p>Open-Meteo</p>
+              <pre><code class="language-python">https://geocoding-api.open-meteo.com
+              https://api.open-meteo.com</code></pre>
+              <hr />
+              <h5>환율</h5>
+              <p>ExchangeRate API</p>
+              <pre><code class="language-python">https://api.exchangerate-api.com</code></pre>
+              <hr />
+              <p>예시</p>
+              <pre><code class="language-python">response = requests.get(url)
+              data = response.json()</code></pre>
+              <hr />
+              <h3>10. Agent의 한계</h3>
+              <p>대화 예시</p>
+              <p>사용자</p>
+              <pre><code class="language-text">파리 날씨</code></pre>
+              <p>↓</p>
+              <p>파리 날씨 제공</p>
+              <hr />
+              <p>사용자</p>
+              <pre><code class="language-text">환율</code></pre>
+              <p>↓</p>
+              <p>어떤 통화인지 다시 질문</p>
+              <hr />
+              <p>사용자는</p>
+              <pre><code class="language-text">파리
+              ↓
+              프랑스
+              ↓
+              EUR
+              ↓
+              KRW</code></pre>
+              <p>를 기대</p>
+              <hr />
+              <p>하지만 Agent는</p>
+              <pre><code class="language-text">환율</code></pre>
+              <p>만으로 Tool 파라미터를 결정하지 못함</p>
+              <hr />
+              <p>교훈</p>
+              <p>Tool Calling</p>
+              <p>≠</p>
+              <p>좋은 Agent</p>
+              <hr />
+              <p>좋은 Agent는</p>
+              <ul><li>문맥 이해</li><li>메모리 활용</li><li>Tool 선택</li></ul>
+              <p>을 함께 수행해야 함</p>
+              <hr />
+              <h3>11. OpenClaw 설치</h3>
+              <p>실습 주제</p>
+              <p>OpenClaw 연결</p>
+              <hr />
+              <p>설정</p>
+              <p>Model/Auth Provider</p>
+              <pre><code class="language-text">Microsoft Foundry</code></pre>
+              <hr />
+              <p>인증 방식</p>
+              <pre><code class="language-text">API Key</code></pre>
+              <hr />
+              <p>구조</p>
+              <p>OpenClaw<br />↓<br />Microsoft Foundry<br />↓<br />Azure OpenAI<br />↓<br />GPT 모델</p>
+              <hr />
+              <h3>12. Telegram 대신 Discord 시도</h3>
+              <p>강의</p>
+              <pre><code class="language-text">Telegram Bot</code></pre>
+              <p>사용</p>
+              <hr />
+              <p>개인 실습</p>
+              <pre><code class="language-text">Discord Bot</code></pre>
+              <p>연결 시도</p>
+              <hr />
+              <p>예상 구조</p>
+              <p>Discord<br />↓<br />Bot<br />↓<br />OpenClaw<br />↓<br />Microsoft Foundry<br />↓<br />GPT</p>
+              <hr />
+              <h3>오늘의 핵심</h3>
+              <p>1. Mock Tool → Real API 호출로 발전<br />2. Azure VM 생성 및 SSH 접속<br />3. SLA와 가용성 개념 이해<br />4. 실제 날씨/환율 API 연동<br />5. Agent의 문맥 이해 한계 확인<br />6. OpenClaw와 Microsoft Foundry 연결<br />7. Discord 기반 Agent 연동 시도</p>
+              <hr />
+              <h3>교육 전체 흐름</h3>
+              <p>1교시 : Agent 생성</p>
+              <p>2교시 : Tool Calling</p>
+              <p>3교시 : Session Memory</p>
+              <p>4교시 : MVP Tour Agent</p>
+              <p>5교시 : RAG + ChromaDB</p>
+              <p>6교시 : Real Function Calling + Azure VM + OpenClaw</p>
             </div>
           </article>
         </div>

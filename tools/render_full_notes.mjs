@@ -1,4 +1,4 @@
-import { readFile, writeFile } from "node:fs/promises";
+import { readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -200,6 +200,16 @@ ${articles.join("\n")}
   await writeFile(pageAbs, html, "utf8");
 }
 
+async function dayEntries(day) {
+  const files = await readdir(path.join(root, day));
+  const hourFiles = files.filter((file) => /^Hour\d+\.md$/.test(file)).sort();
+
+  return [
+    { path: `${day}/README.md`, title: `${day}/README.md` },
+    ...hourFiles.map((file) => ({ path: `${day}/${file}`, title: file })),
+  ];
+}
+
 await buildFullNotes(
   "index.html",
   [{ path: "README.md", title: "README.md" }],
@@ -209,27 +219,14 @@ await buildFullNotes(
 
 await buildFullNotes(
   "Day1/index.html",
-  [
-    { path: "Day1/README.md", title: "Day1/README.md" },
-    { path: "Day1/Hour0930.md", title: "Hour0930.md" },
-    { path: "Day1/Hour1030.md", title: "Hour1030.md" },
-    { path: "Day1/Hour1130.md", title: "Hour1130.md" },
-    { path: "Day1/Hour1330.md", title: "Hour1330.md" },
-    { path: "Day1/Hour1430.md", title: "Hour1430.md" },
-    { path: "Day1/Hour1600.md", title: "Hour1600.md" },
-  ],
+  await dayEntries("Day1"),
   "Day 1 Markdown 전체",
   "아래 내용은 Day1의 README와 시간대별 Markdown 원문 전체를 HTML로 변환한 것입니다.",
 );
 
 await buildFullNotes(
   "Day2/index.html",
-  [
-    { path: "Day2/README.md", title: "Day2/README.md" },
-    { path: "Day2/Hour0930.md", title: "Hour0930.md" },
-    { path: "Day2/Hour1030.md", title: "Hour1030.md" },
-    { path: "Day2/Hour1130.md", title: "Hour1130.md" },
-  ],
+  await dayEntries("Day2"),
   "Day 2 Markdown 전체",
   "아래 내용은 Day2의 README와 시간대별 Markdown 원문 전체를 HTML로 변환한 것입니다.",
 );
