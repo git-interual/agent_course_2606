@@ -15,9 +15,52 @@ def get_weather(location: Annotated[str, Field(
         description="도시 이름. 서울, 도쿄, 파리 등"
     )]
 ) -> str:
-    conditions = ["맛있어", "흐림", "비", "눈"]
-    print(f"Tool get_weather called with location: {location}")
-    return f"{location}의 오늘 날씨는 {conditions[0]}입니다."
+    conditions = [
+        "맑음",
+        "대체로 맑음",
+        "구름 조금",
+        "구름 많음",
+        "흐림",
+        "약한 비",
+        "비",
+        "강한 비",
+        "소나기",
+        "가랑비",
+        "이슬비",
+        "폭우",
+        "천둥번개",
+        "우박",
+        "눈",
+        "약한 눈",
+        "폭설",
+        "진눈깨비",
+        "안개",
+        "박무",
+        "황사",
+        "미세먼지 나쁨",
+        "쾌청",
+        "무더움",
+        "습함",
+        "건조함",
+        "쌀쌀함",
+        "추움",
+        "한파",
+        "따뜻함",
+        "선선함",
+        "바람 강함",
+        "돌풍",
+        "태풍 영향",
+        "흐리고 비",
+        "맑고 건조함",
+        "구름 많고 선선함",
+        "비 온 뒤 갬",
+        "눈 온 뒤 흐림",
+        "대체로 흐림",
+        "일교차 큼",
+    ]
+    index = sum(ord(c) for c in location) % len(conditions)
+    print(f"Tool get_weather called with location: {location}. Returning: {conditions[index]}")
+    return f"{location}의 오늘 날씨는 {conditions[index]}입니다."
 
 async def main() -> None:
     print("Hello, Agent!")
@@ -43,7 +86,7 @@ async def main() -> None:
     )
     print(f"{agent.name} is ready.")
 
-    result = await agent.run("프랑스 파리 날씨는 어때?")
+    result = await agent.run("유럽 랜덤하게 선택한 10개 도시의 날씨는 어때?")
     print(result)
 
 if __name__ == "__main__":
