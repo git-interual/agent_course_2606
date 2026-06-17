@@ -62,6 +62,54 @@ def get_weather(location: Annotated[str, Field(
     print(f"Tool get_weather called with location: {location}. Returning: {conditions[index]}")
     return f"{location}의 오늘 날씨는 {conditions[index]}입니다."
 
+def get_exchange_money(
+        money: Annotated[float, Field(
+            description="금액")],
+        from_currency: Annotated[str, Field(
+            description="환전할 통화. USD, EUR, JPY 등")],
+        to_currency: Annotated[str, Field(
+            description="환전될 통화. USD, EUR, JPY 등")],
+) -> str:
+    exchange_rates = {
+        "USD": 1.00,       # 미국 달러
+        "EUR": 0.86,       # 유로
+        "GBP": 0.74,       # 영국 파운드
+        "JPY": 145.3,      # 일본 엔
+        "CNY": 7.18,       # 중국 위안
+        "KRW": 1378.0,     # 대한민국 원
+        "HKD": 7.85,       # 홍콩 달러
+        "TWD": 29.5,       # 대만 달러
+        "SGD": 1.28,       # 싱가포르 달러
+        "AUD": 1.53,       # 호주 달러
+        "NZD": 1.68,       # 뉴질랜드 달러
+        "CAD": 1.37,       # 캐나다 달러
+        "CHF": 0.80,       # 스위스 프랑
+        "SEK": 9.50,       # 스웨덴 크로나
+        "NOK": 10.2,       # 노르웨이 크로네
+        "DKK": 6.43,       # 덴마크 크로네
+        "INR": 86.4,       # 인도 루피
+        "THB": 32.6,       # 태국 바트
+        "VND": 26200.0,    # 베트남 동
+        "MYR": 4.23,       # 말레이시아 링깃
+        "IDR": 16400.0,    # 인도네시아 루피아
+        "PHP": 57.0,       # 필리핀 페소
+        "AED": 3.67,       # UAE 디르함
+        "SAR": 3.75,       # 사우디 리얄
+        "TRY": 40.2,       # 터키 리라
+        "RUB": 78.0,       # 러시아 루블
+        "BRL": 5.40,       # 브라질 헤알
+        "MXN": 18.8,       # 멕시코 페소
+        "ZAR": 17.9,       # 남아공 랜드
+    }
+    if from_currency not in exchange_rates or to_currency not in exchange_rates:
+        return f"지원하지 않는 통화입니다. 지원되는 통화: {', '.join(exchange_rates.keys())}"
+    from_rate = exchange_rates[from_currency]
+    to_rate = exchange_rates[to_currency]
+    converted_amount = money * (to_rate / from_rate)
+    print(f"Tool get_exchange_money called with money: {money}, from_currency: {from_currency}, to_currency: {to_currency}. Returning: {converted_amount:.2f} {to_currency}")
+    return f"{money:.2f} {from_currency}는 약 {converted_amount:.2f} {to_currency}입니다."
+    
+
 async def main() -> None:
     print("Hello, Agent!")
 
@@ -82,7 +130,7 @@ async def main() -> None:
     ).as_agent(
         name="HelloAgent",
         instructions="너는 친절한 AI 비서야. 사용자의 질문에 친절하게 답변해줘.",
-        tools=get_weather,
+        tools=[get_weather, get_exchange_money],
     )
     print(f"{agent.name} is ready.")
 
@@ -94,6 +142,8 @@ async def main() -> None:
     result = await agent.run("안녕 반가워 내이름은 김기용이야", session=session)
     print(result)
     result = await agent.run("내가 누구라고 했지?", session=session)
+    print(result)
+    result = await agent.run("전세계 10개도시를 랜덤하게 선정하고, 각 도시의 날씨와, 그 도시에서 한국돈 100만원을 환전했을 때 얼마인지 알려줘.", session=session)
     print(result)
 if __name__ == "__main__":
     asyncio.run(main())

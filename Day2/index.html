@@ -16,6 +16,7 @@
         <nav class="nav-links" aria-label="Day 2 이동">
           <a href="#hour0930">09:30</a>
           <a href="#hour1030">10:30</a>
+          <a href="#hour1130">11:30</a>
           <a href="#sources">원본</a>
           <a href="../index.html">과정 홈</a>
         </nav>
@@ -28,13 +29,14 @@
           <p class="eyebrow">2026-06-17 | Agent Development</p>
           <h1 id="day-title">Day 2 강의 노트</h1>
           <p class="lead">
-            Day 2는 LLM을 직접 호출하는 단계를 넘어, Agent가 기억하고 도구를
-            선택하며 실제 작업을 수행하는 구조로 확장합니다.
+            Day 2는 LLM을 직접 호출하는 단계를 넘어, Agent가 Session으로 기억하고
+            여러 도구를 선택하며 실제 작업을 수행하는 구조로 확장합니다.
           </p>
           <div class="button-row">
-            <a class="button-link primary" href="#hour1030">Tool Calling 보기</a>
+            <a class="button-link primary" href="#hour1130">Multi-turn 보기</a>
             <a class="button-link" href="Hour0930.md">09:30 Markdown</a>
             <a class="button-link" href="Hour1030.md">10:30 Markdown</a>
+            <a class="button-link" href="Hour1130.md">11:30 Markdown</a>
           </div>
         </div>
 
@@ -82,12 +84,12 @@
           </div>
           <p class="section-note">
             09:30에는 Agent Framework의 생태계와 개발 환경을, 10:30에는
-            Memory와 Tool Calling을 다뤘습니다.
+            Memory와 Tool Calling을, 11:30에는 Session과 Multi Tool Calling을 다뤘습니다.
           </p>
         </div>
         <div class="metrics">
           <div class="metric">
-            <b>2</b>
+            <b>3</b>
             <span>정리된 교시</span>
           </div>
           <div class="metric">
@@ -95,12 +97,12 @@
             <span>핵심 데이터 형식</span>
           </div>
           <div class="metric">
-            <b>2</b>
+            <b>3</b>
             <span>Agent 실습 파일</span>
           </div>
           <div class="metric">
-            <b>1</b>
-            <span>Tool Calling 예제</span>
+            <b>2</b>
+            <span>등록된 Tool 예제</span>
           </div>
         </div>
       </section>
@@ -129,6 +131,14 @@
             </div>
             <a href="#hour1030">보기</a>
           </article>
+          <article class="timeline-item">
+            <div class="timeline-time">11:30</div>
+            <div>
+              <h3>Session과 Multi-turn Conversation</h3>
+              <p>Session 생성, 대화 이력 유지, AI Debt, 날씨와 환율 Tool 조합.</p>
+            </div>
+            <a href="#hour1130">보기</a>
+          </article>
         </div>
       </section>
 
@@ -142,6 +152,7 @@
             <span>Session</span>
             <span>Memory</span>
             <span>Tool Calling</span>
+            <span>Multi-turn</span>
             <span>Planning</span>
             <span>Action</span>
           </div>
@@ -293,6 +304,68 @@
         </div>
       </section>
 
+      <section class="section" id="hour1130" aria-labelledby="hour1130-title">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">11:30</p>
+            <h2 id="hour1130-title">Session과 Multi-turn Conversation</h2>
+          </div>
+          <a class="button-link" href="Hour1130.md">원본 보기</a>
+        </div>
+        <div class="two-column">
+          <article class="hour-card accent-violet">
+            <h3>Session이 필요한 이유</h3>
+            <ul>
+              <li>각 `agent.run()` 호출은 기본적으로 독립적인 대화로 처리된다.</li>
+              <li>이전 발화를 유지하려면 `agent.create_session()`으로 Session을 만든다.</li>
+              <li>같은 Session을 넘기면 “내 이름이 뭐지?” 같은 후속 질문에 답할 수 있다.</li>
+              <li>기억하는 것은 LLM 자체가 아니라 Session과 History 구조다.</li>
+            </ul>
+          </article>
+          <article class="concept-card accent-teal">
+            <h3>Multi-turn 구조</h3>
+            <div class="diagram">
+              <div class="flow">
+                <span>User</span><b>→</b><span>Agent</span><b>→</b><span>Session</span><b>→</b><span>History</span>
+              </div>
+              <div class="flow">
+                <span>첫 질문</span><b>→</b><span>응답</span><b>→</b><span>후속 질문</span><b>→</b><span>기억 기반 응답</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="concept-grid">
+          <article class="concept-card accent-amber">
+            <h3>AI Debt</h3>
+            <p>
+              AI가 작성한 코드를 이해하지 못한 채 기능을 추가하면 유지보수,
+              버그 수정, 리팩토링이 어려워지는 새로운 기술 부채가 생깁니다.
+            </p>
+          </article>
+          <article class="concept-card accent-blue">
+            <h3>Multi Tool Calling</h3>
+            <p>
+              `get_weather()`에 `get_exchange_money()`를 추가해 Agent가 날씨 조회와
+              환율 계산을 함께 수행하도록 구성했습니다.
+            </p>
+          </article>
+          <article class="concept-card accent-rose">
+            <h3>도시와 통화 추론</h3>
+            <p>
+              사용자가 통화 코드를 말하지 않아도 Agent는 도쿄는 JPY, 뉴욕은 USD,
+              런던은 GBP처럼 도시와 통화를 연결해 Tool을 호출했습니다.
+            </p>
+          </article>
+          <article class="concept-card">
+            <h3>실습 코드</h3>
+            <p>
+              `multi_turn.py`는 Session 기반 대화 유지와 날씨, 환율 Tool을 함께
+              사용하는 복합 질문 실습을 담고 있습니다.
+            </p>
+          </article>
+        </div>
+      </section>
+
       <section class="section" id="sources" aria-labelledby="source-title">
         <div class="section-header">
           <div>
@@ -310,6 +383,7 @@
             <ul>
               <li><a href="Hour0930.md">Hour0930.md</a></li>
               <li><a href="Hour1030.md">Hour1030.md</a></li>
+              <li><a href="Hour1130.md">Hour1130.md</a></li>
               <li><a href="README.md">Day2 README.md</a></li>
             </ul>
           </article>
@@ -318,6 +392,7 @@
             <ul>
               <li><a href="src/hello_agent.py">hello_agent.py</a></li>
               <li><a href="src/add_tools.py">add_tools.py</a></li>
+              <li><a href="src/multi_turn.py">multi_turn.py</a></li>
             </ul>
           </article>
           <article class="source-panel">
