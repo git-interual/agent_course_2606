@@ -4,6 +4,11 @@
 
 ---
 
+# HTML Deployment
+https://git-interual.github.io/agent_course_2606/
+
+---
+
 # 강의 일정
 
 | 일차 | 날짜 | 링크 | 상태 |
