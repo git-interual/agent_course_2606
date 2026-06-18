@@ -66,7 +66,7 @@
             <div class="timeline-time">09:30</div>
             <div>
               <h3>OpenClaw + Discord 연동</h3>
-              <p>Azure VM의 OpenClaw를 Discord와 연결하고 Tool Calling 동작을 분석합니다.</p>
+              <p>Discord Event, OpenClaw, LLM 판단, Tool 실행과 결과 반환 순서를 분석합니다.</p>
             </div>
             <a href="Hour0930.md">원본</a>
           </article>
@@ -86,6 +86,33 @@
             </div>
             <a href="Hour1130.md">원본</a>
           </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="sequence-title">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Sequence</p>
+            <h2 id="sequence-title">Tool Calling 실행 흐름</h2>
+          </div>
+          <a class="button-link" href="Hour0930_ToolCalling.md">Sequence 원본</a>
+        </div>
+        <div class="system-map">
+          <div class="map-row">
+            <div class="map-node"><strong>User</strong><span>Discord 메시지 전송</span></div>
+            <div class="map-arrow">→</div>
+            <div class="map-node"><strong>Inbound Event</strong><span>메시지와 Discord 메타데이터 전달</span></div>
+          </div>
+          <div class="map-row">
+            <div class="map-node"><strong>OpenClaw</strong><span>메시지와 컨텍스트를 LLM에 전달</span></div>
+            <div class="map-arrow">→</div>
+            <div class="map-node"><strong>dev-gpt-5.4-mini</strong><span>의도를 분석하고 Tool 필요 여부 판단</span></div>
+          </div>
+          <div class="map-row">
+            <div class="map-node"><strong>Tool Call</strong><span>LLM이 OpenClaw에 실행 요청</span></div>
+            <div class="map-arrow">→</div>
+            <div class="map-node"><strong>Tool Result</strong><span>검색 결과를 LLM에 반환해 최종 응답 생성</span></div>
+          </div>
         </div>
       </section>
 
@@ -111,9 +138,25 @@
             <p class="section-kicker">Full Notes</p>
             <h2 id="full-notes-title">Day 3 Markdown 전체</h2>
           </div>
-          <p class="section-note">아래 내용은 Day3의 1교시부터 3교시까지 작성된 Markdown 원문 전체를 HTML로 변환한 것입니다.</p>
+          <p class="section-note">아래 내용은 Day3의 README와 시간대별 Markdown 원문 전체를 HTML로 변환한 것입니다.</p>
         </div>
         <div class="full-notes">
+          <article class="source-panel markdown-source" id="full-day3-readme-md">
+            <div class="markdown-source-header">
+              <h3>Day3/README.md</h3>
+              <a href="README.md">원본 Markdown</a>
+            </div>
+            <div class="markdown-content">
+              <h3>AILECTURE Day 3</h3>
+              <p>2026-06-18 강의 기록입니다.</p>
+              <h4>HTML 노트</h4>
+              <ul><li><a href="index.html">Day 3 통합 HTML</a></li></ul>
+              <h4>강의 노트</h4>
+              <ul><li><a href="Hour0930.md">Hour0930.md</a>: OpenClaw과 Discord 연동</li><li><a href="Hour0930_ToolCalling.md">Hour0930_ToolCalling.md</a>: Discord, OpenClaw, LLM, Tool 실행 Sequence</li><li><a href="Hour1030.md">Hour1030.md</a>: Vibe Coding, AI 디버깅, Azure Web App</li><li><a href="Hour1130.md">Hour1130.md</a>: Azure App Service 배포</li></ul>
+              <h4>과정 홈</h4>
+              <ul><li><a href="../README.md">루트 README</a></li><li><a href="../index.html">루트 HTML</a></li></ul>
+            </div>
+          </article>
           <article class="source-panel markdown-source" id="full-day3-hour0930-md">
             <div class="markdown-source-header">
               <h3>Hour0930.md</h3>
@@ -321,15 +364,20 @@
               <pre><code class="language-text">Tool Calling</code></pre>
               <p>으로 처리</p>
               <p>구조:</p>
-              <pre><code class="language-text">Discord
+              <pre><code class="language-text">사용자
                ↓
-              OpenClaw
+              Discord Inbound Event (메시지 + 메타데이터)
                ↓
-              web_search
+              OpenClaw Agent Runtime
                ↓
-              웹 데이터
+              dev-gpt-5.4-mini (의도 분석 및 Tool 필요 여부 판단)
+               ↓ Tool Call 요청
+              OpenClaw가 web_search / web_fetch / scheduler 실행
+               ↓ Tool 결과
+              dev-gpt-5.4-mini가 최종 답변 생성
                ↓
-              GPT 요약</code></pre>
+              OpenClaw가 Discord로 응답</code></pre>
+              <p>Discord 메타데이터는 발신자와 메시지 컨텍스트를 전달할 뿐 Tool 호출을 결정하지 않는다.<br />Tool 사용 여부는 LLM이 판단하고, 실제 Tool 실행은 OpenClaw Agent Runtime이 담당한다.</p>
               <hr />
               <h3>이번 실습에서 배운 점</h3>
               <h4>Discord 연동은 4단계</h4>
@@ -481,33 +529,30 @@
               <hr />
               <h3>Sequence Diagram</h3>
               <pre><code class="language-mermaid">sequenceDiagram
+                  participant U as User
+                  participant E as Inbound Event&lt;br/&gt;(Discord metadata)
+                  participant O as OpenClaw&lt;br/&gt;(Agent Runtime)
+                  participant L as dev-gpt-5.4-mini&lt;br/&gt;(Microsoft Foundry)
+                  participant T as Tool&lt;br/&gt;web_search / web_fetch / scheduler
               
-              participant U as User
-              participant E as Inbound Event
-              participant A as OpenClaw
-              participant T as Tool
+                  U-&gt;&gt;E: 메시지 전송
+                  E--&gt;&gt;O: chat_id / message_id / sender / timestamp
               
-              U-&gt;&gt;E: 메시지 전송
+                  O-&gt;&gt;L: 사용자 메시지 + 컨텍스트 전달
+                  L-&gt;&gt;L: 의도 분석&lt;br/&gt;최신 정보 필요 여부 판단
               
-              E--&gt;&gt;A: chat_id&lt;br/&gt;message_id&lt;br/&gt;sender_id&lt;br/&gt;timestamp
-              
-              A-&gt;&gt;A: 요청 분석
-              
-              A-&gt;&gt;A: 최신 정보 필요 여부 판단
-              
-              alt 최신 정보 필요
-              
-                  A-&gt;&gt;T: web_search / web_fetch
-              
-                  T--&gt;&gt;A: 조회 결과
-              
-                  A--&gt;&gt;U: 답변
-              
-              else 최신 정보 불필요
-              
-                  A--&gt;&gt;U: 내부 지식으로 답변
-              
-              end</code></pre>
+                  alt Tool 필요
+                      L--&gt;&gt;O: Tool call 요청
+                      O-&gt;&gt;T: web_search / web_fetch / scheduler 실행
+                      T--&gt;&gt;O: Tool 결과 반환
+                      O-&gt;&gt;L: Tool 결과 전달
+                      L-&gt;&gt;L: 결과 기반 답변 생성
+                      L--&gt;&gt;O: 최종 응답
+                      O--&gt;&gt;U: Discord 메시지 전송
+                  else Tool 불필요
+                      L--&gt;&gt;O: 내부 지식 기반 응답
+                      O--&gt;&gt;U: Discord 메시지 전송
+                  end</code></pre>
               <hr />
               <h3>이번 실습을 통해 이해한 것</h3>
               <h4>일반 LLM</h4>

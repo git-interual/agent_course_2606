@@ -52,6 +52,6 @@ https://git-interual.github.io/agent_course_2606/
 ## Day 3
 
 - [Hour0930.md](Day3/Hour0930.md): OpenClaw과 Discord 연동
-- [Hour0930_ToolCalling.md](Day3/Hour0930_ToolCalling.md): OpenClaw Tool Calling 동작 방식
+- [Hour0930_ToolCalling.md](Day3/Hour0930_ToolCalling.md): Discord, OpenClaw, LLM, Tool 실행 Sequence
 - [Hour1030.md](Day3/Hour1030.md): Vibe Coding, AI 디버깅, Azure Web App
 - [Hour1130.md](Day3/Hour1130.md): Azure App Service 배포

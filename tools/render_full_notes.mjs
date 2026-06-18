@@ -202,7 +202,7 @@ ${articles.join("\n")}
 
 async function dayEntries(day) {
   const files = await readdir(path.join(root, day));
-  const hourFiles = files.filter((file) => /^Hour\d+\.md$/.test(file)).sort();
+  const hourFiles = files.filter((file) => /^Hour.*\.md$/.test(file)).sort();
 
   return [
     { path: `${day}/README.md`, title: `${day}/README.md` },
@@ -229,6 +229,13 @@ await buildFullNotes(
   await dayEntries("Day2"),
   "Day 2 Markdown 전체",
   "아래 내용은 Day2의 README와 시간대별 Markdown 원문 전체를 HTML로 변환한 것입니다.",
+);
+
+await buildFullNotes(
+  "Day3/index.html",
+  await dayEntries("Day3"),
+  "Day 3 Markdown 전체",
+  "아래 내용은 Day3의 README와 시간대별 Markdown 원문 전체를 HTML로 변환한 것입니다.",
 );
 
 console.log("Rendered full-note sections.");

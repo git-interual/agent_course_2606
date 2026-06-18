@@ -216,33 +216,30 @@ timestamp
 
 ```mermaid
 sequenceDiagram
+    participant U as User
+    participant E as Inbound Event<br/>(Discord metadata)
+    participant O as OpenClaw<br/>(Agent Runtime)
+    participant L as dev-gpt-5.4-mini<br/>(Microsoft Foundry)
+    participant T as Tool<br/>web_search / web_fetch / scheduler
 
-participant U as User
-participant E as Inbound Event
-participant A as OpenClaw
-participant T as Tool
+    U->>E: 메시지 전송
+    E-->>O: chat_id / message_id / sender / timestamp
 
-U->>E: 메시지 전송
+    O->>L: 사용자 메시지 + 컨텍스트 전달
+    L->>L: 의도 분석<br/>최신 정보 필요 여부 판단
 
-E-->>A: chat_id<br/>message_id<br/>sender_id<br/>timestamp
-
-A->>A: 요청 분석
-
-A->>A: 최신 정보 필요 여부 판단
-
-alt 최신 정보 필요
-
-    A->>T: web_search / web_fetch
-
-    T-->>A: 조회 결과
-
-    A-->>U: 답변
-
-else 최신 정보 불필요
-
-    A-->>U: 내부 지식으로 답변
-
-end
+    alt Tool 필요
+        L-->>O: Tool call 요청
+        O->>T: web_search / web_fetch / scheduler 실행
+        T-->>O: Tool 결과 반환
+        O->>L: Tool 결과 전달
+        L->>L: 결과 기반 답변 생성
+        L-->>O: 최종 응답
+        O-->>U: Discord 메시지 전송
+    else Tool 불필요
+        L-->>O: 내부 지식 기반 응답
+        O-->>U: Discord 메시지 전송
+    end
 ```
 
 ---
