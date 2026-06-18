@@ -12,6 +12,7 @@
 - [Hour0930_ToolCalling.md](Hour0930_ToolCalling.md): Discord, OpenClaw, LLM, Tool 실행 Sequence
 - [Hour1030.md](Hour1030.md): Vibe Coding, AI 디버깅, Azure Web App
 - [Hour1130.md](Hour1130.md): Azure App Service 배포
+- [Hour1330.md](Hour1330.md): Azure AI Search, Indexer, Vector Search
 
 ## 과정 홈
 

@@ -17,6 +17,7 @@
           <a href="#hour0930">09:30</a>
           <a href="#hour1030">10:30</a>
           <a href="#hour1130">11:30</a>
+          <a href="#hour1330">13:30</a>
           <a href="#full-notes">전체 노트</a>
           <a href="../index.html">과정 홈</a>
         </nav>
@@ -30,25 +31,27 @@
           <h1 id="day-title">Day 3 강의 노트</h1>
           <p class="lead">
             OpenClaw와 Discord를 연결하고, AI와 함께 FastAPI 서비스를 개발한 뒤
-            Azure App Service에 배포하는 실전 흐름을 정리합니다.
+            Azure App Service에 배포하고 Azure AI Search로 검색 계층을 구성하는 흐름을 정리합니다.
           </p>
           <div class="button-row">
             <a class="button-link primary" href="#full-notes">전체 내용 보기</a>
             <a class="button-link" href="Hour0930.md">09:30 Markdown</a>
             <a class="button-link" href="Hour1030.md">10:30 Markdown</a>
             <a class="button-link" href="Hour1130.md">11:30 Markdown</a>
+            <a class="button-link" href="Hour1330.md">13:30 Markdown</a>
           </div>
         </div>
 
         <aside class="hero-panel" aria-labelledby="flow-title">
           <div class="panel-title">
             <span id="flow-title">Day 3 실습 흐름</span>
-            <span class="status-chip pending">3교시 진행</span>
+            <span class="status-chip pending">4교시 진행</span>
           </div>
           <div class="system-map">
             <div class="map-node"><strong>Connect</strong><span>OpenClaw와 Discord 연동</span></div>
             <div class="map-node"><strong>Build</strong><span>AI로 FastAPI 할일 서비스 개발</span></div>
             <div class="map-node"><strong>Deploy</strong><span>Azure App Service에 배포</span></div>
+            <div class="map-node"><strong>Search</strong><span>Azure AI Search와 Vector Index 구성</span></div>
           </div>
         </aside>
       </section>
@@ -59,7 +62,7 @@
             <p class="section-kicker">Timeline</p>
             <h2 id="timeline-title">시간대별 흐름</h2>
           </div>
-          <p class="section-note">연결, 개발, 배포로 이어지는 세 교시의 실습 기록입니다.</p>
+          <p class="section-note">연결, 개발, 배포, 검색 계층 구성으로 이어지는 네 교시의 실습 기록입니다.</p>
         </div>
         <div class="timeline">
           <article class="timeline-item" id="hour0930">
@@ -85,6 +88,14 @@
               <p>배포 설정과 시작 스크립트를 구성하고 서비스를 Azure에 배포합니다.</p>
             </div>
             <a href="Hour1130.md">원본</a>
+          </article>
+          <article class="timeline-item" id="hour1330">
+            <div class="timeline-time">13:30</div>
+            <div>
+              <h3>Azure AI Search</h3>
+              <p>Data Source, Indexer, Index 구조와 Keyword 및 Vector Search를 학습합니다.</p>
+            </div>
+            <a href="Hour1330.md">원본</a>
           </article>
         </div>
       </section>
@@ -128,6 +139,7 @@
             <span>Tool Calling</span>
             <span>FastAPI</span>
             <span>App Service</span>
+            <span>AI Search</span>
           </div>
         </div>
       </section>
@@ -152,7 +164,7 @@
               <h4>HTML 노트</h4>
               <ul><li><a href="index.html">Day 3 통합 HTML</a></li></ul>
               <h4>강의 노트</h4>
-              <ul><li><a href="Hour0930.md">Hour0930.md</a>: OpenClaw과 Discord 연동</li><li><a href="Hour0930_ToolCalling.md">Hour0930_ToolCalling.md</a>: Discord, OpenClaw, LLM, Tool 실행 Sequence</li><li><a href="Hour1030.md">Hour1030.md</a>: Vibe Coding, AI 디버깅, Azure Web App</li><li><a href="Hour1130.md">Hour1130.md</a>: Azure App Service 배포</li></ul>
+              <ul><li><a href="Hour0930.md">Hour0930.md</a>: OpenClaw과 Discord 연동</li><li><a href="Hour0930_ToolCalling.md">Hour0930_ToolCalling.md</a>: Discord, OpenClaw, LLM, Tool 실행 Sequence</li><li><a href="Hour1030.md">Hour1030.md</a>: Vibe Coding, AI 디버깅, Azure Web App</li><li><a href="Hour1130.md">Hour1130.md</a>: Azure App Service 배포</li><li><a href="Hour1330.md">Hour1330.md</a>: Azure AI Search, Indexer, Vector Search</li></ul>
               <h4>과정 홈</h4>
               <ul><li><a href="../README.md">루트 README</a></li><li><a href="../index.html">루트 HTML</a></li></ul>
             </div>
@@ -1183,6 +1195,248 @@
               ↓
               배포 성공</code></pre>
               <p>이번 교시는 AI가 만든 FastAPI 서비스를 실제 Azure 클라우드에 배포하는 첫 실습으로, 개발부터 운영 환경 배포까지의 흐름을 경험한 시간이었다.</p>
+            </div>
+          </article>
+          <article class="source-panel markdown-source" id="full-day3-hour1330-md">
+            <div class="markdown-source-header">
+              <h3>Hour1330.md</h3>
+              <a href="Hour1330.md">원본 Markdown</a>
+            </div>
+            <div class="markdown-content">
+              <h3>Agentic AI 과정 Day3 - 4교시</h3>
+              <h4>Azure AI Search</h4>
+              <h5>Azure AI Search란?</h5>
+              <p>과거 Azure Cognitive Search라는 이름으로 제공되던 서비스.</p>
+              <p>역할:</p>
+              <ul><li>비정형 데이터 검색</li><li>정형 데이터 검색</li><li>벡터 검색</li><li>RAG(Retrieval Augmented Generation)의 검색 계층</li></ul>
+              <hr />
+              <h4>Azure AI Search 아키텍처</h4>
+              <p>강사 설명 및 판서 내용</p>
+              <pre><code class="language-mermaid">flowchart LR
+              
+                  subgraph DS[&quot;Data Source&quot;]
+                      PDF[&quot;PDF&quot;]
+                      WORD[&quot;Word&quot;]
+                      XLS[&quot;Excel&quot;]
+                      DB[(&quot;Database&quot;)]
+                  end
+              
+                  IDXER[&quot;Indexer&quot;]
+                  IDX[&quot;Index&quot;]
+                  SEARCH[&quot;Azure AI Search&quot;]
+                  LLM[&quot;LLM&quot;]
+              
+                  PDF --&gt; IDXER
+                  WORD --&gt; IDXER
+                  XLS --&gt; IDXER
+                  DB --&gt; IDXER
+              
+                  IDXER --&gt; IDX
+              
+                  LLM --&gt;|Query| SEARCH
+                  SEARCH --&gt; IDX
+                  IDX --&gt; SEARCH
+              
+                  SEARCH --&gt;|검색 결과| LLM</code></pre>
+              <hr />
+              <h4>Data Source</h4>
+              <p>원본 데이터 저장소</p>
+              <h5>비정형 데이터</h5>
+              <ul><li>PDF</li><li>Word</li><li>Excel</li><li>PowerPoint</li><li>HTML</li><li>TXT</li></ul>
+              <h5>정형 데이터</h5>
+              <ul><li>SQL Database</li><li>Cosmos DB</li><li>MySQL</li><li>PostgreSQL</li></ul>
+              <hr />
+              <h4>Index</h4>
+              <p>검색용 색인</p>
+              <p>원본 데이터를 직접 검색하지 않고 Index를 검색한다.</p>
+              <p>예:</p>
+              <pre><code class="language-text">작업지시서.pdf
+              조립가이드.pdf
+              품질매뉴얼.docx</code></pre>
+              <p>↓</p>
+              <pre><code class="language-text">버튼
+              체결
+              토크
+              검사</code></pre>
+              <p>등의 검색 가능한 정보로 저장</p>
+              <hr />
+              <h4>Indexer</h4>
+              <p>Data Source를 주기적으로 확인하여 Index를 갱신</p>
+              <p>기능:</p>
+              <ul><li>신규 문서 발견</li><li>변경 문서 발견</li><li>삭제 문서 반영</li><li>자동 색인 갱신</li></ul>
+              <p>예)</p>
+              <pre><code class="language-text">새 PDF 업로드
+              ↓
+              Indexer 감지
+              ↓
+              Index 갱신
+              ↓
+              검색 가능</code></pre>
+              <hr />
+              <h4>LLM과 Azure AI Search</h4>
+              <p>LLM은 원본 문서를 직접 읽지 않는다.</p>
+              <pre><code class="language-text">사용자 질문
+              ↓
+              LLM
+              ↓
+              Azure AI Search Query
+              ↓
+              Index 검색
+              ↓
+              검색 결과
+              ↓
+              LLM 답변 생성</code></pre>
+              <hr />
+              <h4>Vector Index</h4>
+              <p>강사 설명:</p>
+              <p>Index를 Vector 기반으로 만들면 검색 품질이 향상된다.</p>
+              <h5>기존 Keyword Search</h5>
+              <pre><code class="language-text">자동차</code></pre>
+              <p>검색</p>
+              <p>↓</p>
+              <p>문서에 &quot;자동차&quot;가 있어야 검색</p>
+              <hr />
+              <h5>Vector Search</h5>
+              <pre><code class="language-text">자동차
+              차량
+              승용차</code></pre>
+              <p>를 의미적으로 유사하게 인식</p>
+              <hr />
+              <h5>장점</h5>
+              <ul><li>의미 검색</li><li>유사어 검색</li><li>자연어 검색</li><li>RAG 정확도 향상</li></ul>
+              <hr />
+              <h4>Azure AI Search 생성</h4>
+              <h5>최초 시도</h5>
+              <p>Region:</p>
+              <pre><code class="language-text">East US</code></pre>
+              <p>문제:</p>
+              <pre><code class="language-text">Free SKU만 선택 가능</code></pre>
+              <hr />
+              <h5>두 번째 시도</h5>
+              <p>Region:</p>
+              <pre><code class="language-text">East US 2</code></pre>
+              <p>선택:</p>
+              <pre><code class="language-text">Standard
+              약 $250 / 월</code></pre>
+              <hr />
+              <h5>스케일링</h5>
+              <p>기본 설정:</p>
+              <pre><code class="language-text">Replica 1
+              Partition 1</code></pre>
+              <p>제공 용량:</p>
+              <pre><code class="language-text">약 160GB</code></pre>
+              <hr />
+              <h5>생성 실패</h5>
+              <p>원인:</p>
+              <pre><code class="language-text">Capacity unavailable</code></pre>
+              <p>East US 2 리전에 가용 자원 부족</p>
+              <hr />
+              <h5>해결</h5>
+              <p>Region 변경</p>
+              <pre><code class="language-text">Central US</code></pre>
+              <p>↓</p>
+              <p>생성 성공</p>
+              <hr />
+              <h4>Storage Account 생성</h4>
+              <p>Azure AI Search Data Source 준비</p>
+              <h5>계정명</h5>
+              <pre><code class="language-text">labuser9storageinterual</code></pre>
+              <hr />
+              <h5>유형</h5>
+              <pre><code class="language-text">Blob Storage</code></pre>
+              <p>선택</p>
+              <hr />
+              <h5>중복도</h5>
+              <p>기본:</p>
+              <pre><code class="language-text">GRS</code></pre>
+              <p>↓</p>
+              <p>변경:</p>
+              <pre><code class="language-text">LRS</code></pre>
+              <hr />
+              <h5>이유</h5>
+              <p>실습 환경에서는</p>
+              <ul><li>비용 절감</li><li>지역 재해복구 불필요</li></ul>
+              <hr />
+              <h4>Blob Storage</h4>
+              <p>비정형 데이터를 저장하는 저장소</p>
+              <p>예)</p>
+              <ul><li>PDF</li><li>Word</li><li>Excel</li><li>이미지</li></ul>
+              <p>향후 Azure AI Search가 Data Source로 사용</p>
+              <hr />
+              <h4>Storage Access Tier</h4>
+              <h5>Hot</h5>
+              <p>자주 접근</p>
+              <h5>Cool</h5>
+              <p>가끔 접근</p>
+              <h5>Cold</h5>
+              <p>거의 접근 안 함</p>
+              <h5>Archive</h5>
+              <p>장기 보관</p>
+              <hr />
+              <h5>강사 설명</h5>
+              <p>Archive는 매우 저렴하다.</p>
+              <p>하지만 즉시 읽을 수 없으며 복원 과정이 필요하다.</p>
+              <hr />
+              <h4>클라우드 비용 구조</h4>
+              <p>클라우드 비용은 단순 저장공간 비용이 아니다.</p>
+              <h5>주요 요소</h5>
+              <ul><li>Compute</li><li>Storage</li><li>Network</li></ul>
+              <hr />
+              <h5>Network</h5>
+              <h6>Inbound</h6>
+              <p>외부 → Azure</p>
+              <p>예)</p>
+              <pre><code class="language-text">CCTV 영상 업로드
+              파일 업로드</code></pre>
+              <p>일반적으로 무료인 경우가 많음</p>
+              <hr />
+              <h6>Outbound</h6>
+              <p>Azure → 사용자</p>
+              <p>예)</p>
+              <pre><code class="language-text">영상 다운로드
+              파일 다운로드</code></pre>
+              <p>과금되는 경우가 많음</p>
+              <hr />
+              <h4>OpenClaw 알림 예약 사례</h4>
+              <p>오전 실습에서</p>
+              <pre><code class="language-text">10:45 ~ 15:30
+              15분마다 삼성전자 주가 알림</code></pre>
+              <p>예약 생성</p>
+              <hr />
+              <p>사용자가</p>
+              <pre><code class="language-text">인제 고만 해라</code></pre>
+              <p>라고 요청</p>
+              <hr />
+              <p>Assistant 응답</p>
+              <pre><code class="language-text">남은 삼성전자 주가 알림은 멈췄어.</code></pre>
+              <hr />
+              <p>그러나 실제로는</p>
+              <pre><code class="language-text">13:00
+              13:15</code></pre>
+              <p>알림이 계속 발송됨</p>
+              <hr />
+              <p>원인 분석</p>
+              <p>실제 예약 작업 삭제 없이</p>
+              <p>응답만 수행</p>
+              <pre><code class="language-text">&quot;멈췄어&quot;</code></pre>
+              <p>라고 답변</p>
+              <hr />
+              <p>교훈</p>
+              <p>Agent는</p>
+              <pre><code class="language-text">말한 것</code></pre>
+              <p>과</p>
+              <pre><code class="language-text">실제 수행한 것</code></pre>
+              <p>이 반드시 일치해야 한다.</p>
+              <p>예약 취소 시에는</p>
+              <p>실제 Scheduler/Cron 삭제 여부 확인이 중요하다.</p>
+              <hr />
+              <h4>오늘의 핵심</h4>
+              <p>오전:</p>
+              <ul><li>Agent</li><li>Tool Calling</li><li>OpenClaw</li></ul>
+              <p>오후:</p>
+              <ul><li>Azure App Service</li><li>Azure AI Search</li><li>Blob Storage</li><li>Index</li><li>Indexer</li><li>Vector Search</li><li>RAG 아키텍처</li></ul>
+              <p>LLM은 모든 것을 기억하는 시스템이 아니라,</p>
+              <p>검색 엔진(Azure AI Search)을 활용하여 필요한 정보를 찾아 답변하는 구조로 발전하고 있음을 확인하였다.</p>
             </div>
           </article>
         </div>
