@@ -16,6 +16,7 @@
         <nav class="nav-links" aria-label="주요 이동">
           <a href="Day1/index.html">Day 1</a>
           <a href="Day2/index.html">Day 2</a>
+          <a href="Day3/index.html">Day 3</a>
           <a href="#full-notes">전체 노트</a>
           <a href="#curriculum">교육과정</a>
           <a href="#resources">실습 링크</a>
@@ -31,19 +32,19 @@
           <h1 id="page-title">에이전틱 AI 기술 기반 시스템 구축 및 운영 전문 과정</h1>
           <p class="lead">
             Transformer의 동작 원리에서 Azure AI Foundry 배포를 거쳐,
-            Microsoft Agent Framework, Session, Multi-turn, Tool Calling까지 이어지는 강의 기록입니다.
+            Microsoft Agent Framework와 OpenClaw를 거쳐 Azure App Service 배포까지 이어지는 강의 기록입니다.
           </p>
           <div class="button-row">
-            <a class="button-link primary" href="Day2/index.html">Day 2 노트 보기</a>
-            <a class="button-link" href="Day1/index.html">Day 1 노트 보기</a>
-            <a class="button-link" href="Day1/README.md">Day 1 Markdown</a>
+            <a class="button-link primary" href="Day3/index.html">Day 3 노트 보기</a>
+            <a class="button-link" href="Day2/index.html">Day 2 노트 보기</a>
+            <a class="button-link" href="Day3/README.md">Day 3 Markdown</a>
           </div>
         </div>
 
         <aside class="hero-panel" aria-labelledby="map-title">
           <div class="panel-title">
             <span id="map-title">과정 시스템 지도</span>
-            <span class="status-chip pending">Day 2 진행 중</span>
+            <span class="status-chip pending">Day 3 진행 중</span>
           </div>
           <div class="system-map">
             <div class="map-row">
@@ -83,17 +84,17 @@
             <h2 id="stats-title">현재 진행 현황</h2>
           </div>
           <p class="section-note">
-            Day 1은 LLM과 Azure OpenAI 애플리케이션 구현까지 완료했고,
-            Day 2는 Agent Framework, RAG, Real Function Calling, Azure VM 운영까지 확장 중입니다.
+            Day 1과 Day 2를 완료하고, Day 3에서는 OpenClaw 연동부터 FastAPI 개발,
+            Azure App Service 배포까지 확장하고 있습니다.
           </p>
         </div>
         <div class="metrics">
           <div class="metric">
-            <b>2</b>
+            <b>3</b>
             <span>시작된 일차</span>
           </div>
           <div class="metric">
-            <b>12</b>
+            <b>15</b>
             <span>정리된 교시</span>
           </div>
           <div class="metric">
@@ -101,8 +102,8 @@
             <span>Day 1 완료 항목</span>
           </div>
           <div class="metric">
-            <b>6</b>
-            <span>Day 2 정리 교시</span>
+            <b>3</b>
+            <span>Day 3 정리 교시</span>
           </div>
         </div>
       </section>
@@ -137,8 +138,15 @@
                 <td>Day 2</td>
                 <td>2026-06-17</td>
                 <td>Agent Framework, Session, Tool Calling, MVP Tour, RAG, Real Function Calling</td>
-                <td><span class="status-chip pending">진행 중</span></td>
+                <td><span class="status-chip">완료</span></td>
                 <td><a href="Day2/index.html">열기</a></td>
+              </tr>
+              <tr>
+                <td>Day 3</td>
+                <td>2026-06-18</td>
+                <td>OpenClaw, Discord, Vibe Coding, FastAPI, Azure App Service</td>
+                <td><span class="status-chip pending">진행 중</span></td>
+                <td><a href="Day3/index.html">열기</a></td>
               </tr>
             </tbody>
           </table>
@@ -283,7 +291,8 @@
               <thead><tr><th>일차</th><th>날짜</th><th>링크</th><th>상태</th></tr></thead>
               <tbody>
               <tr><td>Day 1</td><td>2026-06-16</td><td><a href="Day1/README.md">Day1/</a></td><td>완료</td></tr>
-              <tr><td>Day 2</td><td>2026-06-17</td><td><a href="Day2/README.md">Day2/</a></td><td>진행 중</td></tr>
+              <tr><td>Day 2</td><td>2026-06-17</td><td><a href="Day2/README.md">Day2/</a></td><td>완료</td></tr>
+              <tr><td>Day 3</td><td>2026-06-18</td><td><a href="Day3/README.md">Day3/</a></td><td>진행 중</td></tr>
               </tbody></table></div>
               <hr />
               <h3>HTML 노트</h3>
@@ -292,13 +301,16 @@
               <tbody>
               <tr><td>Day 1</td><td><a href="Day1/index.html">Day1/index.html</a></td><td>Transformer, Token, Prompt Engineering, Azure OpenAI, Chatbot</td></tr>
               <tr><td>Day 2</td><td><a href="Day2/index.html">Day2/index.html</a></td><td>Microsoft Agent Framework, Session, Memory, Tool Calling, RAG, Real Function Calling</td></tr>
+              <tr><td>Day 3</td><td><a href="Day3/index.html">Day3/index.html</a></td><td>OpenClaw, Discord, Vibe Coding, FastAPI, Azure App Service</td></tr>
               </tbody></table></div>
               <hr />
               <h3>현재까지 진행 내용</h3>
               <h4>Day 1</h4>
-              <ul><li>Transformer</li><li>Azure &amp; Token</li><li>SLM &amp; AI Ecosystem</li><li>Prompt Engineering</li><li>Azure OpenAI / AI Foundry</li><li>Python Chatbot / AI Poet / Tkinter GUI</li></ul>
+              <ul><li><a href="Day1/Hour0930.md">Hour0930.md</a>: Transformer와 AI 기술 발전 흐름</li><li><a href="Day1/Hour1030.md">Hour1030.md</a>: Azure Portal과 Token 이해</li><li><a href="Day1/Hour1130.md">Hour1130.md</a>: SLM, 경량화 기술, AI 생태계</li><li><a href="Day1/Hour1330.md">Hour1330.md</a>: Prompt Engineering</li><li><a href="Day1/Hour1430.md">Hour1430.md</a>: 개발환경, Azure OpenAI, AI Foundry</li><li><a href="Day1/Hour1600.md">Hour1600.md</a>: Microsoft Foundry와 첫 번째 챗봇</li></ul>
               <h4>Day 2</h4>
               <ul><li><a href="Day2/Hour0930.md">Hour0930.md</a>: Microsoft Agent Framework 입문</li><li><a href="Day2/Hour1030.md">Hour1030.md</a>: Agent의 기억과 Tool Calling</li><li><a href="Day2/Hour1130.md">Hour1130.md</a>: Session과 Multi-turn Conversation</li><li><a href="Day2/Hour1330.md">Hour1330.md</a>: MVP Tour Agent 만들기</li><li><a href="Day2/Hour1430.md">Hour1430.md</a>: RAG와 Vector Database</li><li><a href="Day2/Hour1600.md">Hour1600.md</a>: Real Function Calling, Azure VM, OpenClaw</li></ul>
+              <h4>Day 3</h4>
+              <ul><li><a href="Day3/Hour0930.md">Hour0930.md</a>: OpenClaw과 Discord 연동</li><li><a href="Day3/Hour0930_ToolCalling.md">Hour0930_ToolCalling.md</a>: OpenClaw Tool Calling 동작 방식</li><li><a href="Day3/Hour1030.md">Hour1030.md</a>: Vibe Coding, AI 디버깅, Azure Web App</li><li><a href="Day3/Hour1130.md">Hour1130.md</a>: Azure App Service 배포</li></ul>
             </div>
           </article>
         </div>

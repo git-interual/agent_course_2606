@@ -14,7 +14,8 @@ https://git-interual.github.io/agent_course_2606/
 | 일차 | 날짜 | 링크 | 상태 |
 |------|------|------|------|
 | Day 1 | 2026-06-16 | [Day1/](Day1/README.md) | 완료 |
-| Day 2 | 2026-06-17 | [Day2/](Day2/README.md) | 진행 중 |
+| Day 2 | 2026-06-17 | [Day2/](Day2/README.md) | 완료 |
+| Day 3 | 2026-06-18 | [Day3/](Day3/README.md) | 진행 중 |
 
 ---
 
@@ -24,6 +25,7 @@ https://git-interual.github.io/agent_course_2606/
 |------|------|-----------|
 | Day 1 | [Day1/index.html](Day1/index.html) | Transformer, Token, Prompt Engineering, Azure OpenAI, Chatbot |
 | Day 2 | [Day2/index.html](Day2/index.html) | Microsoft Agent Framework, Session, Memory, Tool Calling, RAG, Real Function Calling |
+| Day 3 | [Day3/index.html](Day3/index.html) | OpenClaw, Discord, Vibe Coding, FastAPI, Azure App Service |
 
 ---
 
@@ -46,3 +48,10 @@ https://git-interual.github.io/agent_course_2606/
 - [Hour1330.md](Day2/Hour1330.md): MVP Tour Agent 만들기
 - [Hour1430.md](Day2/Hour1430.md): RAG와 Vector Database
 - [Hour1600.md](Day2/Hour1600.md): Real Function Calling, Azure VM, OpenClaw
+
+## Day 3
+
+- [Hour0930.md](Day3/Hour0930.md): OpenClaw과 Discord 연동
+- [Hour0930_ToolCalling.md](Day3/Hour0930_ToolCalling.md): OpenClaw Tool Calling 동작 방식
+- [Hour1030.md](Day3/Hour1030.md): Vibe Coding, AI 디버깅, Azure Web App
+- [Hour1130.md](Day3/Hour1130.md): Azure App Service 배포
