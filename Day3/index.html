@@ -19,6 +19,7 @@
           <a href="#hour1130">11:30</a>
           <a href="#hour1330">13:30</a>
           <a href="#hour1430">14:30</a>
+          <a href="#hour1600">16:00</a>
           <a href="#full-notes">전체 노트</a>
           <a href="../index.html">과정 홈</a>
         </nav>
@@ -41,13 +42,14 @@
             <a class="button-link" href="Hour1130.md">11:30 Markdown</a>
             <a class="button-link" href="Hour1330.md">13:30 Markdown</a>
             <a class="button-link" href="Hour1430.md">14:30 Markdown</a>
+            <a class="button-link" href="Hour1600.md">16:00 Markdown</a>
           </div>
         </div>
 
         <aside class="hero-panel" aria-labelledby="flow-title">
           <div class="panel-title">
             <span id="flow-title">Day 3 실습 흐름</span>
-            <span class="status-chip pending">5교시 진행</span>
+            <span class="status-chip">6교시 완료</span>
           </div>
           <div class="system-map">
             <div class="map-node"><strong>Connect</strong><span>OpenClaw와 Discord 연동</span></div>
@@ -64,7 +66,7 @@
             <p class="section-kicker">Timeline</p>
             <h2 id="timeline-title">시간대별 흐름</h2>
           </div>
-          <p class="section-note">연결, 개발, 배포, 검색과 Embedding으로 이어지는 다섯 교시의 실습 기록입니다.</p>
+          <p class="section-note">연결, 개발, 배포, 검색과 Azure AI Service로 이어지는 여섯 교시의 실습 기록입니다.</p>
         </div>
         <div class="timeline">
           <article class="timeline-item" id="hour0930">
@@ -106,6 +108,14 @@
               <p>Blob 문서를 Chunk로 나누고 Embedding Vector를 생성해 의미 기반 검색을 구성합니다.</p>
             </div>
             <a href="Hour1430.md">원본</a>
+          </article>
+          <article class="timeline-item" id="hour1600">
+            <div class="timeline-time">16:00</div>
+            <div>
+              <h3>Azure AI Search 심화</h3>
+              <p>Search Explorer와 Index 필드를 확인하고 Keyword 및 Vector Search의 선택 기준을 학습합니다.</p>
+            </div>
+            <a href="Hour1600.md">원본</a>
           </article>
         </div>
       </section>
@@ -151,6 +161,7 @@
             <span>App Service</span>
             <span>AI Search</span>
             <span>Embedding</span>
+            <span>AI Service</span>
           </div>
         </div>
       </section>
@@ -175,7 +186,7 @@
               <h4>HTML 노트</h4>
               <ul><li><a href="index.html">Day 3 통합 HTML</a></li></ul>
               <h4>강의 노트</h4>
-              <ul><li><a href="Hour0930.md">Hour0930.md</a>: OpenClaw과 Discord 연동</li><li><a href="Hour0930_ToolCalling.md">Hour0930_ToolCalling.md</a>: Discord, OpenClaw, LLM, Tool 실행 Sequence</li><li><a href="Hour1030.md">Hour1030.md</a>: Vibe Coding, AI 디버깅, Azure Web App</li><li><a href="Hour1130.md">Hour1130.md</a>: Azure App Service 배포</li><li><a href="Hour1330.md">Hour1330.md</a>: Azure AI Search, Indexer, Vector Search</li><li><a href="Hour1430.md">Hour1430.md</a>: Azure AI Search, Chunking, Embedding, Vector Search</li></ul>
+              <ul><li><a href="Hour0930.md">Hour0930.md</a>: OpenClaw과 Discord 연동</li><li><a href="Hour0930_ToolCalling.md">Hour0930_ToolCalling.md</a>: Discord, OpenClaw, LLM, Tool 실행 Sequence</li><li><a href="Hour1030.md">Hour1030.md</a>: Vibe Coding, AI 디버깅, Azure Web App</li><li><a href="Hour1130.md">Hour1130.md</a>: Azure App Service 배포</li><li><a href="Hour1330.md">Hour1330.md</a>: Azure AI Search, Indexer, Vector Search</li><li><a href="Hour1430.md">Hour1430.md</a>: Azure AI Search, Chunking, Embedding, Vector Search</li><li><a href="Hour1600.md">Hour1600.md</a>: Azure AI Search 심화 및 Azure AI Service</li></ul>
               <h4>과정 홈</h4>
               <ul><li><a href="../README.md">루트 README</a></li><li><a href="../index.html">루트 HTML</a></li></ul>
             </div>
@@ -1761,6 +1772,470 @@
               ↓
               RAG</code></pre>
               <p>오늘은 Azure AI Search와 Embedding Model을 이용하여<br />실제 RAG 시스템이 동작하는 핵심 원리를 학습하였다.</p>
+            </div>
+          </article>
+          <article class="source-panel markdown-source" id="full-day3-hour1600-md">
+            <div class="markdown-source-header">
+              <h3>Hour1600.md</h3>
+              <a href="Hour1600.md">원본 Markdown</a>
+            </div>
+            <div class="markdown-content">
+              <h3>Agentic AI 과정 - 6교시 정리</h3>
+              <h4>Azure AI Search 심화 및 Azure AI Service</h4>
+              <p>시간: 16:00 ~</p>
+              <hr />
+              <h3>1. Azure AI Search 내부 구조 확인</h3>
+              <p>Azure Portal에서 생성한 Azure AI Search 리소스를 열어 내부 구성요소를 확인하였다.</p>
+              <p>확인 항목</p>
+              <ul><li>Data Source</li><li>Index</li><li>Indexer</li><li>Skillset</li></ul>
+              <hr />
+              <h4>Azure AI Search 구조</h4>
+              <pre><code class="language-mermaid">flowchart LR
+              
+                  DS[&quot;Data Source&quot;]
+              
+                  IDXER[&quot;Indexer&quot;]
+              
+                  IDX[&quot;Index&quot;]
+              
+                  DS --&gt; IDXER
+                  IDXER --&gt; IDX</code></pre>
+              <hr />
+              <h3>2. 생성된 Index 확인</h3>
+              <p>Index 목록에서</p>
+              <pre><code class="language-text">manual</code></pre>
+              <p>인덱스를 선택하여 Search Explorer를 확인하였다.</p>
+              <hr />
+              <h4>Search Explorer</h4>
+              <p>검색 결과 예시</p>
+              <pre><code class="language-json">{
+                &quot;@search.score&quot;: 0.57,
+                &quot;chunk_id&quot;: &quot;...&quot;,
+                &quot;parent_id&quot;: &quot;...&quot;,
+                &quot;chunk&quot;: &quot;...&quot;,
+                &quot;title&quot;: &quot;...&quot;,
+                &quot;text_vector&quot;: [...]
+              }</code></pre>
+              <hr />
+              <h4>주요 필드</h4>
+              <h5>chunk</h5>
+              <p>실제 검색 대상 텍스트</p>
+              <p>예)</p>
+              <ul><li>로터리 기능</li><li>쟁기 기능</li><li>작업등 설정</li><li>카메라 설정</li></ul>
+              <hr />
+              <h5>text_vector</h5>
+              <p>Embedding 모델이 생성한 벡터</p>
+              <pre><code class="language-text">1536 dimensions</code></pre>
+              <hr />
+              <h4>문서 저장 구조</h4>
+              <pre><code class="language-mermaid">flowchart LR
+              
+                  PDF[&quot;PDF&quot;]
+              
+                  CHUNK[&quot;Chunk&quot;]
+              
+                  EMB[&quot;Embedding&quot;]
+              
+                  VECTOR[&quot;1536차원 Vector&quot;]
+              
+                  PDF --&gt; CHUNK
+                  CHUNK --&gt; EMB
+                  EMB --&gt; VECTOR</code></pre>
+              <hr />
+              <h3>3. 차원의 저주 (Curse of Dimensionality)</h3>
+              <p>Embedding 차원이 높다고 항상 좋은 것은 아니다.</p>
+              <p>예)</p>
+              <ul><li>768 차원</li><li>1536 차원</li><li>3072 차원</li></ul>
+              <hr />
+              <p>데이터 수가 적은 경우</p>
+              <pre><code class="language-text">벡터 공간이 너무 넓어짐</code></pre>
+              <p>↓</p>
+              <pre><code class="language-text">거리 계산이 어려워짐</code></pre>
+              <p>↓</p>
+              <pre><code class="language-text">검색 정확도 저하</code></pre>
+              <hr />
+              <h4>개념도</h4>
+              <pre><code class="language-mermaid">flowchart TD
+              
+                  D[&quot;데이터 수 적음&quot;]
+              
+                  H[&quot;고차원 Vector&quot;]
+              
+                  S[&quot;Sparse Space&quot;]
+              
+                  P[&quot;검색 품질 저하&quot;]
+              
+                  D --&gt; S
+                  H --&gt; S
+                  S --&gt; P</code></pre>
+              <hr />
+              <h3>4. Keyword Search vs Vector Search</h3>
+              <p>강사 의견</p>
+              <pre><code class="language-text">어느 것이 더 좋은가?
+              → 케이스 바이 케이스</code></pre>
+              <hr />
+              <h4>Keyword Search</h4>
+              <p>유리한 경우</p>
+              <ul><li>모델명</li><li>부품번호</li><li>도면번호</li><li>규격값</li></ul>
+              <p>예)</p>
+              <pre><code class="language-text">HX1300L-2C
+              SM-BTN-003
+              0.8 N·m</code></pre>
+              <hr />
+              <h4>Vector Search</h4>
+              <p>유리한 경우</p>
+              <ul><li>동의어</li><li>자연어</li><li>의미 기반 검색</li></ul>
+              <p>예)</p>
+              <pre><code class="language-text">체결 ↔ 조임
+              고정 ↔ 장착</code></pre>
+              <hr />
+              <h4>비교</h4>
+              <pre><code class="language-mermaid">flowchart LR
+              
+                  Q[&quot;Query&quot;]
+              
+                  K[&quot;Keyword Search&quot;]
+              
+                  V[&quot;Vector Search&quot;]
+              
+                  Q --&gt; K
+                  Q --&gt; V</code></pre>
+              <hr />
+              <h3>5. Vector Search의 한계</h3>
+              <p>초기 AI 업계</p>
+              <pre><code class="language-text">Vector Search가 모든 것을 해결한다</code></pre>
+              <hr />
+              <p>실제 서비스 운영</p>
+              <p>↓</p>
+              <p>Edge Case 발견</p>
+              <hr />
+              <p>예시</p>
+              <h5>모델명 검색</h5>
+              <pre><code class="language-text">HX1300L-2C</code></pre>
+              <p>검색</p>
+              <p>Vector Search 결과</p>
+              <pre><code class="language-text">HX1300L
+              HX1400L
+              TG310</code></pre>
+              <p>등이 섞일 수 있음</p>
+              <hr />
+              <h5>부품번호 검색</h5>
+              <pre><code class="language-text">SM-BTN-003</code></pre>
+              <p>검색</p>
+              <p>Vector Search 결과</p>
+              <pre><code class="language-text">SM-BTN-002
+              SM-BTN-004</code></pre>
+              <p>도 유사하다고 판단 가능</p>
+              <hr />
+              <h3>6. Hybrid Search</h3>
+              <p>현재 업계의 주류 방식</p>
+              <pre><code class="language-text">Keyword Search
+              +
+              Vector Search</code></pre>
+              <hr />
+              <h4>구조</h4>
+              <pre><code class="language-mermaid">flowchart LR
+              
+                  Q[&quot;User Query&quot;]
+              
+                  K[&quot;Keyword Search&quot;]
+              
+                  V[&quot;Vector Search&quot;]
+              
+                  M[&quot;Merge&quot;]
+              
+                  Q --&gt; K
+                  Q --&gt; V
+              
+                  K --&gt; M
+                  V --&gt; M</code></pre>
+              <hr />
+              <p>장점</p>
+              <h5>Keyword</h5>
+              <ul><li>정확한 일치</li></ul>
+              <h5>Vector</h5>
+              <ul><li>의미 검색</li></ul>
+              <hr />
+              <p>둘을 동시에 활용</p>
+              <hr />
+              <h3>7. Merge만으로는 부족</h3>
+              <p>문제</p>
+              <pre><code class="language-text">결과 수만 증가</code></pre>
+              <hr />
+              <p>예)</p>
+              <p>Keyword Top 10</p>
+              <p>+</p>
+              <p>Vector Top 10</p>
+              <p>↓</p>
+              <p>20개 결과</p>
+              <p>↓</p>
+              <p>관련 없는 문서 증가</p>
+              <hr />
+              <h3>8. Reranker</h3>
+              <p>해결 방법</p>
+              <pre><code class="language-text">Query
+              +
+              Merge 결과</code></pre>
+              <p>를 다시 AI가 평가</p>
+              <hr />
+              <h4>구조</h4>
+              <pre><code class="language-mermaid">flowchart LR
+              
+                  Q[&quot;Query&quot;]
+              
+                  K[&quot;Keyword Search&quot;]
+              
+                  V[&quot;Vector Search&quot;]
+              
+                  M[&quot;Merge&quot;]
+              
+                  RR[&quot;Reranker&quot;]
+              
+                  Q --&gt; K
+                  Q --&gt; V
+              
+                  K --&gt; M
+                  V --&gt; M
+              
+                  M --&gt; RR
+                  Q --&gt; RR</code></pre>
+              <hr />
+              <p>역할</p>
+              <pre><code class="language-text">후보 문서를 다시 평가</code></pre>
+              <p>↓</p>
+              <pre><code class="language-text">순위 재조정</code></pre>
+              <p>↓</p>
+              <pre><code class="language-text">최적 결과 선택</code></pre>
+              <hr />
+              <h3>9. Reranking 비용</h3>
+              <p>Reranker도 비용이 발생한다.</p>
+              <p>이유</p>
+              <pre><code class="language-text">Query
+              +
+              후보 Chunk</code></pre>
+              <p>를 다시 모델이 읽어야 하기 때문</p>
+              <hr />
+              <p>실무</p>
+              <pre><code class="language-text">Keyword Search
+              +
+              Vector Search
+              +
+              Reranker</code></pre>
+              <p>구조를 사용</p>
+              <hr />
+              <h3>10. Vector DB의 변화</h3>
+              <p>초기</p>
+              <pre><code class="language-text">PostgreSQL
+              +
+              Vector DB</code></pre>
+              <hr />
+              <p>최근</p>
+              <pre><code class="language-text">PostgreSQL
+              Oracle
+              SQL Server</code></pre>
+              <p>자체적으로 Vector 지원</p>
+              <hr />
+              <h4>진화</h4>
+              <pre><code class="language-mermaid">flowchart LR
+              
+                  OLD[&quot;업무 DB&quot;]
+              
+                  VDB[&quot;Vector DB&quot;]
+              
+                  NEW[&quot;통합 DB&quot;]
+              
+                  OLD --&gt; VDB
+              
+                  OLD -.진화.-&gt; NEW</code></pre>
+              <hr />
+              <p>예)</p>
+              <h5>PostgreSQL</h5>
+              <pre><code class="language-text">pgvector</code></pre>
+              <hr />
+              <h5>Oracle</h5>
+              <pre><code class="language-text">VECTOR 타입</code></pre>
+              <p>지원</p>
+              <hr />
+              <h3>11. Azure AI Search의 미래 방향</h3>
+              <p>현재 검색 구조</p>
+              <pre><code class="language-mermaid">flowchart LR
+              
+                  USER[&quot;User&quot;]
+              
+                  QUERY[&quot;Query&quot;]
+              
+                  K[&quot;Keyword&quot;]
+              
+                  V[&quot;Vector&quot;]
+              
+                  RR[&quot;Reranker&quot;]
+              
+                  GPT[&quot;LLM&quot;]
+              
+                  USER --&gt; QUERY
+              
+                  QUERY --&gt; K
+                  QUERY --&gt; V
+              
+                  K --&gt; RR
+                  V --&gt; RR
+              
+                  RR --&gt; GPT</code></pre>
+              <hr />
+              <h3>12. Azure AI Service 생성</h3>
+              <p>생성한 리소스</p>
+              <pre><code class="language-text">Microsoft.CognitiveServicesAllInOne-20260618164013</code></pre>
+              <hr />
+              <p>생성 Region</p>
+              <pre><code class="language-text">Central US</code></pre>
+              <hr />
+              <p>이유</p>
+              <p>기존 AI Search와 동일 Region</p>
+              <hr />
+              <p>장점</p>
+              <ul><li>트래픽 비용 절감</li><li>지연시간 감소</li><li>연동 용이</li></ul>
+              <hr />
+              <h4>Region 설계</h4>
+              <pre><code class="language-mermaid">flowchart LR
+              
+                  STORAGE[&quot;Storage&quot;]
+              
+                  SEARCH[&quot;AI Search&quot;]
+              
+                  AISVC[&quot;AI Service&quot;]
+              
+                  STORAGE --&gt; SEARCH
+                  AISVC --&gt; SEARCH</code></pre>
+              <hr />
+              <h3>13. Cognitive Services의 역사</h3>
+              <p>예전 명칭</p>
+              <pre><code class="language-text">Cognitive Services</code></pre>
+              <hr />
+              <p>현재 명칭</p>
+              <pre><code class="language-text">Azure AI Services</code></pre>
+              <hr />
+              <p>그러나 내부 리소스 이름은 여전히</p>
+              <pre><code class="language-text">Microsoft.CognitiveServices</code></pre>
+              <p>를 사용</p>
+              <hr />
+              <h4>역사</h4>
+              <pre><code class="language-mermaid">flowchart LR
+              
+                  COG[&quot;Cognitive Services&quot;]
+              
+                  AZAI[&quot;Azure AI Services&quot;]
+              
+                  FOUNDRY[&quot;Microsoft AI Foundry&quot;]
+              
+                  COG --&gt; AZAI
+                  AZAI --&gt; FOUNDRY</code></pre>
+              <hr />
+              <h3>14. Microsoft AI Foundry</h3>
+              <p>흥미로운 점</p>
+              <pre><code class="language-text">Azure AI Foundry</code></pre>
+              <p>가 아니라</p>
+              <pre><code class="language-text">Microsoft AI Foundry</code></pre>
+              <p>라는 명칭 사용</p>
+              <hr />
+              <p>의미</p>
+              <p>AI 플랫폼을</p>
+              <p>Azure 제품이 아니라</p>
+              <p>Microsoft 전체 플랫폼으로 확장하려는 전략</p>
+              <hr />
+              <h4>브랜딩 변화</h4>
+              <pre><code class="language-mermaid">flowchart LR
+              
+                  ML[&quot;Azure ML Studio&quot;]
+              
+                  AI[&quot;Azure AI Studio&quot;]
+              
+                  F[&quot;Microsoft AI Foundry&quot;]
+              
+                  ML --&gt; AI
+                  AI --&gt; F</code></pre>
+              <hr />
+              <h3>15. Azure AI Service 내부 기능</h3>
+              <p>생성한 서비스 내부에서 확인</p>
+              <ul><li>결정(Decision)</li><li>언어(Language)</li><li>음성(Speech)</li><li>비전(Vision)</li><li>문서 인텔리전스(Document Intelligence)</li><li>Metrics Advisor</li><li>컨테이너(Container)</li></ul>
+              <hr />
+              <h4>구성도</h4>
+              <pre><code class="language-mermaid">flowchart TB
+              
+                  AI[&quot;Azure AI Service&quot;]
+              
+                  DEC[&quot;결정&quot;]
+              
+                  LANG[&quot;언어&quot;]
+              
+                  SPEECH[&quot;음성&quot;]
+              
+                  VIS[&quot;비전&quot;]
+              
+                  DOC[&quot;문서 인텔리전스&quot;]
+              
+                  MET[&quot;Metrics Advisor&quot;]
+              
+                  CONT[&quot;컨테이너&quot;]
+              
+                  AI --&gt; DEC
+                  AI --&gt; LANG
+                  AI --&gt; SPEECH
+                  AI --&gt; VIS
+                  AI --&gt; DOC
+                  AI --&gt; MET
+                  AI --&gt; CONT</code></pre>
+              <hr />
+              <h3>16. 강사 평가</h3>
+              <h4>Speech</h4>
+              <pre><code class="language-text">아직 아쉬움</code></pre>
+              <p>이유</p>
+              <ul><li>잡음</li><li>전문용어</li><li>현장 환경</li></ul>
+              <p>등에서 한계 존재</p>
+              <hr />
+              <h4>Vision</h4>
+              <pre><code class="language-text">상당히 실용적</code></pre>
+              <p>활용 예</p>
+              <ul><li>OCR</li><li>이미지 분석</li><li>객체 탐지</li><li>문서 분석</li></ul>
+              <hr />
+              <p>인터루얼 관점</p>
+              <pre><code class="language-text">작업 사진
+              불량 사진
+              스캔 문서</code></pre>
+              <p>등에 활용 가능</p>
+              <hr />
+              <h3>오늘의 핵심</h3>
+              <pre><code class="language-mermaid">flowchart LR
+              
+                  QUERY[&quot;사용자 질문&quot;]
+              
+                  KEYWORD[&quot;Keyword Search&quot;]
+              
+                  VECTOR[&quot;Vector Search&quot;]
+              
+                  MERGE[&quot;Merge&quot;]
+              
+                  RERANK[&quot;Reranker&quot;]
+              
+                  LLM[&quot;LLM&quot;]
+              
+                  ANSWER[&quot;최종 답변&quot;]
+              
+                  QUERY --&gt; KEYWORD
+                  QUERY --&gt; VECTOR
+              
+                  KEYWORD --&gt; MERGE
+                  VECTOR --&gt; MERGE
+              
+                  MERGE --&gt; RERANK
+              
+                  RERANK --&gt; LLM
+              
+                  LLM --&gt; ANSWER</code></pre>
+              <p>초기에는 Vector Search가 미래로 여겨졌지만,</p>
+              <p>현재 업계는</p>
+              <p>**Keyword Search + Vector Search + Reranker**</p>
+              <p>를 결합한 Hybrid Search 구조를 주류로 사용하고 있다.</p>
+              <p>또한 Oracle, PostgreSQL, SQL Server 등 기존 DB도 Vector 기능을 내장하기 시작했으며, Azure는 Microsoft AI Foundry를 중심으로 AI 플랫폼을 통합하는 방향으로 발전하고 있다.</p>
             </div>
           </article>
         </div>

@@ -15,7 +15,7 @@ https://git-interual.github.io/agent_course_2606/
 |------|------|------|------|
 | Day 1 | 2026-06-16 | [Day1/](Day1/README.md) | 완료 |
 | Day 2 | 2026-06-17 | [Day2/](Day2/README.md) | 완료 |
-| Day 3 | 2026-06-18 | [Day3/](Day3/README.md) | 진행 중 |
+| Day 3 | 2026-06-18 | [Day3/](Day3/README.md) | 완료 |
 
 ---
 
@@ -25,7 +25,7 @@ https://git-interual.github.io/agent_course_2606/
 |------|------|-----------|
 | Day 1 | [Day1/index.html](Day1/index.html) | Transformer, Token, Prompt Engineering, Azure OpenAI, Chatbot |
 | Day 2 | [Day2/index.html](Day2/index.html) | Microsoft Agent Framework, Session, Memory, Tool Calling, RAG, Real Function Calling |
-| Day 3 | [Day3/index.html](Day3/index.html) | OpenClaw, Discord, FastAPI, App Service, Azure AI Search, Embedding, Vector Search |
+| Day 3 | [Day3/index.html](Day3/index.html) | OpenClaw, FastAPI, App Service, Azure AI Search, Embedding, Vector Search, Azure AI Service |
 
 ---
 
@@ -57,3 +57,4 @@ https://git-interual.github.io/agent_course_2606/
 - [Hour1130.md](Day3/Hour1130.md): Azure App Service 배포
 - [Hour1330.md](Day3/Hour1330.md): Azure AI Search, Indexer, Vector Search
 - [Hour1430.md](Day3/Hour1430.md): Azure AI Search, Chunking, Embedding, Vector Search
+- [Hour1600.md](Day3/Hour1600.md): Azure AI Search 심화 및 Azure AI Service
