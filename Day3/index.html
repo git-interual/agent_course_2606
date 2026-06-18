@@ -1464,6 +1464,12 @@
               <ul><li>객체(Object) 저장소</li><li>PDF, 이미지, 영상 등의 파일 저장</li><li>Container 단위로 관리</li><li>Container 하나를 디스크처럼 생각해도 무방</li></ul>
               <h6>File Share</h6>
               <ul><li>SMB 3.0 지원</li><li>NAS(Network Attached Storage)와 유사</li><li>네트워크 드라이브처럼 사용 가능</li></ul>
+              <h6>Azure Data Box</h6>
+              <p>대용량 데이터(수십~수백 TB)를 물리 장비로 Azure에 이전하는 방식이다.</p>
+              <pre><code class="language-mermaid">flowchart LR
+                  A[&quot;회사 데이터센터&quot;] --&gt;|데이터 복사| B[&quot;Azure Data Box&quot;]
+                  B --&gt;|택배 발송| C[&quot;Microsoft 데이터센터&quot;]
+                  C --&gt; D[&quot;Azure Storage&quot;]</code></pre>
               <hr />
               <h5>2. PDF 업로드</h5>
               <p>실습용 Container</p>
@@ -1486,6 +1492,10 @@
               <ul><li>원본 데이터 확인</li><li>문서 변경사항 감지</li><li>Index 자동 갱신</li></ul>
               <p>Index:</p>
               <ul><li>검색을 위한 저장 구조</li></ul>
+              <pre><code class="language-mermaid">flowchart LR
+                  DS[&quot;Data Source&lt;br/&gt;(PDF, DB, Files)&quot;] --&gt; IDXER[&quot;Indexer&quot;]
+                  IDXER --&gt; IDX[&quot;Index&quot;]
+                  USER[&quot;User&quot;] --&gt; IDX</code></pre>
               <hr />
               <h5>4. 정형 데이터와 비정형 데이터</h5>
               <p>정형 데이터</p>
@@ -1505,6 +1515,10 @@
               → Embedding
               → Vector
               → 검색</code></pre>
+              <pre><code class="language-mermaid">flowchart LR
+                  PDF[&quot;PDF 문서&quot;] --&gt; CHUNK[&quot;Chunking&quot;]
+                  CHUNK --&gt; EMB[&quot;Embedding Model&quot;]
+                  EMB --&gt; VECTOR[&quot;Vector Store&quot;]</code></pre>
               <hr />
               <h5>6. Chunk 와 Chunking</h5>
               <h6>Chunk</h6>
@@ -1515,6 +1529,16 @@
               Chunk #3</code></pre>
               <h6>Chunking</h6>
               <p>문서를 여러 Chunk로 분할하는 과정</p>
+              <pre><code class="language-mermaid">flowchart LR
+                  PDF[&quot;PDF&quot;] --&gt; C1[&quot;Chunk 1&quot;]
+                  PDF --&gt; C2[&quot;Chunk 2&quot;]
+                  PDF --&gt; C3[&quot;Chunk 3&quot;]
+                  C1 --&gt; EMB[&quot;Embedding Model&quot;]
+                  C2 --&gt; EMB
+                  C3 --&gt; EMB
+                  EMB --&gt; V1[&quot;Vector&quot;]
+                  EMB --&gt; V2[&quot;Vector&quot;]
+                  EMB --&gt; V3[&quot;Vector&quot;]</code></pre>
               <hr />
               <h5>7. Chunk 크기</h5>
               <p>강사 경험상</p>
@@ -1546,6 +1570,18 @@
               <p>유사도 계산</p>
               <p>↓</p>
               <p>관련 문서 검색</p>
+              <h6>문서 등록 과정</h6>
+              <pre><code class="language-mermaid">flowchart LR
+                  PDF[&quot;PDF 문서&quot;] --&gt; CHUNK[&quot;Chunking&lt;br/&gt;1024 Tokens&quot;]
+                  CHUNK --&gt; EMB[&quot;text-embedding-3-small&quot;]
+                  EMB --&gt; VECTOR[&quot;1536차원 Vector&quot;]
+                  VECTOR --&gt; INDEX[&quot;Azure AI Search Index&quot;]</code></pre>
+              <h6>검색(Query) 과정</h6>
+              <pre><code class="language-mermaid">flowchart LR
+                  USER[&quot;사용자 질문&quot;] --&gt; EMB[&quot;text-embedding-3-small&quot;]
+                  EMB --&gt; QUERYV[&quot;Query Vector&quot;]
+                  QUERYV --&gt; VECTOR[&quot;Vector Store&quot;]
+                  VECTOR --&gt; RESULT[&quot;관련 Chunk&quot;]</code></pre>
               <hr />
               <h5>10. Embedding Model은 운영 중에도 필요</h5>
               <p>많은 사람들이 오해하는 부분</p>
@@ -1559,6 +1595,11 @@
               질문
               → Embedding
               → Query Vector 생성</code></pre>
+              <pre><code class="language-mermaid">flowchart LR
+                  PDF[&quot;문서&quot;] --&gt; EMB[&quot;Embedding Model&quot;]
+                  EMB --&gt; VS[&quot;Vector Store&quot;]
+                  QUERY[&quot;사용자 질문&quot;] --&gt; EMB</code></pre>
+              <ul><li>문서 등록 시 사용</li><li>사용자 검색 시 사용</li><li>운영 중에도 계속 필요</li></ul>
               <hr />
               <h5>11. Vector DB (Vector Store)</h5>
               <p>Vector를 저장하는 저장소</p>
@@ -1571,6 +1612,11 @@
               <p>Azure AI Search는</p>
               <ul><li>Keyword Index</li><li>Vector Store</li></ul>
               <p>기능을 함께 제공한다.</p>
+              <pre><code class="language-mermaid">flowchart LR
+                  PDF[&quot;PDF&quot;] --&gt; CHUNK[&quot;Chunk&quot;]
+                  CHUNK --&gt; EMB[&quot;Embedding&quot;]
+                  EMB --&gt; VECTOR[&quot;Vector&quot;]
+                  VECTOR --&gt; STORE[&quot;Vector Store&quot;]</code></pre>
               <hr />
               <h5>12. 이미지 벡터화(Image Vectorization)</h5>
               <p>선택 가능 옵션</p>
@@ -1582,6 +1628,10 @@
               <p>예)</p>
               <ul><li>비행기</li><li>개</li><li>밤</li><li>판교</li></ul>
               <p>등으로 검색 가능</p>
+              <pre><code class="language-mermaid">flowchart LR
+                  IMG[&quot;이미지&quot;] --&gt; EMB[&quot;Image Embedding Model&quot;]
+                  EMB --&gt; VS[&quot;Vector Store&quot;]
+                  QUERY[&quot;검색어&quot;] --&gt; EMB</code></pre>
               <hr />
               <h5>13. AI 기반 데이터 보강</h5>
               <p>선택 가능 옵션</p>
@@ -1624,6 +1674,9 @@
               <p>배포</p>
               <p>↓</p>
               <p>Azure AI Search와 연결</p>
+              <pre><code class="language-mermaid">flowchart LR
+                  PDF[&quot;Tesla + 대동 매뉴얼&quot;] --&gt; SEARCH[&quot;Azure AI Search&quot;]
+                  OPENAI[&quot;Azure OpenAI&quot;] --&gt; SEARCH</code></pre>
               <hr />
               <h5>16. 텍스트 벡터화 설정</h5>
               <p>Azure OpenAI Service</p>
@@ -1682,6 +1735,18 @@
               <p>생성 여부를 먼저 확인하는 것이 좋다.</p>
               <hr />
               <h4>오늘의 핵심</h4>
+              <h5>최종 Vector Search 구조</h5>
+              <pre><code class="language-mermaid">flowchart LR
+                  PDF[&quot;PDF&quot;] --&gt; CHUNK[&quot;Chunking&lt;br/&gt;1024 Tokens&quot;]
+                  CHUNK --&gt; EMB[&quot;text-embedding-3-small&lt;br/&gt;1536 Dimensions&quot;]
+                  EMB --&gt; VECTOR[&quot;Vector Store&quot;]</code></pre>
+              <h5>Azure AI Search 전체 RAG 파이프라인</h5>
+              <pre><code class="language-mermaid">flowchart LR
+                  PDF[&quot;PDF 문서&quot;] --&gt; CHUNK[&quot;Chunking&quot;]
+                  CHUNK --&gt; EMB[&quot;text-embedding-3-small&quot;]
+                  EMB --&gt; VECTOR[&quot;Vector Index&quot;]
+                  QUERY[&quot;사용자 질문&quot;] --&gt; EMB</code></pre>
+              <ul><li>PDF와 질문 모두 동일한 Embedding 모델을 사용한다.</li><li>Vector Search를 수행하는 RAG의 핵심 구조다.</li></ul>
               <pre><code class="language-text">PDF
               ↓
               Chunking
