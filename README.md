@@ -25,7 +25,7 @@ https://git-interual.github.io/agent_course_2606/
 |------|------|-----------|
 | Day 1 | [Day1/index.html](Day1/index.html) | Transformer, Token, Prompt Engineering, Azure OpenAI, Chatbot |
 | Day 2 | [Day2/index.html](Day2/index.html) | Microsoft Agent Framework, Session, Memory, Tool Calling, RAG, Real Function Calling |
-| Day 3 | [Day3/index.html](Day3/index.html) | OpenClaw, Discord, Vibe Coding, FastAPI, Azure App Service, Azure AI Search |
+| Day 3 | [Day3/index.html](Day3/index.html) | OpenClaw, Discord, FastAPI, App Service, Azure AI Search, Embedding, Vector Search |
 
 ---
 
@@ -56,3 +56,4 @@ https://git-interual.github.io/agent_course_2606/
 - [Hour1030.md](Day3/Hour1030.md): Vibe Coding, AI 디버깅, Azure Web App
 - [Hour1130.md](Day3/Hour1130.md): Azure App Service 배포
 - [Hour1330.md](Day3/Hour1330.md): Azure AI Search, Indexer, Vector Search
+- [Hour1430.md](Day3/Hour1430.md): Azure AI Search, Chunking, Embedding, Vector Search

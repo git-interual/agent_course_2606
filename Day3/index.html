@@ -18,6 +18,7 @@
           <a href="#hour1030">10:30</a>
           <a href="#hour1130">11:30</a>
           <a href="#hour1330">13:30</a>
+          <a href="#hour1430">14:30</a>
           <a href="#full-notes">전체 노트</a>
           <a href="../index.html">과정 홈</a>
         </nav>
@@ -39,13 +40,14 @@
             <a class="button-link" href="Hour1030.md">10:30 Markdown</a>
             <a class="button-link" href="Hour1130.md">11:30 Markdown</a>
             <a class="button-link" href="Hour1330.md">13:30 Markdown</a>
+            <a class="button-link" href="Hour1430.md">14:30 Markdown</a>
           </div>
         </div>
 
         <aside class="hero-panel" aria-labelledby="flow-title">
           <div class="panel-title">
             <span id="flow-title">Day 3 실습 흐름</span>
-            <span class="status-chip pending">4교시 진행</span>
+            <span class="status-chip pending">5교시 진행</span>
           </div>
           <div class="system-map">
             <div class="map-node"><strong>Connect</strong><span>OpenClaw와 Discord 연동</span></div>
@@ -62,7 +64,7 @@
             <p class="section-kicker">Timeline</p>
             <h2 id="timeline-title">시간대별 흐름</h2>
           </div>
-          <p class="section-note">연결, 개발, 배포, 검색 계층 구성으로 이어지는 네 교시의 실습 기록입니다.</p>
+          <p class="section-note">연결, 개발, 배포, 검색과 Embedding으로 이어지는 다섯 교시의 실습 기록입니다.</p>
         </div>
         <div class="timeline">
           <article class="timeline-item" id="hour0930">
@@ -96,6 +98,14 @@
               <p>Data Source, Indexer, Index 구조와 Keyword 및 Vector Search를 학습합니다.</p>
             </div>
             <a href="Hour1330.md">원본</a>
+          </article>
+          <article class="timeline-item" id="hour1430">
+            <div class="timeline-time">14:30</div>
+            <div>
+              <h3>Vector Search와 Embedding</h3>
+              <p>Blob 문서를 Chunk로 나누고 Embedding Vector를 생성해 의미 기반 검색을 구성합니다.</p>
+            </div>
+            <a href="Hour1430.md">원본</a>
           </article>
         </div>
       </section>
@@ -140,6 +150,7 @@
             <span>FastAPI</span>
             <span>App Service</span>
             <span>AI Search</span>
+            <span>Embedding</span>
           </div>
         </div>
       </section>
@@ -164,7 +175,7 @@
               <h4>HTML 노트</h4>
               <ul><li><a href="index.html">Day 3 통합 HTML</a></li></ul>
               <h4>강의 노트</h4>
-              <ul><li><a href="Hour0930.md">Hour0930.md</a>: OpenClaw과 Discord 연동</li><li><a href="Hour0930_ToolCalling.md">Hour0930_ToolCalling.md</a>: Discord, OpenClaw, LLM, Tool 실행 Sequence</li><li><a href="Hour1030.md">Hour1030.md</a>: Vibe Coding, AI 디버깅, Azure Web App</li><li><a href="Hour1130.md">Hour1130.md</a>: Azure App Service 배포</li><li><a href="Hour1330.md">Hour1330.md</a>: Azure AI Search, Indexer, Vector Search</li></ul>
+              <ul><li><a href="Hour0930.md">Hour0930.md</a>: OpenClaw과 Discord 연동</li><li><a href="Hour0930_ToolCalling.md">Hour0930_ToolCalling.md</a>: Discord, OpenClaw, LLM, Tool 실행 Sequence</li><li><a href="Hour1030.md">Hour1030.md</a>: Vibe Coding, AI 디버깅, Azure Web App</li><li><a href="Hour1130.md">Hour1130.md</a>: Azure App Service 배포</li><li><a href="Hour1330.md">Hour1330.md</a>: Azure AI Search, Indexer, Vector Search</li><li><a href="Hour1430.md">Hour1430.md</a>: Azure AI Search, Chunking, Embedding, Vector Search</li></ul>
               <h4>과정 홈</h4>
               <ul><li><a href="../README.md">루트 README</a></li><li><a href="../index.html">루트 HTML</a></li></ul>
             </div>
@@ -1437,6 +1448,254 @@
               <ul><li>Azure App Service</li><li>Azure AI Search</li><li>Blob Storage</li><li>Index</li><li>Indexer</li><li>Vector Search</li><li>RAG 아키텍처</li></ul>
               <p>LLM은 모든 것을 기억하는 시스템이 아니라,</p>
               <p>검색 엔진(Azure AI Search)을 활용하여 필요한 정보를 찾아 답변하는 구조로 발전하고 있음을 확인하였다.</p>
+            </div>
+          </article>
+          <article class="source-panel markdown-source" id="full-day3-hour1430-md">
+            <div class="markdown-source-header">
+              <h3>Hour1430.md</h3>
+              <a href="Hour1430.md">원본 Markdown</a>
+            </div>
+            <div class="markdown-content">
+              <h3>Agentic AI 과정 - 5교시 정리</h3>
+              <h4>Azure AI Search + Vector Search + Embedding</h4>
+              <h5>1. Azure Storage 복습</h5>
+              <p>Azure Storage Account 내부에는 여러 종류의 저장소가 존재한다.</p>
+              <h6>Blob Storage</h6>
+              <ul><li>객체(Object) 저장소</li><li>PDF, 이미지, 영상 등의 파일 저장</li><li>Container 단위로 관리</li><li>Container 하나를 디스크처럼 생각해도 무방</li></ul>
+              <h6>File Share</h6>
+              <ul><li>SMB 3.0 지원</li><li>NAS(Network Attached Storage)와 유사</li><li>네트워크 드라이브처럼 사용 가능</li></ul>
+              <hr />
+              <h5>2. PDF 업로드</h5>
+              <p>실습용 Container</p>
+              <pre><code class="language-text">pdf-data</code></pre>
+              <p>업로드 문서</p>
+              <ul><li>Tesla Model Y User Manual</li><li>대동 트랙터 매뉴얼 3종</li></ul>
+              <p>이후 Azure AI Search에서 Storage Account를 Data Source로 연결하였다.</p>
+              <hr />
+              <h5>3. Azure AI Search 데이터 처리 흐름</h5>
+              <pre><code class="language-text">원본 데이터(Data Source)
+                      ↓
+                   Indexer
+                      ↓
+                    Index
+                      ↓
+                   검색(Query)</code></pre>
+              <p>Data Source:</p>
+              <ul><li>Blob Storage</li><li>Database</li><li>기타 정형/비정형 데이터</li></ul>
+              <p>Indexer:</p>
+              <ul><li>원본 데이터 확인</li><li>문서 변경사항 감지</li><li>Index 자동 갱신</li></ul>
+              <p>Index:</p>
+              <ul><li>검색을 위한 저장 구조</li></ul>
+              <hr />
+              <h5>4. 정형 데이터와 비정형 데이터</h5>
+              <p>정형 데이터</p>
+              <ul><li>SQL Database</li><li>테이블</li><li>CSV</li></ul>
+              <p>예)</p>
+              <pre><code class="language-text">사번 | 이름 | 부서</code></pre>
+              <p>비정형 데이터</p>
+              <ul><li>PDF</li><li>Word</li><li>Excel</li><li>이미지</li><li>동영상</li></ul>
+              <p>Azure AI Search는 정형/비정형 데이터를 모두 인덱싱할 수 있다.</p>
+              <hr />
+              <h5>5. Vector Search 개념</h5>
+              <p>기존 검색</p>
+              <pre><code class="language-text">키워드
+              → 검색</code></pre>
+              <p>Vector Search</p>
+              <pre><code class="language-text">문서
+              → Embedding
+              → Vector
+              → 검색</code></pre>
+              <hr />
+              <h5>6. Chunk 와 Chunking</h5>
+              <h6>Chunk</h6>
+              <p>문서를 잘라서 만든 조각</p>
+              <p>예)</p>
+              <pre><code class="language-text">Chunk #1
+              Chunk #2
+              Chunk #3</code></pre>
+              <h6>Chunking</h6>
+              <p>문서를 여러 Chunk로 분할하는 과정</p>
+              <hr />
+              <h5>7. Chunk 크기</h5>
+              <p>강사 경험상</p>
+              <pre><code class="language-text">1024 토큰</code></pre>
+              <p>정도가 적절</p>
+              <p>장점</p>
+              <ul><li>충분한 문맥 유지</li><li>답변 품질 향상</li></ul>
+              <p>단점</p>
+              <ul><li>비용 증가</li><li>검색 결과 크기 증가</li></ul>
+              <hr />
+              <h5>8. Embedding Model</h5>
+              <p>사용 모델</p>
+              <pre><code class="language-text">text-embedding-3-small</code></pre>
+              <p>특징</p>
+              <ul><li>1536차원 벡터 생성</li><li>Vector Search용 모델</li><li>비용 효율적</li><li>일반적인 RAG 구축에 적합</li></ul>
+              <hr />
+              <h5>9. Embedding의 역할</h5>
+              <p>문서</p>
+              <pre><code class="language-text">&quot;타이어 공기압 확인 방법&quot;</code></pre>
+              <p>↓</p>
+              <pre><code class="language-text">[0.123, -0.552, ...]</code></pre>
+              <p>(1536차원 Vector)</p>
+              <hr />
+              <p>사용자 질문</p>
+              <pre><code class="language-text">&quot;타이어 압력 확인&quot;</code></pre>
+              <p>↓</p>
+              <p>동일한 방식으로 Vector 생성</p>
+              <p>↓</p>
+              <p>유사도 계산</p>
+              <p>↓</p>
+              <p>관련 문서 검색</p>
+              <hr />
+              <h5>10. Embedding Model은 운영 중에도 필요</h5>
+              <p>많은 사람들이 오해하는 부분</p>
+              <p>Embedding Model은</p>
+              <ul><li>문서 등록 시</li><li>사용자 검색 시</li></ul>
+              <p>모두 사용된다.</p>
+              <pre><code class="language-text">문서
+              → Embedding
+              → Vector 저장
+              
+              질문
+              → Embedding
+              → Query Vector 생성</code></pre>
+              <hr />
+              <h5>11. Vector DB (Vector Store)</h5>
+              <p>Vector를 저장하는 저장소</p>
+              <p>구조</p>
+              <pre><code class="language-text">PDF
+              → Chunk
+              → Embedding
+              → Vector
+              → Vector Store</code></pre>
+              <p>Azure AI Search는</p>
+              <ul><li>Keyword Index</li><li>Vector Store</li></ul>
+              <p>기능을 함께 제공한다.</p>
+              <hr />
+              <h5>12. 이미지 벡터화(Image Vectorization)</h5>
+              <p>선택 가능 옵션</p>
+              <p>역할</p>
+              <pre><code class="language-text">이미지
+              → Embedding
+              → Vector</code></pre>
+              <p>Google Photos와 유사</p>
+              <p>예)</p>
+              <ul><li>비행기</li><li>개</li><li>밤</li><li>판교</li></ul>
+              <p>등으로 검색 가능</p>
+              <hr />
+              <h5>13. AI 기반 데이터 보강</h5>
+              <p>선택 가능 옵션</p>
+              <p>역할</p>
+              <pre><code class="language-text">이미지 OCR</code></pre>
+              <p>예)</p>
+              <ul><li>스캔 PDF</li><li>표 이미지</li><li>캡처 이미지</li></ul>
+              <p>↓</p>
+              <p>텍스트 추출</p>
+              <p>↓</p>
+              <p>검색 가능</p>
+              <p>이번 실습에서는 사용하지 않음.</p>
+              <p>이유</p>
+              <ul><li>비용 때문은 아님</li><li>PDF 자체에 텍스트가 포함되어 있음</li></ul>
+              <hr />
+              <h5>14. Google Photos 사례</h5>
+              <p>Google Photos는 사진을 업로드하면</p>
+              <pre><code class="language-text">사진
+              → AI 분석
+              → Vector 저장</code></pre>
+              <p>을 수행한다.</p>
+              <p>흥미로운 사례</p>
+              <pre><code class="language-text">&quot;뉴욕&quot;</code></pre>
+              <p>검색 시</p>
+              <pre><code class="language-text">오다이바 야경</code></pre>
+              <p>이 검색될 수 있음</p>
+              <p>이유</p>
+              <ul><li>도시 야경</li><li>스카이라인</li><li>수변 풍경</li></ul>
+              <p>등의 특징이 유사하기 때문</p>
+              <p>Vector Search는 정확한 일치보다 의미적 유사성을 검색한다.</p>
+              <hr />
+              <h5>15. Azure OpenAI 연결</h5>
+              <p>Azure OpenAI 리소스</p>
+              <pre><code class="language-text">labuser9-openai-interual</code></pre>
+              <p>Microsoft AI Foundry 진입</p>
+              <p>↓</p>
+              <p>Model Catalog</p>
+              <p>↓</p>
+              <pre><code class="language-text">text-embedding-3-small</code></pre>
+              <p>배포</p>
+              <p>↓</p>
+              <p>Azure AI Search와 연결</p>
+              <hr />
+              <h5>16. 텍스트 벡터화 설정</h5>
+              <p>Azure OpenAI Service</p>
+              <pre><code class="language-text">labuser9-openai-interual</code></pre>
+              <p>Embedding Model</p>
+              <pre><code class="language-text">text-embedding-3-small</code></pre>
+              <p>인증 방식</p>
+              <pre><code class="language-text">API Key</code></pre>
+              <p>선택</p>
+              <p>실습 환경에서 가장 간단한 방식</p>
+              <hr />
+              <h5>17. Parsing Mode</h5>
+              <p>PDF 처리 방식</p>
+              <p>설정</p>
+              <pre><code class="language-text">기본값(Default)</code></pre>
+              <p>Tesla 및 대동 매뉴얼은 일반 PDF이므로 기본값 사용</p>
+              <hr />
+              <h5>18. Indexer Schedule</h5>
+              <p>설정</p>
+              <pre><code class="language-text">한 번(Once)</code></pre>
+              <p>선택</p>
+              <p>이유</p>
+              <ul><li>실습용 데이터</li><li>최초 인덱싱만 필요</li></ul>
+              <p>실무에서는</p>
+              <ul><li>매시간</li><li>매일</li><li>이벤트 기반</li></ul>
+              <p>으로 설정 가능</p>
+              <hr />
+              <h5>19. 개체 이름 접두사</h5>
+              <p>강사</p>
+              <pre><code class="language-text">tesla</code></pre>
+              <p>사용자</p>
+              <pre><code class="language-text">manual</code></pre>
+              <p>선택</p>
+              <p>이유</p>
+              <ul><li>Tesla뿐 아니라 대동 매뉴얼도 포함</li></ul>
+              <p>생성 예</p>
+              <pre><code class="language-text">manual-index
+              manual-indexer
+              manual-datasource</code></pre>
+              <hr />
+              <h5>20. 인덱스 생성 중 발생한 현상</h5>
+              <p><code>manual</code> 인덱스 생성 시</p>
+              <p>실패 메시지 표시</p>
+              <p>↓</p>
+              <p><code>pdfmanual</code> 로 다시 생성</p>
+              <p>↓</p>
+              <p>확인 결과</p>
+              <pre><code class="language-text">manual
+              pdfmanual</code></pre>
+              <p>둘 다 생성 완료</p>
+              <p>가능한 원인</p>
+              <ul><li>Azure Portal 상태 표시 지연</li><li>비동기 작업 완료 전 UI 오류</li><li>실제 생성은 성공했으나 화면상 실패 표시</li></ul>
+              <p>교훈</p>
+              <p>실패 메시지가 나와도</p>
+              <ul><li>Index</li><li>Indexer</li><li>Data Source</li></ul>
+              <p>생성 여부를 먼저 확인하는 것이 좋다.</p>
+              <hr />
+              <h4>오늘의 핵심</h4>
+              <pre><code class="language-text">PDF
+              ↓
+              Chunking
+              ↓
+              Embedding (text-embedding-3-small)
+              ↓
+              1536차원 Vector
+              ↓
+              Azure AI Search Index
+              ↓
+              Vector Search
+              ↓
+              RAG</code></pre>
+              <p>오늘은 Azure AI Search와 Embedding Model을 이용하여<br />실제 RAG 시스템이 동작하는 핵심 원리를 학습하였다.</p>
             </div>
           </article>
         </div>
