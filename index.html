@@ -32,7 +32,7 @@
           <h1 id="page-title">에이전틱 AI 기술 기반 시스템 구축 및 운영 전문 과정</h1>
           <p class="lead">
             Transformer의 동작 원리에서 Azure AI Foundry 배포를 거쳐,
-            Microsoft Agent Framework와 OpenClaw를 거쳐 Azure App Service 배포까지 이어지는 강의 기록입니다.
+            Microsoft Agent Framework와 OpenClaw를 거쳐 Azure AI Search와 Vision API까지 완주한 강의 기록입니다.
           </p>
           <div class="button-row">
             <a class="button-link primary" href="Day3/index.html">Day 3 노트 보기</a>
@@ -44,7 +44,7 @@
         <aside class="hero-panel" aria-labelledby="map-title">
           <div class="panel-title">
             <span id="map-title">과정 시스템 지도</span>
-            <span class="status-chip pending">Day 3 진행 중</span>
+            <span class="status-chip">교육과정 완료</span>
           </div>
           <div class="system-map">
             <div class="map-row">
@@ -84,17 +84,17 @@
             <h2 id="stats-title">현재 진행 현황</h2>
           </div>
           <p class="section-note">
-            Day 1과 Day 2를 완료하고, Day 3에서는 OpenClaw 연동부터 FastAPI 개발,
-            Azure App Service 배포와 Azure AI Search, Embedding, Azure AI Service까지 완료했습니다.
+            Transformer에서 Agent 개발, 배포, RAG 검색, Azure AI Language와 Vision API까지
+            3일간의 교육과정을 모두 완료했습니다.
           </p>
         </div>
         <div class="metrics">
           <div class="metric">
             <b>3</b>
-            <span>시작된 일차</span>
+            <span>완료한 일차</span>
           </div>
           <div class="metric">
-            <b>18</b>
+            <b>19</b>
             <span>정리된 교시</span>
           </div>
           <div class="metric">
@@ -102,7 +102,7 @@
             <span>Day 1 완료 항목</span>
           </div>
           <div class="metric">
-            <b>6</b>
+            <b>7</b>
             <span>Day 3 정리 교시</span>
           </div>
         </div>
@@ -144,7 +144,7 @@
               <tr>
                 <td>Day 3</td>
                 <td>2026-06-18</td>
-                <td>OpenClaw, FastAPI, App Service, Azure AI Search, Embedding, Vector Search, Azure AI Service</td>
+                <td>OpenClaw, FastAPI, App Service, AI Search, Embedding, Azure AI Service, Vision API</td>
                 <td><span class="status-chip">완료</span></td>
                 <td><a href="Day3/index.html">열기</a></td>
               </tr>
@@ -205,25 +205,37 @@
             <h3>Agent Framework</h3>
             <p>Microsoft Agent Framework의 구조와 LangChain, LangGraph와의 차이.</p>
           </article>
-          <article class="content-card pending">
+          <article class="content-card complete">
             <h3>Memory &amp; Tools</h3>
             <p>AgentSession, Multi-turn, Tool Calling으로 Agent 동작을 확장.</p>
           </article>
-          <article class="content-card pending">
+          <article class="content-card complete">
             <h3>MVP Tour Agent</h3>
             <p>여행 상담 Persona, 날씨/환율 Tool, Session 기반 상담 흐름 구성.</p>
           </article>
-          <article class="content-card pending">
+          <article class="content-card complete">
             <h3>RAG &amp; Vector DB</h3>
             <p>Embedding, Retrieval, ChromaDB로 문서 기반 지식 검색 구현.</p>
           </article>
-          <article class="content-card pending">
+          <article class="content-card complete">
             <h3>Real Function Calling</h3>
             <p>Mock Tool을 실제 날씨 API와 환율 API 호출로 확장.</p>
           </article>
-          <article class="content-card pending">
+          <article class="content-card complete">
             <h3>Azure VM 운영</h3>
             <p>SLA, 가용성, SSH 접속, OpenClaw와 외부 채널 연동 흐름 확인.</p>
+          </article>
+          <article class="content-card complete">
+            <h3>Vibe Coding &amp; App Service</h3>
+            <p>FastAPI 서비스를 구현하고 Azure App Service에 배포.</p>
+          </article>
+          <article class="content-card complete">
+            <h3>Azure AI Search</h3>
+            <p>Indexer, Chunking, Embedding, Vector Search로 RAG 검색 계층 구성.</p>
+          </article>
+          <article class="content-card complete">
+            <h3>Azure AI Services</h3>
+            <p>Language 감정 분석과 Vision API 이미지 분석 실습.</p>
           </article>
         </div>
       </section>
@@ -301,7 +313,7 @@
               <tbody>
               <tr><td>Day 1</td><td><a href="Day1/index.html">Day1/index.html</a></td><td>Transformer, Token, Prompt Engineering, Azure OpenAI, Chatbot</td></tr>
               <tr><td>Day 2</td><td><a href="Day2/index.html">Day2/index.html</a></td><td>Microsoft Agent Framework, Session, Memory, Tool Calling, RAG, Real Function Calling</td></tr>
-              <tr><td>Day 3</td><td><a href="Day3/index.html">Day3/index.html</a></td><td>OpenClaw, FastAPI, App Service, Azure AI Search, Embedding, Vector Search, Azure AI Service</td></tr>
+              <tr><td>Day 3</td><td><a href="Day3/index.html">Day3/index.html</a></td><td>OpenClaw, FastAPI, App Service, AI Search, Embedding, Azure AI Service, Vision API</td></tr>
               </tbody></table></div>
               <hr />
               <h3>현재까지 진행 내용</h3>
@@ -310,7 +322,7 @@
               <h4>Day 2</h4>
               <ul><li><a href="Day2/Hour0930.md">Hour0930.md</a>: Microsoft Agent Framework 입문</li><li><a href="Day2/Hour1030.md">Hour1030.md</a>: Agent의 기억과 Tool Calling</li><li><a href="Day2/Hour1130.md">Hour1130.md</a>: Session과 Multi-turn Conversation</li><li><a href="Day2/Hour1330.md">Hour1330.md</a>: MVP Tour Agent 만들기</li><li><a href="Day2/Hour1430.md">Hour1430.md</a>: RAG와 Vector Database</li><li><a href="Day2/Hour1600.md">Hour1600.md</a>: Real Function Calling, Azure VM, OpenClaw</li></ul>
               <h4>Day 3</h4>
-              <ul><li><a href="Day3/Hour0930.md">Hour0930.md</a>: OpenClaw과 Discord 연동</li><li><a href="Day3/Hour0930_ToolCalling.md">Hour0930_ToolCalling.md</a>: Discord, OpenClaw, LLM, Tool 실행 Sequence</li><li><a href="Day3/Hour1030.md">Hour1030.md</a>: Vibe Coding, AI 디버깅, Azure Web App</li><li><a href="Day3/Hour1130.md">Hour1130.md</a>: Azure App Service 배포</li><li><a href="Day3/Hour1330.md">Hour1330.md</a>: Azure AI Search, Indexer, Vector Search</li><li><a href="Day3/Hour1430.md">Hour1430.md</a>: Azure AI Search, Chunking, Embedding, Vector Search</li><li><a href="Day3/Hour1600.md">Hour1600.md</a>: Azure AI Search 심화 및 Azure AI Service</li></ul>
+              <ul><li><a href="Day3/Hour0930.md">Hour0930.md</a>: OpenClaw과 Discord 연동</li><li><a href="Day3/Hour0930_ToolCalling.md">Hour0930_ToolCalling.md</a>: Discord, OpenClaw, LLM, Tool 실행 Sequence</li><li><a href="Day3/Hour1030.md">Hour1030.md</a>: Vibe Coding, AI 디버깅, Azure Web App</li><li><a href="Day3/Hour1130.md">Hour1130.md</a>: Azure App Service 배포</li><li><a href="Day3/Hour1330.md">Hour1330.md</a>: Azure AI Search, Indexer, Vector Search</li><li><a href="Day3/Hour1430.md">Hour1430.md</a>: Azure AI Search, Chunking, Embedding, Vector Search</li><li><a href="Day3/Hour1600.md">Hour1600.md</a>: Azure AI Search 심화 및 Azure AI Service</li><li><a href="Day3/Hour1700.md">Hour1700.md</a>: Azure AI Service 활용 및 Vision API 실습</li></ul>
             </div>
           </article>
         </div>

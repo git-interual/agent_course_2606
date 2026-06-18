@@ -1,6 +1,6 @@
 # AILECTURE Day 3
 
-2026-06-18 강의 기록입니다.
+2026-06-18 강의 기록이며 전체 교육과정을 완료했습니다.
 
 ## HTML 노트
 
@@ -15,6 +15,7 @@
 - [Hour1330.md](Hour1330.md): Azure AI Search, Indexer, Vector Search
 - [Hour1430.md](Hour1430.md): Azure AI Search, Chunking, Embedding, Vector Search
 - [Hour1600.md](Hour1600.md): Azure AI Search 심화 및 Azure AI Service
+- [Hour1700.md](Hour1700.md): Azure AI Service 활용 및 Vision API 실습
 
 ## 과정 홈
 

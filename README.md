@@ -25,7 +25,7 @@ https://git-interual.github.io/agent_course_2606/
 |------|------|-----------|
 | Day 1 | [Day1/index.html](Day1/index.html) | Transformer, Token, Prompt Engineering, Azure OpenAI, Chatbot |
 | Day 2 | [Day2/index.html](Day2/index.html) | Microsoft Agent Framework, Session, Memory, Tool Calling, RAG, Real Function Calling |
-| Day 3 | [Day3/index.html](Day3/index.html) | OpenClaw, FastAPI, App Service, Azure AI Search, Embedding, Vector Search, Azure AI Service |
+| Day 3 | [Day3/index.html](Day3/index.html) | OpenClaw, FastAPI, App Service, AI Search, Embedding, Azure AI Service, Vision API |
 
 ---
 
@@ -58,3 +58,4 @@ https://git-interual.github.io/agent_course_2606/
 - [Hour1330.md](Day3/Hour1330.md): Azure AI Search, Indexer, Vector Search
 - [Hour1430.md](Day3/Hour1430.md): Azure AI Search, Chunking, Embedding, Vector Search
 - [Hour1600.md](Day3/Hour1600.md): Azure AI Search 심화 및 Azure AI Service
+- [Hour1700.md](Day3/Hour1700.md): Azure AI Service 활용 및 Vision API 실습

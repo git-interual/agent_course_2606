@@ -20,6 +20,7 @@
           <a href="#hour1330">13:30</a>
           <a href="#hour1430">14:30</a>
           <a href="#hour1600">16:00</a>
+          <a href="#hour1700">17:00</a>
           <a href="#full-notes">전체 노트</a>
           <a href="../index.html">과정 홈</a>
         </nav>
@@ -33,7 +34,7 @@
           <h1 id="day-title">Day 3 강의 노트</h1>
           <p class="lead">
             OpenClaw와 Discord를 연결하고, AI와 함께 FastAPI 서비스를 개발한 뒤
-            Azure App Service에 배포하고 Azure AI Search로 검색 계층을 구성하는 흐름을 정리합니다.
+            Azure App Service 배포와 AI Search를 거쳐 Azure AI Language와 Vision API까지 실습한 흐름을 정리합니다.
           </p>
           <div class="button-row">
             <a class="button-link primary" href="#full-notes">전체 내용 보기</a>
@@ -43,19 +44,21 @@
             <a class="button-link" href="Hour1330.md">13:30 Markdown</a>
             <a class="button-link" href="Hour1430.md">14:30 Markdown</a>
             <a class="button-link" href="Hour1600.md">16:00 Markdown</a>
+            <a class="button-link" href="Hour1700.md">17:00 Markdown</a>
           </div>
         </div>
 
         <aside class="hero-panel" aria-labelledby="flow-title">
           <div class="panel-title">
             <span id="flow-title">Day 3 실습 흐름</span>
-            <span class="status-chip">6교시 완료</span>
+            <span class="status-chip">교육과정 완료</span>
           </div>
           <div class="system-map">
             <div class="map-node"><strong>Connect</strong><span>OpenClaw와 Discord 연동</span></div>
             <div class="map-node"><strong>Build</strong><span>AI로 FastAPI 할일 서비스 개발</span></div>
             <div class="map-node"><strong>Deploy</strong><span>Azure App Service에 배포</span></div>
             <div class="map-node"><strong>Search</strong><span>Azure AI Search와 Vector Index 구성</span></div>
+            <div class="map-node"><strong>Analyze</strong><span>Language와 Vision API 활용</span></div>
           </div>
         </aside>
       </section>
@@ -66,7 +69,7 @@
             <p class="section-kicker">Timeline</p>
             <h2 id="timeline-title">시간대별 흐름</h2>
           </div>
-          <p class="section-note">연결, 개발, 배포, 검색과 Azure AI Service로 이어지는 여섯 교시의 실습 기록입니다.</p>
+          <p class="section-note">연결, 개발, 배포, 검색, Language와 Vision으로 완성한 Day 3 전체 기록입니다.</p>
         </div>
         <div class="timeline">
           <article class="timeline-item" id="hour0930">
@@ -117,6 +120,14 @@
             </div>
             <a href="Hour1600.md">원본</a>
           </article>
+          <article class="timeline-item" id="hour1700">
+            <div class="timeline-time">17:00</div>
+            <div>
+              <h3>Azure AI Service와 Vision API</h3>
+              <p>Endpoint와 API Key를 연결하고 Language 감정 분석과 Vision 이미지 분석을 실습합니다.</p>
+            </div>
+            <a href="Hour1700.md">원본</a>
+          </article>
         </div>
       </section>
 
@@ -162,6 +173,7 @@
             <span>AI Search</span>
             <span>Embedding</span>
             <span>AI Service</span>
+            <span>Vision API</span>
           </div>
         </div>
       </section>
@@ -182,11 +194,11 @@
             </div>
             <div class="markdown-content">
               <h3>AILECTURE Day 3</h3>
-              <p>2026-06-18 강의 기록입니다.</p>
+              <p>2026-06-18 강의 기록이며 전체 교육과정을 완료했습니다.</p>
               <h4>HTML 노트</h4>
               <ul><li><a href="index.html">Day 3 통합 HTML</a></li></ul>
               <h4>강의 노트</h4>
-              <ul><li><a href="Hour0930.md">Hour0930.md</a>: OpenClaw과 Discord 연동</li><li><a href="Hour0930_ToolCalling.md">Hour0930_ToolCalling.md</a>: Discord, OpenClaw, LLM, Tool 실행 Sequence</li><li><a href="Hour1030.md">Hour1030.md</a>: Vibe Coding, AI 디버깅, Azure Web App</li><li><a href="Hour1130.md">Hour1130.md</a>: Azure App Service 배포</li><li><a href="Hour1330.md">Hour1330.md</a>: Azure AI Search, Indexer, Vector Search</li><li><a href="Hour1430.md">Hour1430.md</a>: Azure AI Search, Chunking, Embedding, Vector Search</li><li><a href="Hour1600.md">Hour1600.md</a>: Azure AI Search 심화 및 Azure AI Service</li></ul>
+              <ul><li><a href="Hour0930.md">Hour0930.md</a>: OpenClaw과 Discord 연동</li><li><a href="Hour0930_ToolCalling.md">Hour0930_ToolCalling.md</a>: Discord, OpenClaw, LLM, Tool 실행 Sequence</li><li><a href="Hour1030.md">Hour1030.md</a>: Vibe Coding, AI 디버깅, Azure Web App</li><li><a href="Hour1130.md">Hour1130.md</a>: Azure App Service 배포</li><li><a href="Hour1330.md">Hour1330.md</a>: Azure AI Search, Indexer, Vector Search</li><li><a href="Hour1430.md">Hour1430.md</a>: Azure AI Search, Chunking, Embedding, Vector Search</li><li><a href="Hour1600.md">Hour1600.md</a>: Azure AI Search 심화 및 Azure AI Service</li><li><a href="Hour1700.md">Hour1700.md</a>: Azure AI Service 활용 및 Vision API 실습</li></ul>
               <h4>과정 홈</h4>
               <ul><li><a href="../README.md">루트 README</a></li><li><a href="../index.html">루트 HTML</a></li></ul>
             </div>
@@ -2236,6 +2248,349 @@
               <p>**Keyword Search + Vector Search + Reranker**</p>
               <p>를 결합한 Hybrid Search 구조를 주류로 사용하고 있다.</p>
               <p>또한 Oracle, PostgreSQL, SQL Server 등 기존 DB도 Vector 기능을 내장하기 시작했으며, Azure는 Microsoft AI Foundry를 중심으로 AI 플랫폼을 통합하는 방향으로 발전하고 있다.</p>
+            </div>
+          </article>
+          <article class="source-panel markdown-source" id="full-day3-hour1700-md">
+            <div class="markdown-source-header">
+              <h3>Hour1700.md</h3>
+              <a href="Hour1700.md">원본 Markdown</a>
+            </div>
+            <div class="markdown-content">
+              <h3>Agentic AI 과정 - 7교시 정리</h3>
+              <h4>Azure AI Service 활용 및 Vision API 실습</h4>
+              <p>시간: 17:00 ~</p>
+              <hr />
+              <h3>1. Azure AI Service 활용 시작</h3>
+              <p>이전 교시에 생성한 Azure AI Service를 실제로 사용하는 방법을 학습하였다.</p>
+              <p>생성된 리소스</p>
+              <pre><code class="language-text">Microsoft.CognitiveServicesAllInOne-20260618164013</code></pre>
+              <hr />
+              <h4>Azure AI 호출 구조</h4>
+              <pre><code class="language-mermaid">flowchart LR
+              
+                  APP[&quot;Application&quot;]
+              
+                  KEY[&quot;API Key&quot;]
+              
+                  EP[&quot;Endpoint&quot;]
+              
+                  AI[&quot;Azure AI Service&quot;]
+              
+                  APP --&gt; KEY
+                  APP --&gt; EP
+              
+                  KEY --&gt; AI
+                  EP --&gt; AI</code></pre>
+              <hr />
+              <h3>2. 키 및 엔드포인트 확인</h3>
+              <p>메뉴</p>
+              <pre><code class="language-text">Azure AI Service
+              → 리소스 관리
+              → 키 및 엔드포인트</code></pre>
+              <p>확인</p>
+              <ul><li>Key1</li><li>Key2</li><li>Endpoint URL</li></ul>
+              <hr />
+              <h4>역할</h4>
+              <h5>Endpoint</h5>
+              <p>예)</p>
+              <pre><code class="language-text">https://xxxxx.cognitiveservices.azure.com/</code></pre>
+              <p>AI 서버 주소</p>
+              <hr />
+              <h5>API Key</h5>
+              <p>사용자 인증 정보</p>
+              <hr />
+              <h4>Key Rotation</h4>
+              <p>Azure는 Key1, Key2를 제공한다.</p>
+              <pre><code class="language-mermaid">flowchart LR
+              
+                  APP[&quot;운영 서비스&quot;]
+              
+                  K1[&quot;Key1&quot;]
+              
+                  K2[&quot;Key2&quot;]
+              
+                  APP --&gt; K1
+                  APP --&gt; K2</code></pre>
+              <p>운영 중에도 인증키 교체 가능</p>
+              <hr />
+              <h3>3. Azure AI Language</h3>
+              <p>Azure AI Service는 Language 기능을 제공한다.</p>
+              <hr />
+              <h4>Sentiment Analysis</h4>
+              <p>문장의 감정을 분석</p>
+              <h5>Positive</h5>
+              <pre><code class="language-text">이 제품은 정말 좋다.</code></pre>
+              <p>↓</p>
+              <pre><code class="language-text">Positive</code></pre>
+              <hr />
+              <h5>Negative</h5>
+              <pre><code class="language-text">품질이 너무 나쁘다.</code></pre>
+              <p>↓</p>
+              <pre><code class="language-text">Negative</code></pre>
+              <hr />
+              <h5>Neutral</h5>
+              <pre><code class="language-text">오늘 배송되었다.</code></pre>
+              <p>↓</p>
+              <pre><code class="language-text">Neutral</code></pre>
+              <hr />
+              <h4>구조</h4>
+              <pre><code class="language-mermaid">flowchart LR
+              
+                  TEXT[&quot;입력 문장&quot;]
+              
+                  LANG[&quot;Language Service&quot;]
+              
+                  POS[&quot;Positive&quot;]
+              
+                  NEG[&quot;Negative&quot;]
+              
+                  NEU[&quot;Neutral&quot;]
+              
+                  TEXT --&gt; LANG
+              
+                  LANG --&gt; POS
+                  LANG --&gt; NEG
+                  LANG --&gt; NEU</code></pre>
+              <hr />
+              <h4>활용 분야</h4>
+              <ul><li>리뷰 분석</li><li>VOC 분석</li><li>SNS 분석</li><li>상담 내용 분석</li></ul>
+              <hr />
+              <h3>4. Azure AI Vision 실습</h3>
+              <p>강사 평가</p>
+              <pre><code class="language-text">Speech는 아직 아쉬움
+              Vision은 상당히 쓸만함</code></pre>
+              <hr />
+              <p>이번 실습에서는 Vision API를 사용하여</p>
+              <p>이미지 분석을 수행하였다.</p>
+              <hr />
+              <h4>Vision 분석 구조</h4>
+              <pre><code class="language-mermaid">flowchart LR
+              
+                  IMG[&quot;이미지&quot;]
+              
+                  VISION[&quot;Azure AI Vision&quot;]
+              
+                  TAG[&quot;Tags&quot;]
+              
+                  OBJ[&quot;Objects&quot;]
+              
+                  OCR[&quot;Read&quot;]
+              
+                  IMG --&gt; VISION
+              
+                  VISION --&gt; TAG
+                  VISION --&gt; OBJ
+                  VISION --&gt; OCR</code></pre>
+              <hr />
+              <h3>5. Region 제한 사례</h3>
+              <p>Vision API 실행 시 다음 오류 발생</p>
+              <pre><code class="language-text">The feature 'Captions' is not supported in this region.
+              The feature 'DenseCaptions' is not supported in this region.</code></pre>
+              <hr />
+              <h4>원인</h4>
+              <p>현재 생성한 AI Service Region</p>
+              <pre><code class="language-text">Central US</code></pre>
+              <p>에서는</p>
+              <ul><li>Captions</li><li>DenseCaptions</li></ul>
+              <p>기능을 지원하지 않음</p>
+              <hr />
+              <h4>교훈</h4>
+              <p>Azure AI 기능은</p>
+              <p>Region마다 지원 여부가 다를 수 있다.</p>
+              <hr />
+              <h4>구조</h4>
+              <pre><code class="language-mermaid">flowchart LR
+              
+                  REGION[&quot;Region&quot;]
+              
+                  CAP[&quot;Captions&quot;]
+              
+                  DENSE[&quot;DenseCaptions&quot;]
+              
+                  REGION --&gt; CAP
+                  REGION --&gt; DENSE</code></pre>
+              <hr />
+              <h3>6. Vision API 분석 결과</h3>
+              <p>실습 이미지</p>
+              <pre><code class="language-text">dog_cat_1.jpg
+              dog_cat_2.jpg
+              dog_cat_3.jpg
+              dog_cat_4.jpg</code></pre>
+              <hr />
+              <h4>사용 기능</h4>
+              <h5>Tags</h5>
+              <p>이미지 전체 특징 추출</p>
+              <p>예)</p>
+              <pre><code class="language-text">dog
+              cat
+              animal
+              mammal
+              grass
+              pet
+              indoor
+              outdoor</code></pre>
+              <hr />
+              <h5>Objects</h5>
+              <p>객체 탐지</p>
+              <p>예)</p>
+              <pre><code class="language-text">dog
+              cat</code></pre>
+              <p>+</p>
+              <p>Bounding Box</p>
+              <hr />
+              <h5>Read</h5>
+              <p>OCR</p>
+              <p>이번 이미지에는 텍스트가 없어</p>
+              <pre><code class="language-text">blocks = []</code></pre>
+              <hr />
+              <h5>Smart Crops</h5>
+              <p>자동 크롭 추천</p>
+              <p>예)</p>
+              <pre><code class="language-text">0.9 비율
+              1.33 비율</code></pre>
+              <hr />
+              <h5>People</h5>
+              <p>사람 탐지</p>
+              <p>이번 이미지에서는</p>
+              <p>confidence가 매우 낮음</p>
+              <p>실질적으로 사람 없음</p>
+              <hr />
+              <h4>Vision 결과 구조</h4>
+              <pre><code class="language-mermaid">flowchart LR
+              
+                  IMG[&quot;Image&quot;]
+              
+                  TAG[&quot;Tags&quot;]
+              
+                  OBJ[&quot;Objects&quot;]
+              
+                  READ[&quot;Read OCR&quot;]
+              
+                  CROP[&quot;Smart Crop&quot;]
+              
+                  PEOPLE[&quot;People&quot;]
+              
+                  IMG --&gt; TAG
+                  IMG --&gt; OBJ
+                  IMG --&gt; READ
+                  IMG --&gt; CROP
+                  IMG --&gt; PEOPLE</code></pre>
+              <hr />
+              <h3>7. 분석 결과 관찰</h3>
+              <p>흥미로운 점</p>
+              <p>태그 결과와 객체 탐지 결과가 항상 일치하지 않았다.</p>
+              <hr />
+              <p>예시</p>
+              <h5>dog_cat_1</h5>
+              <p>Tags</p>
+              <pre><code class="language-text">cat
+              domestic cat
+              felidae</code></pre>
+              <p>높은 점수</p>
+              <hr />
+              <p>Objects</p>
+              <pre><code class="language-text">dog</code></pre>
+              <p>탐지</p>
+              <hr />
+              <h5>dog_cat_4</h5>
+              <p>Tags</p>
+              <pre><code class="language-text">dog
+              cat</code></pre>
+              <p>동시 존재</p>
+              <hr />
+              <p>Objects</p>
+              <pre><code class="language-text">cat</code></pre>
+              <p>탐지</p>
+              <hr />
+              <h4>의미</h4>
+              <p>Vision 결과는</p>
+              <pre><code class="language-text">확률 기반 추론</code></pre>
+              <p>이다.</p>
+              <hr />
+              <h4>실제 운영</h4>
+              <pre><code class="language-mermaid">flowchart LR
+              
+                  IMAGE[&quot;Image&quot;]
+              
+                  AI[&quot;Vision&quot;]
+              
+                  CONF[&quot;Confidence&quot;]
+              
+                  FILTER[&quot;Threshold&quot;]
+              
+                  RESULT[&quot;Result&quot;]
+              
+                  IMAGE --&gt; AI
+                  AI --&gt; CONF
+                  CONF --&gt; FILTER
+                  FILTER --&gt; RESULT</code></pre>
+              <hr />
+              <p>Confidence 기준을 설정하여</p>
+              <p>후처리를 수행하는 것이 일반적이다.</p>
+              <hr />
+              <h3>8. Speech vs Vision</h3>
+              <p>강사 의견</p>
+              <hr />
+              <h4>Speech</h4>
+              <p>현재</p>
+              <pre><code class="language-text">아직 아쉬움</code></pre>
+              <p>이유</p>
+              <ul><li>잡음</li><li>전문용어</li><li>현장 환경</li></ul>
+              <hr />
+              <h4>Vision</h4>
+              <p>현재</p>
+              <pre><code class="language-text">실용적</code></pre>
+              <p>활용</p>
+              <ul><li>OCR</li><li>객체 인식</li><li>이미지 분석</li><li>문서 분석</li></ul>
+              <hr />
+              <h4>비교</h4>
+              <pre><code class="language-mermaid">flowchart LR
+              
+                  AI[&quot;Azure AI&quot;]
+              
+                  SPEECH[&quot;Speech&quot;]
+              
+                  VISION[&quot;Vision&quot;]
+              
+                  AI --&gt; SPEECH
+                  AI --&gt; VISION
+              
+                  SPEECH --&gt; LIMIT[&quot;현장 잡음&quot;]
+              
+                  VISION --&gt; OCR[&quot;OCR&quot;]
+                  VISION --&gt; OBJECT[&quot;객체 탐지&quot;]
+                  VISION --&gt; ANALYSIS[&quot;이미지 분석&quot;]</code></pre>
+              <hr />
+              <h3>인터루얼 관점</h3>
+              <p>Vision 계열 활용 가능성</p>
+              <ul><li>작업 사진 분석</li><li>불량 사례 분석</li><li>조립 상태 확인</li><li>스캔 PDF OCR</li><li>작업자 촬영 이미지 분석</li></ul>
+              <hr />
+              <h3>오늘의 핵심</h3>
+              <pre><code class="language-mermaid">flowchart LR
+              
+                  IMG[&quot;Image&quot;]
+              
+                  VISION[&quot;Azure Vision&quot;]
+              
+                  TAG[&quot;Tags&quot;]
+              
+                  OBJ[&quot;Objects&quot;]
+              
+                  OCR[&quot;OCR&quot;]
+              
+                  IMG --&gt; VISION
+              
+                  VISION --&gt; TAG
+                  VISION --&gt; OBJ
+                  VISION --&gt; OCR</code></pre>
+              <p>Azure AI Service는</p>
+              <ul><li>Language</li><li>Vision</li><li>Speech</li></ul>
+              <p>등 다양한 AI 기능을 제공한다.</p>
+              <p>이번 실습에서는 Vision API를 사용하여</p>
+              <ul><li>태그 추출</li><li>객체 탐지</li><li>OCR</li><li>Smart Crop</li></ul>
+              <p>기능을 확인하였으며,</p>
+              <p>Region에 따라 지원 기능이 달라질 수 있다는 점도 확인하였다.</p>
+              <p>또한 실제 Vision 결과는 확률 기반이므로 신뢰도(Confidence)를 고려한 후처리가 중요하다는 점을 학습하였다.</p>
             </div>
           </article>
         </div>
