@@ -31,12 +31,12 @@ https://git-interual.github.io/agent_course_2606/
 
 ## Day 1
 
-- Transformer
-- Azure & Token
-- SLM & AI Ecosystem
-- Prompt Engineering
-- Azure OpenAI / AI Foundry
-- Python Chatbot / AI Poet / Tkinter GUI
+- [Hour0930.md](Day1/Hour0930.md): Transformer와 AI 기술 발전 흐름
+- [Hour1030.md](Day1/Hour1030.md): Azure Portal과 Token 이해
+- [Hour1130.md](Day1/Hour1130.md): SLM, 경량화 기술, AI 생태계
+- [Hour1330.md](Day1/Hour1330.md): Prompt Engineering
+- [Hour1430.md](Day1/Hour1430.md): 개발환경, Azure OpenAI, AI Foundry
+- [Hour1600.md](Day1/Hour1600.md): Microsoft Foundry와 첫 번째 챗봇
 
 ## Day 2
 
